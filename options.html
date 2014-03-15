@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Opciones directUC</title>
+		<link rel="stylesheet" href="css/estilo.css" type="text/css" media="screen"/>
+		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript" src="js/options.js"></script>
+	</head>
+	
+	<body id="options">
+
+				<header>
+						<h1>directUC</h1>
+				</header>
+		
+			<section id="content">
+				<div class="login-alert">Para usar las opciones debes ingresar tus datos.</div>
+
+				<h2>Opciones</h2>
+				<dl class="user-options">
+					<div class="option-row">
+						<dt>Usuario recordado:</<dt>
+						<dd><span class="current-user">Ninguno</span> <a href="#" class="forget-user">Olvidar Usuario</a></dd>
+					</div>
+
+					<div class="option-row">
+						<dt>Abrir en pestaña actual:</<dt>
+						<dd><input type="checkbox" id="option-sametab" /> <label for="option-sametab">Abrir siempre en pestaña actual</label></dd>
+					</div>
+
+					<!-- <div class="option-row">
+						<dt>Ocultar Formulario:</<dt>
+						<dd><input type="checkbox" id="hide-form" /> <label for="hide-form">Ocultar</label>
+</dd>
+					</div> -->
+				</dl>
+				
+
+				<h2>Servicios</h2>
+
+				<dl class="services-options">
+					<div class="option-row">
+						<dt>SIDING <small>Sistema de Información de Gestión - Ingeniería UC</small></dt>
+						<dd>
+							<input type="checkbox" id="activate-siding" /> <label for="activate-siding">Mostrar botón</label>
+							<br />
+							<input type="checkbox" id="option-siding-cursos" /> <label for="option-siding-cursos">Redirigir a Ing. Cursos</label>
+							<br />
+							<input type="checkbox" id="option-siding-login" /> <label for="option-siding-login">Usar credenciales diferentes</label>
+							<div id="option-siding-login-box">
+
+								<input type="text" id="option-siding-login-user" /> <input type="password" id="option-siding-login-pass" /> <span class="option-siding-login-showpassword">Mostrar Contraseña</span>
+
+							</div>
+						</dd>
+					</div>
+
+					<div class="option-row">
+						<dt>LABMAT <small>Facultada de Matemáticas UC</small></dt>
+						<dd>
+							<input type="checkbox" id="activate-labmat" /> <label for="activate-labmat">Mostrar botón</label>
+							<br />
+							<input type="checkbox" id="option-labmat-dominio" /> <label for="option-labmat-dominio">Usar <code>@mat.puc.cl</code></label>
+
+						</dd>
+					</div>
+
+					<div class="option-row">
+						<dt>SIBUC <small>Sistema de Bibliotecas UC</small></dt>
+						<dd>
+							<input type="checkbox" id="activate-aleph" /> <label for="activate-aleph">Mostrar botón</label>
+							<br />
+							<input type="checkbox" id="option-aleph-profile" /> <label for="option-aleph-profile">Redirigir a Mi Cuenta</label>
+						</dd>
+					</div>
+
+					<div class="option-row">
+						<dt>Portal UC </dt>
+						<dd><input type="checkbox" id="activate-portal" checked="checked" /> <label for="activate-portal">Mostrar botón</label></dd>
+					</div>
+
+					<div class="option-row">
+						<dt>Webcursos</dt>
+						<dd><input type="checkbox" id="activate-webcursos" checked="checked" /> <label for="activate-webcursos">Mostrar botón</label></dd>
+					</div>
+				</dl>
+
+			</section>
+
+			<footer>
+				<p>Hecho por Pedro Pablo Aste Kompen | ppaste [arroba] uc [punto] cl</p>
+			
+				<p>Ninguna de las contraseñas es guardada, robada ni nada de esas cosas, trust me.</p>
+				<p><small>don't be evil</small></p>
+			</footer>
+			</footer>
+	</body>
+</html>
