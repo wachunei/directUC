@@ -28,7 +28,8 @@ $(document).ready(function() {
 		option_aleph_profile = localStorage.getItem("option-aleph-profile"),
 
 		activate_portal = localStorage.getItem("activate-portal") || 1,
-		activate_webcursos = localStorage.getItem("activate-webcursos") || 1;
+		activate_webcursos = localStorage.getItem("activate-webcursos") || 1,
+		activate_mailuc = localStorage.getItem("activate-mailuc") || 1;
 
 	// Estado Inicial
 
@@ -83,6 +84,8 @@ $(document).ready(function() {
 		
 		$(".services-options #activate-portal").prop('checked', activate_portal == true);
 		$(".services-options #activate-webcursos").prop('checked', activate_webcursos == true);
+		$(".services-options #activate-mailuc").prop('checked', activate_mailuc == true);
+
 
 
 
@@ -209,18 +212,23 @@ $(document).ready(function() {
 		} else if ($(this).is("#activate-portal")) {
 			if($(this).is(":checked")) {
 				localStorage.setItem("activate-portal", 1);
-
 			} else {
 				localStorage.setItem("activate-portal", 0);
 			}
 		} else if ($(this).is("#activate-webcursos")) {
 			if($(this).is(":checked")) {
 				localStorage.setItem("activate-webcursos", 1);
-
 			} else {
 				localStorage.setItem("activate-webcursos", 0);
 			}
+		} else if ($(this).is("#activate-mailuc")) {
+			if($(this).is(":checked")) {
+				localStorage.setItem("activate-mailuc", 1);
+			} else {
+				localStorage.setItem("activate-mailuc", 0);
+			}
 		}
+
 	});
 
 
@@ -246,7 +254,7 @@ $(document).ready(function() {
 		$("#option-siding-login-box").hide();
 
 		// Activar Portal y Webcursos
-		$('.services-options #activate-portal, .services-options #activate-webcursos').prop('checked', true);
+		$('.services-options #activate-portal, .services-options #activate-webcursos, .services-options #activate-mailuc').prop('checked', true);
 
 		$("input").each(function() {
 			$(this).attr('disabled', 'disabled');		

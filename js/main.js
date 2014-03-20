@@ -16,9 +16,6 @@ $(document).ready(function() {
 				case "portal":
 					return self.url_portal();
 					break;
-				case "mailuc":
-					return self.url_mailuc();
-					break;
 				case "aleph":
 					return self.url_aleph();
 					break;
@@ -38,9 +35,6 @@ $(document).ready(function() {
 					break;
 				case "portal":
 					return self.data_portal(user, pass);
-					break;
-				case "mailuc":
-					return self.data_mailuc(user,pass);
 					break;
 				case "aleph":
 					return self.data_aleph(user, pass);
@@ -62,9 +56,6 @@ $(document).ready(function() {
 					case "portal":
 						return self.url_portal();
 						break;
-					case "mailuc":
-						return self.url_mailuc();
-						break;
 					case "aleph":
 						return self.url_redirect_aleph();
 						break;
@@ -74,156 +65,164 @@ $(document).ready(function() {
 				}	
 		}
 
-		self.url_siding = function() {
-							return "https://intrawww.ing.puc.cl/siding/index.phtml";
-						}
+		self.url_siding = function() {	
+			return "https://intrawww.ing.puc.cl/siding/index.phtml";
+		}
 
 		self.url_redirect_siding = function() {
-									var redirect_url;
+			
+			var redirect_url;
 
-									if(localStorage.getItem("option-siding-cursos") == true) {
-										redirect_url = "https://intrawww.ing.puc.cl/siding/dirdes/ingcursos/cursos/vista.phtml";
-									} else {
-										redirect_url = self.url_siding();
-									}
+			if(localStorage.getItem("option-siding-cursos") == true) {
+				redirect_url = "https://intrawww.ing.puc.cl/siding/dirdes/ingcursos/cursos/vista.phtml";
+			} else {
+				redirect_url = self.url_siding();
+			}
 
-									return redirect_url;
-								}
+			return redirect_url;
+		}
 
 		self.data_siding = function(user, pass) {
 
-								var data_user = (localStorage.getItem("option-siding-login") == true && localStorage.getItem("option-siding-login-user") ) ? localStorage.getItem("option-siding-login-user") : user,
-									data_pass = (localStorage.getItem("option-siding-login") == true && localStorage.getItem("option-siding-login-pass") ) ? localStorage.getItem("option-siding-login-pass") : pass;
+			var data_user = (localStorage.getItem("option-siding-login") == true && localStorage.getItem("option-siding-login-user") ) ? localStorage.getItem("option-siding-login-user") : user,
+				data_pass = (localStorage.getItem("option-siding-login") == true && localStorage.getItem("option-siding-login-pass") ) ? localStorage.getItem("option-siding-login-pass") : pass;
 
-									console.log(data_user+" : "+data_pass);
+				console.log(data_user+" : "+data_pass);
 
 
-								return {"login": data_user, "passwd": data_pass}	
-							}
+			return {"login": data_user, "passwd": data_pass}	
+		}
 
 
 		self.url_webcursos = function() {
-								return "http://webcurso.uc.cl/direct/session";
-							}
+			return "http://webcurso.uc.cl/direct/session";
+		}
 
 		self.data_webcursos = function(user, pass) {
-									return {"_username": user, "_password": pass};
-								}
-
-		/* TODO
-			- No he podido capturar ningún dato del formulario.
-		*/
-		self.url_mailuc = function() {
-								return "https://webaccess.uc.cl/simplesaml/";
-							}
-
-		self.data_mailuc = function(user,pass) {
-								var aState;
-
-								$.ajax({
-									async: false,
-									type: "GET",
-									url: self.url_mailuc(),
-									success: function(data) {
-											}		
-								});
-							}
+			return {"_username": user, "_password": pass};
+		}
 
 		self.url_aleph = function() {
-								var url;
-								$.ajax({
-									async: false,
-									type: "GET",
-									url: "http://aleph.uc.cl/F",
-									success: function(data) {
-												url = $(data).filter("form").attr("action");
-											}
-								});
+			var url;
+			$.ajax({
+				async: false,
+				type: "GET",
+				url: "http://aleph.uc.cl/F",
+				success: function(data) {
+							url = $(data).filter("form").attr("action");
+						}
+			});
 
-								return url;
-							}
+			return url;
+		}
 
 		self.url_redirect_aleph = function() {
-									if(localStorage.getItem("option-aleph-profile") == true) {
-										return "http://aleph.uc.cl/F/?func=bor-info";
-									} else {
-										return "http://aleph.uc.cl/";
-									}
-								}
+			if(localStorage.getItem("option-aleph-profile") == true) {
+				return "http://aleph.uc.cl/F/?func=bor-info";
+			} else {
+				return "http://aleph.uc.cl/";
+			}
+		}
 
 		self.data_aleph = function (user, pass) {
-								return {"func": "login-session",
-										"login_source": "LOGIN-BOR",
-										"bor_id": user,
-										"bor_verification": pass
-									}
-							}
+			return {
+				"func": "login-session",
+				"login_source": "LOGIN-BOR",
+				"bor_id": user,
+				"bor_verification": pass
+			}
+		}
 
 		self.url_portal = function() {
-								return "https://sso.uc.cl/cas/login?service=https%3A%2F%2Fportal.uc.cl%2Fc%2Fportal%2Flogin";
-							}
+			return "https://sso.uc.cl/cas/login?service=https%3A%2F%2Fportal.uc.cl%2Fc%2Fportal%2Flogin";
+		}
 
 		self.data_portal = function (user, pass) {
 
-								var execution, lt, data_obj;
+			var execution, lt, data_obj;
 
-								$.ajax({
-									async: false,
-									type: "GET",
-									url: self.url_portal(),
-									success: function(data) {
-												execution = $(data).find('input[name=execution]').val();
-												lt = $(data).find('input[name=lt]').val();
-												
-												data_obj = {"username": user,
-														"password": pass,
-														"lt": lt,
-														"execution": execution,
-														"_eventId": "submit",
-														"submit": "Iniciar Sesión"
-														};
-											}
-								});
-								return data_obj;
-							}
+			$.ajax({
+				async: false,
+				type: "GET",
+				url: self.url_portal(),
+				success: function(data) {
+							execution = $(data).find('input[name=execution]').val();
+							lt = $(data).find('input[name=lt]').val();
+							
+							data_obj = {"username": user,
+									"password": pass,
+									"lt": lt,
+									"execution": execution,
+									"_eventId": "submit",
+									"submit": "Iniciar Sesión"
+									};
+						}
+			});
+
+			return data_obj;
+		}
+
 		self.url_labmat = function() {
-								return "http://labmat.puc.cl/index.php";
-							}
+			return "http://labmat.puc.cl/index.php";
+		}
 
 		self.data_labmat = function(user, pass) {
 
-								var dominio = (localStorage.getItem("option-labmat-dominio") == true) ? "@mat.puc.cl" : "@uc.cl";
-								return {"accion": "ingreso",
-										"usuario": user+dominio,
-										"clave": pass}								
-							}
+			var dominio = (localStorage.getItem("option-labmat-dominio") == true) ? "@mat.puc.cl" : "@uc.cl";
+			return {"accion": "ingreso",
+					"usuario": user+dominio,
+					"clave": pass}								
+		}
 
 		self.login = function(user, pass, service) {
-						var url = self.form_url(service),
-							form_data = self.form_data(user,pass, service),
-							redirect_url = self.redirect(service);
-						$.post(
-							url,
-							form_data,
-				    		function(data, status, xhr) {
-				    			localStorage.setItem("user", user);
-				    			localStorage.setItem("pass", pass);
-				    			if(service == "siding") {
-									var expired = $(data).find("noscript").length > 0;
-									
-									if (expired) {
-										self.login(user, pass, service);
-									}
-				    			}
-				    			if (localStorage.getItem("option-sametab") == true) {
-				    				chrome.tabs.update({'url': redirect_url});
-				    				window.close();
-				    			} else {
-				    				chrome.tabs.create({'url': redirect_url});				    				
-				    			}
-				    		}
-				    	);
+			
+			if(service == "mailuc") {
+				self.openMail(user, pass);
+				return;
+			}	
+			
+			var url = self.form_url(service),
+				form_data = self.form_data(user,pass, service),
+				redirect_url = self.redirect(service);
+			
+
+			$.post(
+				url,
+				form_data,
+				function(data, status, xhr) {
+					localStorage.setItem("user", user);
+					localStorage.setItem("pass", pass);
+					if(service == "siding") {
+						var expired = $(data).find("noscript").length > 0;
+						
+						if (expired) {
+							self.login(user, pass, service);
+						}
 					}
+					if (localStorage.getItem("option-sametab") == true) {
+						chrome.tabs.update({'url': redirect_url});
+						window.close();
+					} else {
+						chrome.tabs.create({'url': redirect_url});				    				
+					}
+				}
+			);
+		}
+
+		self.openMail = function(user, pass) {
+			
+			var url = "http://webaccess.uc.cl";
+			localStorage.setItem("user", user);
+			localStorage.setItem("pass", pass);
+			localStorage.setItem("mailuc-redirect", 1);
+
+			if (localStorage.getItem("option-sametab") == true) {
+				chrome.tabs.update({'url': url});
+				window.close();
+			} else {
+				chrome.tabs.create({'url': url});				    				
+			}
+		}
 
 		return directUC;
 
@@ -238,7 +237,8 @@ $(document).ready(function() {
 		activate_labmat = localStorage.getItem("activate-labmat"),
 		activate_aleph = localStorage.getItem("activate-aleph"),
 		activate_portal = localStorage.getItem("activate-portal") || 1,
-		activate_webcursos = localStorage.getItem("activate-webcursos") || 1;
+		activate_webcursos = localStorage.getItem("activate-webcursos") || 1,
+		activate_mailuc = localStorage.getItem("activate-mailuc") || 1;
 
 	if(activate_siding == true) {
 		var service = "siding";
@@ -270,6 +270,12 @@ $(document).ready(function() {
 		$("label[for="+service+"]").hide();
 	}
 
+	if(activate_mailuc != true) {
+		var service = "mailuc";
+		$("input#"+service).hide();
+		$("label[for="+service+"]").hide();
+	}
+
 	if(user) {
 		$("#user").val(user).blur();
 		$("#password").val(pass).blur();
@@ -290,7 +296,7 @@ $(document).ready(function() {
 		e.preventDefault();
 		var label_for = $(this).attr('for');
 		$('input#'+label_for).click();
-		$("#content form").submit();	
+		$("#content form").submit();
 	});
 
 	$("#content form").submit(function(e) {
@@ -305,12 +311,12 @@ $(document).ready(function() {
 	});
 
 	$("#content form .service-inputs input").focus(function() {
-  		$(this).click();
+		$(this).click();
 	});
 
 	$("#content form .service-inputs input").change(function() {
 		$('.labelchecked').removeClass('labelchecked');
-  		$("label[for='" + 	$("#content form .service-inputs input:checked").attr('id') + "']").addClass("labelchecked");
+		$("label[for='" + 	$("#content form .service-inputs input:checked").attr('id') + "']").addClass("labelchecked");
 	});
 
 	$("#popup .options-link").click(function (e) {
