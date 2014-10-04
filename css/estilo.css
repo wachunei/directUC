@@ -48,12 +48,12 @@ body {
 }
 
 #popup .loader {
-	border: 3px  solid transparent;
+	border: 3px solid transparent;
 	position: absolute;
 	width: 45px;
 	height: 45px;
-		border-top-color: #6084E4;
-	border-right-color: #6084E4;
+	border-top-color: #6084E4;
+	border-bottom-color: #6084E4;
 	border-radius: 100%; 
 	box-sizing: border-box;
 	top: 30px;
@@ -64,22 +64,22 @@ body {
 }
 
 #popup .loader.gone {
-	-webkit-animation: loader 0.7s linear infinite;
+	-webkit-animation: loader 1.3s cubic-bezier(.2,.7,.8,.3) infinite;
 }
 
 @-webkit-keyframes loader {
 	0% {
-		opacity: 1;
+		opacity: 0.5;
 		-webkit-transform: rotateZ(0deg);
 	}
 	50% {
-		opacity: 0.7;
+		opacity: 1;
 		-webkit-transform: rotateZ(180deg);
 
 	}
 
 	100% {
-		opacity: 1;
+		opacity: 0.5;
 		-webkit-transform: rotateZ(360deg);
 	}
 }
@@ -94,6 +94,7 @@ body {
 
 #popup #content.gone {
 	opacity: 0;
+	pointer-events: none;
 	-webkit-transform: rotateX(30deg);
 }
 
@@ -180,6 +181,7 @@ body {
 	position: absolute;
 	opacity: 0.1;
 	z-index: 3;
+	transition: 0.2s opacity;
 }
 
 #popup .options-link:hover {
@@ -219,7 +221,7 @@ body {
 
 #options .login-alert {
 	background: rgba(96,130,235,0.2);
-	color: #333;
+	color: #444;
 	padding: 5px;
 	font-size: 14px;
 	text-align: center;

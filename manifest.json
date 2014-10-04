@@ -1,6 +1,6 @@
 {
   "name": "directUC",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "manifest_version": 2,
   "author": "wachunei",
   "incognito": "split",
@@ -30,8 +30,12 @@
         "content_scripts": [
         {
           "matches": ["https://sso.uc.cl/cas/login*", "https://webaccess.uc.cl/simplesaml/module.php/core/*"],
-          "js": ["js/jquery-2.1.0.js" , "js/autocomplete.js"],
-          "css": ["css/barra.css"]
+          "js": ["js/jquery-2.1.0.js" , "js/cas-bar.js"],
+          "css": ["css/estilo-cas-bar.css"]
+        }, {
+          "matches": ["http://www.ing.puc.cl/"],
+          "js": ["js/jquery-2.1.0.js" , "js/siding-bar.js"],
+          "css": ["css/estilo-siding-bar.css"]
         }
         ]
 

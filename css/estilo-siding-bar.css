@@ -1,0 +1,32 @@
+.directuc-siding-bar {
+	position: absolute;
+	z-index: 5;
+	top: 20px;
+	right: 51px;
+	color: white;
+	font-family: "Roboto";
+	background: rgba(96, 132, 228, 0.9);
+	border-radius: 0 0 3px 3px;
+	height: 20px;
+	padding: 10px 8px 2px;
+	cursor: pointer;
+	transition: 0.2s all;
+}
+
+.directuc-siding-bar:hover {
+	color: #2f549e;
+	background: rgba(254, 190, 16, 0.9);
+}
+
+
+.directuc-siding-bar:hover .user {
+	background: rgba(96, 132, 228, 0.7);
+	color:#fff;
+}
+.directuc-siding-bar .user {
+	padding: 2px 6px;
+	border-radius: 2px;
+	margin: 0 2px;
+	transition: none;
+	background: rgba(255,255,255,0.2);
+}
