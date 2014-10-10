@@ -1,6 +1,6 @@
 {
   "name": "directUC",
-  "version": "0.1.8",
+  "version": "0.2",
   "manifest_version": 2,
   "author": "wachunei",
   "incognito": "split",
@@ -10,33 +10,33 @@
     "128": "i/icon_128.png",
     "256": "i/icon_256.png"
     },
-    "description": "Accede rápidamente a diferentes servicios de la UC.",
-    "permissions" : [
+  "description": "Accede rápidamente a diferentes servicios de la UC.",
+  "permissions" : [
     "https://*.ing.puc.cl/",
     "https://*.uc.cl/*",
     "http://*.uc.cl/*",
     "http://*.puc.cl/*"
-    ],
-    "browser_action": {
-      "default_icon": "i/icon_128.png",
-      "default_title": "Abrir directUC",
-      "default_popup": "popup.html"
-      },
-      "background": {
-        "scripts": ["js/background.js"],
-        "persistent": false
-        },
-        "options_page": "options.html",
-        "content_scripts": [
-        {
-          "matches": ["https://sso.uc.cl/cas/login*", "https://webaccess.uc.cl/simplesaml/module.php/core/*"],
-          "js": ["js/jquery-2.1.0.js" , "js/cas-bar.js"],
-          "css": ["css/estilo-cas-bar.css"]
-        }, {
-          "matches": ["http://www.ing.puc.cl/"],
-          "js": ["js/jquery-2.1.0.js" , "js/siding-bar.js"],
-          "css": ["css/estilo-siding-bar.css"]
-        }
-        ]
-
-      }
+  ],
+  "browser_action": {
+    "default_icon": "i/icon_128.png",
+    "default_title": "Abrir directUC",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["js/background.js"],
+    "persistent": false
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["https://sso.uc.cl/cas/login*", "https://webaccess.uc.cl/simplesaml/module.php/core/*"],
+      "js": ["js/jquery-2.1.0.js" , "js/cas-bar.js"],
+      "css": ["css/estilo-cas-bar.css"]
+    },
+    {
+      "matches": ["http://www.ing.puc.cl/"],
+      "js": ["js/jquery-2.1.0.js" , "js/siding-bar.js"],
+      "css": ["css/estilo-siding-bar.css"]
+    }
+  ]
+}

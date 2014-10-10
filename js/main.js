@@ -227,9 +227,12 @@ $(document).ready(function() {
 		return directUC;
 
 	})();
+	
+	localStorage.removeItem("mailuc-redirect");
 
 	var user = localStorage.getItem("user"),
 		pass = localStorage.getItem("pass"),
+		option_single_mode = localStorage.getItem("option-single-mode"),
 		siding_user = localStorage.getItem("option-siding-login-user"),
 		siding_pass = localStorage.getItem("option-siding-login-pass"),
 		// hide_form = localStorage.getItem("hide-form"),
@@ -239,6 +242,11 @@ $(document).ready(function() {
 		activate_portal = localStorage.getItem("activate-portal") || 1,
 		activate_webcursos = localStorage.getItem("activate-webcursos") || 1,
 		activate_mailuc = localStorage.getItem("activate-mailuc") || 1;
+
+	if (option_single_mode == true) {
+		$("#content, #popup .loader").addClass("gone");
+		directUC.login(user, pass, localStorage.getItem("option-single-mode-service"));
+	}
 
 	if(activate_siding == true) {
 		var service = "siding";

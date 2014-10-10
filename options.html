@@ -20,20 +20,29 @@
 				<h2>Opciones</h2>
 				<dl class="user-options">
 					<div class="option-row">
-						<dt>Usuario recordado:</<dt>
+						<dt>Usuario recordado:</dt>
 						<dd><span class="current-user">Ninguno</span> <a href="#" class="forget-user">Olvidar Usuario</a></dd>
 					</div>
 
 					<div class="option-row">
-						<dt>Abrir en pestaña actual:</<dt>
+						<dt>Abrir en pestaña actual:</dt>
 						<dd><input type="checkbox" id="option-sametab" /> <label for="option-sametab">Abrir siempre en pestaña actual</label></dd>
 					</div>
 
-					<!-- <div class="option-row">
-						<dt>Ocultar Formulario:</<dt>
-						<dd><input type="checkbox" id="hide-form" /> <label for="hide-form">Ocultar</label>
-</dd>
-					</div> -->
+					<div class="option-row">
+						<dt>Modo directo: <small>Abre el servicio seleccionado inmediatamente</small></dt>
+						<dd><input type="checkbox" id="option-single-mode" /> <label for="option-single-mode"> Activar modo directo </label> <br />
+							
+							<select id="option-single-mode-select" disabled="disabled">
+								<option value="portal">Portal UC</option>
+								<option value="webcursos">Webcursos</option>
+								<option value="mailuc">Correo UC</option>
+								<option value="siding">SIDING</option>
+								<option value="labmat">LABMAT</option>
+								<option value="aleph">SIBUC</option>
+							</select>
+						</dd>
+					</div>
 				</dl>
 				
 

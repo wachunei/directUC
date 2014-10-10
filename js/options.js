@@ -1,17 +1,16 @@
 $(document).ready(function() {
 	
 	// Variables
-		// Usuario
+
+	// Usuario
 	var user = localStorage.getItem("user"),
 		pass = localStorage.getItem("pass"),
 		remembered = (user != null),
 
-		option_sametab = localStorage.getItem("option-sametab"),
-		//hide_form = localStorage.getItem("hide-form"),
+		option_sametab = localStorage.getItem("option-sametab") || 0,
+		option_single_mode = localStorage.getItem("option-single-mode") || 0,
 
-
-
-		// Servicios
+	// Servicios
 		activate_siding = localStorage.getItem("activate-siding"),
 		option_siding_cursos = localStorage.getItem("option-siding-cursos"),
 		option_siding_login = localStorage.getItem("option-siding-login"),
@@ -39,10 +38,12 @@ $(document).ready(function() {
 		$(".login-alert").hide();
 
 		$("#option-sametab").prop('checked', option_sametab == true);
-
-		// $("#hide-form").attr('checked', hide_form == true);
-
-
+		$("#option-single-mode").prop('checked', option_single_mode == true);
+		$("#option-single-mode-select").attr('disabled', option_single_mode == false);
+		var single_mode_default = localStorage.getItem("option-single-mode-service") || "portal";
+		$("#option-single-mode-select").val(single_mode_default);
+		localStorage.setItem("option-single-mode-service", single_mode_default);
+		
 		// Servicios
 		
 		// SIDING
@@ -85,9 +86,6 @@ $(document).ready(function() {
 		$(".services-options #activate-portal").prop('checked', activate_portal == true);
 		$(".services-options #activate-webcursos").prop('checked', activate_webcursos == true);
 		$(".services-options #activate-mailuc").prop('checked', activate_mailuc == true);
-
-
-
 
 	} else {
 		resetOptions();
@@ -134,21 +132,26 @@ $(document).ready(function() {
 			return;
 		}
 
-		/*
-		 if ($(this).is("#hide-form")) {
-			if($(this).is(":checked")) {
-				localStorage.setItem("hide-form", 1);
-			} else {
-				localStorage.setItem("hide-form", 0);
-			}
-		} else */
-
 		if ($(this).is("#option-sametab")) {
 			if($(this).is(":checked")) {
 				localStorage.setItem("option-sametab", 1);
 			} else {
 				localStorage.setItem("option-sametab", 0);
 			}
+
+		} else if($(this).is("#option-single-mode")) {
+			if($(this).is(":checked")) {
+				localStorage.setItem("option-single-mode", 1);
+				var select = $("#option-single-mode-select");
+				select.removeAttr("disabled");
+				localStorage.setItem("option-single-mode-service", select.val());
+
+			} else {
+				localStorage.setItem("option-single-mode", 0);
+				$("#option-single-mode-select").attr("disabled","disabled");
+			
+			}
+
 		} else if($(this).is("#activate-siding")) {
 			if($(this).is(":checked")) {
 				localStorage.setItem("activate-siding", 1);
@@ -229,6 +232,10 @@ $(document).ready(function() {
 			}
 		}
 
+	});
+	
+	$("#option-single-mode-select").change(function(event) {
+		localStorage.setItem("option-single-mode-service", $(this).val());
 	});
 
 

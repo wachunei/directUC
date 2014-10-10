@@ -261,7 +261,7 @@ body {
 }
 
 #options .option-row {
-	padding: 5px;
+	padding: 8px 5px;
 	border-bottom: 1px solid #eee;
 	position: relative;
 }
@@ -293,6 +293,10 @@ body {
 #options .option-row .forget-user:hover {
 	opacity: 1;
 	color: #888;
+}
+
+#options .option-row select {
+	margin: 10px 0;
 }
 
 #options .option-row #option-siding-login-box {
