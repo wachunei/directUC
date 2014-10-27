@@ -1,5 +1,8 @@
 jQuery(document).ready(function() {
 
+	jQuery.fn.exists = function(){
+    	return this.length > 0 ? this : false;
+	}
 
 	var datos;
 	chrome.runtime.sendMessage("getData", function(response) {
@@ -25,7 +28,8 @@ jQuery(document).ready(function() {
 		e.preventDefault();
 		jQuery("#username").val(datos.user);
 		jQuery("#password").val(datos.pass);
-		var submit = jQuery("input[type=submit]");
+		var submit = jQuery("button[type=submit]").exists() || jQuery("input[type=submit").exists();
+		console.log(submit);
 		submit.click();
 		jQuery("body").fadeOut();
 	});

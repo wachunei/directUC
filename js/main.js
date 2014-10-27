@@ -243,7 +243,7 @@ $(document).ready(function() {
 		activate_webcursos = localStorage.getItem("activate-webcursos") || 1,
 		activate_mailuc = localStorage.getItem("activate-mailuc") || 1;
 
-	if (option_single_mode == true) {
+	if (option_single_mode == true ) {
 		$("#content, #popup .loader").addClass("gone");
 		directUC.login(user, pass, localStorage.getItem("option-single-mode-service"));
 	}
