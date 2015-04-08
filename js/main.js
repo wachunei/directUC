@@ -3,5 +3,5 @@ $(document).ready(function() {
 			ev.preventDefault();
 			window.history.go(-(window.history.length) + 1);
 		});
-		$('.history-size span').text(window.history.length);
+		// $('.history-size span').text(window.history.length)
 });
