@@ -1,39 +1,42 @@
-jQuery(document).ready(function() {
+(function() {
+	'use strict';
 
-	jQuery.fn.exists = function(){
-    	return this.length > 0 ? this : false;
-	}
+	var user;
+	var pass;
+	var redirect;
 
-	var datos;
-	chrome.runtime.sendMessage("getData", function(response) {
-		if(response.user && response.user != "") {
-			datos = response;
-			mostrarMensaje();
+	chrome.runtime.sendMessage('getData', function(response) {
+		if(response.user != null) {
+			user = response.user;
+			pass = response.pass;
+			redirect = response.redirect;
+			showLoginBar();
+			addClickListener();
 		}
 	});
 
-	function mostrarMensaje() {
-		jQuery("head").append("<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>");
-		jQuery("body").prepend('<div style="display:none" class="directuc-bar">Ingresar como <span class="user">'+datos.user+ '</span></div>');
-		if(datos.redirect != true) {
-			jQuery(".directuc-bar").fadeIn();
-		} else {
-			chrome.runtime.sendMessage("deleteRedirect", function(response) {});
-			jQuery("body").fadeOut();
-			jQuery(".directuc-bar").click();
+
+	function showLoginBar() {
+		document.querySelector('head').insertAdjacentHTML('beforeend', '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">');
+		document.querySelector('body').insertAdjacentHTML('afterbegin', '<div style="display:none;" class="directuc-bar">Ingresar como <span class="user">'+user+ '</span></div>');
+		document.querySelector('.directuc-bar').style.display = 'block';
+		if(redirect == true) {
+			console.log(redirect+ " test");
+			chrome.runtime.sendMessage('deleteRedirect', function(response){});
+			document.querySelector('#username').setAttribute('value', user);
+			document.querySelector('#password').setAttribute('value', pass);
+			document.querySelector('form').submit();
 		}
 	}
 
-	jQuery(document).on('click', '.directuc-bar', function(e) {
-		e.preventDefault();
-		jQuery("#username").val(datos.user);
-		jQuery("#password").val(datos.pass);
-		var submit = jQuery("button[type=submit]").exists() || jQuery("input[type=submit").exists();
-		console.log(submit);
-		submit.click();
-		jQuery("body").fadeOut();
-	});
+	function addClickListener() {
+		document.querySelector('.directuc-bar').addEventListener('click', function(e) {
+			e.preventDefault();
 
-});
+			document.querySelector('#username').setAttribute('value', user);
+			document.querySelector('#password').setAttribute('value', pass);
+			document.querySelector('form').submit();
 
-
+		});
+	}
+})();

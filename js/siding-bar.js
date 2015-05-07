@@ -1,5 +1,4 @@
 jQuery(document).ready(function() {
-
 	var datos;
 	chrome.runtime.sendMessage("getData", function(response) {
 		if(response.user && response.user != "") {

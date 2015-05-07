@@ -54,7 +54,7 @@ body {
 	height: 45px;
 	border-top-color: #3D7EDB;
 	border-bottom-color: #3D7EDB;
-	border-radius: 100%; 
+	border-radius: 100%;
 	box-sizing: border-box;
 	top: 30px;
 	left: 92px;
@@ -186,7 +186,7 @@ body {
 
 #popup .options-link:hover {
 	opacity: .6;
-} 
+}
 
 #popup .options-link img {
 	width: 12px;
@@ -354,4 +354,4 @@ body {
 
 #options footer small {
 	opacity: 0.2;
-} 
+}
