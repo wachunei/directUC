@@ -10,8 +10,8 @@ chrome.runtime.onMessage.addListener(
     	localStorage.removeItem('mailuc-redirect');
     	sendResponse({});
     } else if(request.action == 'login') {
-      console.log("loginnn");
       directUC.login(user(),pass(),request.service);
+      sendResponse();
     }
 });
 
@@ -19,6 +19,7 @@ chrome.runtime.onMessage.addListener(
 
 var user = function() { return localStorage.getItem('user');}
 var pass = function() { return localStorage.getItem('pass');}
+var userFullName = function() { return localStorage.getItem('user-fullname');}
 var remembered = function() { return (user() !== null);}
 
 var optionSameTab = function() { return localStorage.getItem('option-sametab') || 0;}
@@ -32,7 +33,7 @@ var optionSidingLoginUser = function() { return localStorage.getItem('option-sid
 var optionSidingLoginPass = function() { return localStorage.getItem('option-siding-login-pass');}
 
 var activateLabmat = function() { return localStorage.getItem('activate-labmat');}
-var optionLabmatDominio = function() { return localStorage.getItem('option-labmat-dominio');}
+var optionLabmatDomain = function() { return localStorage.getItem('option-labmat-dominio');}
 
 var activateAleph = function() { return localStorage.getItem('activate-aleph');}
 var optionAlephProfile = function() { return localStorage.getItem('option-aleph-profile');}
@@ -158,7 +159,7 @@ var directUC = (function(){
   }
 
   self.dataObjects[self.services.labmat] = function(user, pass) {
-    var domain = (optionLabmatDominio() == true) ? self.strings.labmatdomain : self.strings.ucdomain;
+    var domain = (optionLabmatDomain() == true) ? self.strings.labmatdomain : self.strings.ucdomain;
     return {'accion': 'ingreso',
         'usuario': user + domain,
         'clave': pass}
@@ -213,7 +214,15 @@ var directUC = (function(){
     return self.redirectUrls[serviceName]();
   }
 
-  self.login = function(user, pass, service) {
+  self.redirect = function(redirect) {
+    if (optionSameTab() == true) {
+      chrome.tabs.update({'url': redirect});
+    } else {
+      chrome.tabs.create({'url': redirect});
+    }
+  }
+
+  self.login = function(user, pass, service, noredirect, callback) {
     if(service == self.services.mailuc) {
       self.openMail(user, pass);
       return;
@@ -232,11 +241,10 @@ var directUC = (function(){
 
     req.onreadystatechange = function() {
       if(req.readyState == 4) {
-        console.log("in");
-        if (optionSameTab() == true) {
-          chrome.tabs.update({'url': redirect});
+        if(noredirect) {
+          return callback(req.status);
         } else {
-          chrome.tabs.create({'url': redirect});
+          self.redirect(redirect);
         }
       }
     }

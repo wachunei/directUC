@@ -13,18 +13,17 @@ body {
 
 #popup {
 	width: 230px;
-	min-height: 95px;
 	background: #f4f4f4;
 	margin: 0;
 	padding: 0;
 	font-size: 12px;
-	position: relative;
 }
 
 #popup header {
 	background: #3D7EDB;
 	color: #fff;
 	position: relative;
+  padding: 2px 0;
 }
 
 #popup header h1 {
@@ -35,14 +34,25 @@ body {
 	font-weight: 500;
 }
 
+#popup header .user-logged {
+  color: white;
+  text-decoration: none;
+  border-left: 1px solid #fff;
+  padding-left: 5px;
+}
+
 #popup header #close {
 	position: absolute;
-	top: 2px;
+	top: 5px;
 	right: 3px;
 	opacity: 0.7;
 	transition: all 0.2s;
 }
 
+#popup header #close img {
+  height: 12px;
+  width: auto;
+}
 #popup header #close:hover {
 	opacity: 1;
 }
@@ -50,13 +60,13 @@ body {
 #popup .loader {
 	border: 3px solid transparent;
 	position: absolute;
-	width: 45px;
-	height: 45px;
+	width: 40px;
+	height: 40px;
 	border-top-color: #3D7EDB;
 	border-bottom-color: #3D7EDB;
 	border-radius: 100%;
 	box-sizing: border-box;
-	top: 30px;
+	top: 28px;
 	left: 92px;
 	opacity: 0;
 	z-index: 1;
@@ -131,10 +141,12 @@ body {
 	color: #ddd;
 }
 
+
 #popup #content .service-inputs {
 	text-align: center;
 	position: relative;
 	overflow: hidden;
+  margin: 10px 0 15px;
 }
 
 #popup #content .service-inputs input {
@@ -189,7 +201,7 @@ body {
 }
 
 #popup .options-link img {
-	width: 12px;
+	width: 14px;
 }
 
 #popup #content #btnsub {
@@ -204,6 +216,7 @@ body {
 	max-width: 700px;
 	margin: 0 auto;
 	color: #555;
+  font-size: 14px;
 }
 
 #options header {
@@ -271,28 +284,40 @@ body {
 }
 
 
-#options .option-row .current-user.no-user {
-	color: #ddd;
+#options .user .option-row input {
+  	display: inline-block;
+  	width: 130px;
+  	border: 1px solid #BAC0E4;
+  	border-radius: 2px;
+  	box-sizing: border-box;
+  	padding: 3px 3px;
+  	font-family: "Roboto";
+  	transition: all 0.2s;
+    font-size: 13px;
 }
-
-#options .option-row .forget-user {
+#options .option-row .forget-user, #options .option-row .remember-user {
 	text-transform: uppercase;
 	font-size: 12px;
 	text-decoration: none;
-	color: #333;
-	padding: 5px 8px;
-	position: absolute;
-	right: 20px;
-	top: 0;
-	background: #ddd;
+	padding: 4px 8px;
 	border-radius: 3px;
-	opacity: 0.4;
 	transition: all 0.2s;
+  white-space: nowrap;
+}
+
+#options .option-row .forget-user {
+	background: #ddd;
+	color: #333;
+  opacity: 0.8;
+}
+#options .option-row .remember-user {
+	background: #3D7EDB;
+	color: #fff;
 }
 
 #options .option-row .forget-user:hover {
 	opacity: 1;
-	color: #888;
+	color: #333;
 }
 
 #options .option-row select {
@@ -301,6 +326,10 @@ body {
 
 #options .option-row #option-siding-login-box {
 	margin: 5px 0 5px 1.4em;
+  display:none;
+}
+#options .option-row #option-siding-login-box.displayedbox {
+  display: block;
 }
 
 #options .option-row #option-siding-login-box input {

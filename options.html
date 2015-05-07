@@ -4,26 +4,34 @@
 		<meta charset="UTF-8" />
 		<title>Opciones directUC</title>
 		<link rel="stylesheet" href="css/estilo.css" type="text/css" media="screen"/>
-		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
 		<script type="text/javascript" src="js/options.js"></script>
 	</head>
-	
+
 	<body id="options">
 
 				<header>
 						<h1>directUC</h1>
 				</header>
-		
+
 			<section id="content">
 				<div class="login-alert">Para usar las opciones debes ingresar tus datos.</div>
 
-				<h2>Opciones</h2>
-				<dl class="user-options">
+
+				<h2>Usuario</h2>
+				<dl class="user">
 					<div class="option-row">
 						<dt>Usuario recordado:</dt>
-						<dd><span class="current-user">Ninguno</span> <a href="#" class="forget-user">Olvidar Usuario</a></dd>
+						<dd>
+							<input id="user" type="text" placeholder="Usuario UC"  tabindex="1" />
+		                	<input id="password" type="password" placeholder="Contraseña" tabindex="2" />
+							<a href="#" class="remember-user">Guardar Usuario</a>
+							<a href="#" class="forget-user">Olvidar Usuario</a>
+						</dd>
 					</div>
+				</dl>
 
+				<h2>Opciones</h2>
+				<dl class="user-options">
 					<div class="option-row">
 						<dt>Abrir en pestaña actual:</dt>
 						<dd><input type="checkbox" id="option-sametab" /> <label for="option-sametab">Abrir siempre en pestaña actual</label></dd>
@@ -32,7 +40,7 @@
 					<div class="option-row">
 						<dt>Modo directo: <small>Abre el servicio seleccionado inmediatamente</small></dt>
 						<dd><input type="checkbox" id="option-single-mode" /> <label for="option-single-mode"> Activar modo directo </label> <br />
-							
+
 							<select id="option-single-mode-select" disabled="disabled">
 								<option value="portal">Portal UC</option>
 								<option value="webcursos">Webcursos</option>
@@ -44,7 +52,7 @@
 						</dd>
 					</div>
 				</dl>
-				
+
 
 				<h2>Servicios</h2>
 
@@ -57,7 +65,7 @@
 							<input type="checkbox" id="option-siding-cursos" /> <label for="option-siding-cursos">Redirigir a Ing. Cursos</label>
 							<br />
 							<input type="checkbox" id="option-siding-login" /> <label for="option-siding-login">Usar credenciales diferentes</label>
-							<div id="option-siding-login-box">
+							<div id="option-siding-login-box" class="displayedbox">
 
 								<input type="text" id="option-siding-login-user" /> <input type="password" id="option-siding-login-pass" /> <span class="option-siding-login-showpassword">Mostrar Contraseña</span>
 
@@ -104,7 +112,7 @@
 
 			<footer>
 				<p>Hecho por Pedro Pablo Aste Kompen | ppaste [arroba] uc [punto] cl</p>
-			
+
 				<p>Ninguna de las contraseñas es guardada, robada ni nada de esas cosas, trust me.</p>
 				<p><small>don't be evil</small></p>
 			</footer>
