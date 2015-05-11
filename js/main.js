@@ -93,8 +93,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			[].forEach.call(document.querySelectorAll('#content, #popup .loader'),function(item){
 				item.classList.add('gone');
 			});
-			chrome.runtime.sendMessage({action: 'login', service: service});
-			window.close();
+			chrome.runtime.sendMessage({action: 'login', service: service}, function() {
+				window.close();
+			});
 		}
 	});
 

@@ -3,9 +3,9 @@
 /* Message Listeners */
 
 chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
+  function(request, sender, callback) {
     if (request == 'getData') {
-      sendResponse({
+      callback({
         user: user(),
         pass: pass(),
         redirect: localStorage.getItem('mailuc-redirect')
@@ -13,7 +13,7 @@ chrome.runtime.onMessage.addListener(
     } else if (request == 'deleteRedirect') {
       localStorage.removeItem('mailuc-redirect');
     } else if (request.action == 'login') {
-      directUC.login(user(), pass(), request.service);
+      directUC.login(user(), pass(), request.service, false, callback);
     }
   });
 
@@ -263,7 +263,8 @@ var directUC = (function() {
     return self.redirectUrls[serviceName]();
   }
 
-  self.redirect = function(redirect) {
+  self.redirect = function(redirect, callback) {
+    callback();
     if (optionSameTab() == true) {
       chrome.tabs.update({
         'url': redirect
@@ -273,6 +274,7 @@ var directUC = (function() {
         'url': redirect
       });
     }
+
   }
 
   self.login = function(user, pass, service, noredirect, callback) {
@@ -299,7 +301,7 @@ var directUC = (function() {
           if (noredirect) {
             callback(req.status);
           } else {
-            self.redirect(redirect);
+            self.redirect(redirect, callback);
           }
 
         }
