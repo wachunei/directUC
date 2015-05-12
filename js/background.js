@@ -13,7 +13,9 @@ chrome.runtime.onMessage.addListener(
     } else if (request == 'deleteRedirect') {
       localStorage.removeItem('mailuc-redirect');
     } else if (request.action == 'login') {
-      directUC.login(user(), pass(), request.service, false, callback);
+      directUC.login(user(), pass(), request.service, false, function(){
+        callback();
+      });
     }
   });
 
@@ -292,7 +294,7 @@ var directUC = (function() {
       var alephRedirect = (optionAlephProfile() == true) ? '?func=bor-info' : '?func=find-e-0';
       var redirect = (service == self.services.aleph) ? url + alephRedirect : self.formRedirect(service);
       if (data.length == 0) {
-        return self.redirect(redirect);
+        return self.redirect(redirect, callback);
       }
       req.open('POST', url, false);
       req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
@@ -301,6 +303,7 @@ var directUC = (function() {
           if (noredirect) {
             callback(req.status);
           } else {
+
             self.redirect(redirect, callback);
           }
 
