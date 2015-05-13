@@ -296,14 +296,13 @@ var directUC = (function() {
       if (data.length == 0) {
         return self.redirect(redirect, callback);
       }
-      req.open('POST', url, false);
+      req.open('POST', url, true);
       req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
       req.onreadystatechange = function() {
         if (req.readyState == 4 && req.status >= 200) {
           if (noredirect) {
             callback(req.status);
           } else {
-
             self.redirect(redirect, callback);
           }
 
