@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			item.addEventListener('click', function(e) {
 				e.preventDefault();
 				var label_for = item.getAttribute('for');
+				_gaq.push(['_trackEvent', 'Services', 'clicked', label_for]);
 				document.querySelector('input#'+label_for).checked = true;
 				document.querySelector('#content form').dispatchEvent(new Event('submit'));
 			})
@@ -122,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		function(item) {
 			item.addEventListener('click', function (e) {
 				e.preventDefault();
+				_gaq.push(['_trackEvent', 'Options', 'clicked']);
 				chrome.runtime.openOptionsPage();
 			});
 		}
@@ -130,12 +132,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 	document.querySelector('#popup #close').addEventListener('click', function(event) {
+		_gaq.push(['_trackEvent', 'Close', 'clicked']);
 		window.close();
 	});
 });
 
-	document.addEventListener('onkeydown', function(e){
-		if(e.keyCode == 13) {
-			document.querySelector('#content form').dispatchEvent(new Event('submit'));
-		}
-	});
+document.addEventListener('onkeydown', function(e){
+	if(e.keyCode == 13) {
+		document.querySelector('#content form').dispatchEvent(new Event('submit'));
+	}
+});
+
+/* Analytics */
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-62971405-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = 'https://ssl.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();

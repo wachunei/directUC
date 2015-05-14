@@ -334,3 +334,18 @@ var directUC = (function() {
 
   return directUC;
 })();
+
+/* Analytics */
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-62971405-1']);
+_gaq.push(['_trackPageview']);
+if(user()!=null) {
+  _gaq.push(['_trackEvent', 'Users', 'loaded', user()]);
+}
+
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = 'https://ssl.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();

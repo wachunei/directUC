@@ -1,6 +1,6 @@
 {
   "name": "directUC",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "manifest_version": 2,
   "author": "wachunei",
   "incognito": "split",
@@ -34,5 +34,6 @@
       "js": ["js/cas-bar.js"],
       "css": ["css/estilo-cas-bar.css"]
     }
-  ]
+  ],
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
 }
