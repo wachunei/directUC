@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		[].forEach.call(document.querySelectorAll('#content, #popup .loader'),function(item){
 			item.classList.add('gone');
 		});
+		_gaq.push(['_trackEvent', 'Single Mode', 'clicked', bg.optionSingleModeService()]);
+
 		chrome.runtime.sendMessage({action: 'login', service: bg.optionSingleModeService() }, function(){
 			window.close();
 		});

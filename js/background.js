@@ -266,8 +266,11 @@ var directUC = (function() {
   }
 
   self.redirect = function(redirect, callback) {
-    callback();
-    if (optionSameTab() == true) {
+    if(callback) {
+      callback();
+    }
+    if (omniRequest || optionSameTab() == true) {
+      omniRequest = false;
       chrome.tabs.update({
         'url': redirect
       });
@@ -334,6 +337,91 @@ var directUC = (function() {
 
   return directUC;
 })();
+
+/* Omnibox */
+
+var suggestedItem;
+var omniRequest = false;
+var omniPortal = {content: 'Portal UC', description: '<match>Portal UC</match> <dim>Ir tu Portal UC</dim>'}
+var omniSiding = {content: 'SIDING', description: '<match>SIDING</match> <dim>Ir a tu SIDING</dim>'}
+var omniLabmat = {content: 'LABMAT', description: '<match>LABMAT</match> <dim>Ir a LABMAT</dim>'}
+var omniAleph = {content: 'SIBUC', description: '<match>SIBUC</match> <dim>Ir a SIBUC</dim>'}
+var omniWebcursos = {content: 'Webcursos', description: '<match>Webcursos UC</match> <dim>Ir a Webcursos UC</dim>'}
+var omniMailuc = {content: 'Mail UC', description: '<match>Mail UC</match> <dim>Ir a Mail UC</dim>'}
+
+chrome.omnibox.onInputChanged.addListener(
+  function(text, suggest) {
+
+    var suggestions = []
+    if(activatePortal() == true) {
+      suggestions.push(omniPortal);
+    }
+    if(activateSiding() == true) {
+      suggestions.push(omniSiding);
+    }
+    if(activateLabmat() == true) {
+      suggestions.push(omniLabmat);
+    }
+    if(activateAleph() == true) {
+      suggestions.push(omniAleph);
+    }
+    if(activateWebcursos() == true) {
+      suggestions.push(omniWebcursos);
+    }
+    if(activateMailUC() == true) {
+      suggestions.push(omniMailuc);
+    }
+
+    var suggested = false;
+
+    suggestions.forEach(function(item){
+      var simpleContent = item.content.toLowerCase().replace(/\s+/g, '');
+      var simpleText = text.toLowerCase().replace(/\s+/g, '');
+      if((simpleContent.indexOf(simpleText) != -1 ) && !suggested) {
+        suggested = true;
+        suggestedItem = item;
+        chrome.omnibox.setDefaultSuggestion({description: item.description})
+      }
+    });
+
+    if(suggested) {
+      var index = suggestions.indexOf(suggestedItem);
+      suggestions.splice(index,1);
+    }
+
+    suggest(suggestions);
+
+  });
+
+chrome.omnibox.onInputEntered.addListener(
+  function(text) {
+    var service;
+    switch (suggestedItem) {
+      case omniPortal:
+        service = 'portal';
+        break;
+      case omniSiding:
+        service = 'siding';
+        break;
+      case omniLabmat:
+        service = 'labmat';
+        break;
+      case omniAleph:
+        service = 'aleph';
+        break;
+      case omniWebcursos:
+        service = 'webcursos';
+        break;
+      case omniMailuc:
+        service = 'mailuc'
+        break;
+    }
+    omniRequest = true;
+    _gaq.push(['_trackEvent', 'Omnibox', 'clicked', service]);
+    directUC.login(user(), pass(), service, false);
+  }
+);
+
 
 /* Analytics */
 var _gaq = _gaq || [];
