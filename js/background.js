@@ -389,7 +389,7 @@ chrome.omnibox.onInputChanged.addListener(
       suggestions.splice(index,1);
     }
 
-    suggest(suggestions);
+    //suggest(suggestions);
 
   });
 
