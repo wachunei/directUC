@@ -355,6 +355,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function resetOptions(frombutton) {
 		if(frombutton) {
+      _gaq.push(['_trackEvent', 'Users', 'forget', user()]);
 			$forgetUser.innerHTML = 'Olvidando...';
 
 			var req = new XMLHttpRequest();
