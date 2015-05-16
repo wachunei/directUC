@@ -13,7 +13,7 @@ chrome.runtime.onMessage.addListener(
     } else if (request == 'deleteRedirect') {
       localStorage.removeItem('mailuc-redirect');
     } else if (request.action == 'login') {
-      directUC.login(user(), pass(), request.service, false, function(){
+      directUC.login(user(), pass(), request.service, false, function() {
         callback();
       });
     }
@@ -266,7 +266,7 @@ var directUC = (function() {
   }
 
   self.redirect = function(redirect, callback) {
-    if(callback) {
+    if (callback) {
       callback();
     }
     if (omniRequest || optionSameTab() == true) {
@@ -342,51 +342,71 @@ var directUC = (function() {
 
 var suggestedItem;
 var omniRequest = false;
-var omniPortal = {content: 'Portal UC', description: '<match>Portal UC</match> <dim>Ir tu Portal UC</dim>'}
-var omniSiding = {content: 'SIDING', description: '<match>SIDING</match> <dim>Ir a tu SIDING</dim>'}
-var omniLabmat = {content: 'LABMAT', description: '<match>LABMAT</match> <dim>Ir a LABMAT</dim>'}
-var omniAleph = {content: 'SIBUC', description: '<match>SIBUC</match> <dim>Ir a SIBUC</dim>'}
-var omniWebcursos = {content: 'Webcursos', description: '<match>Webcursos UC</match> <dim>Ir a Webcursos UC</dim>'}
-var omniMailuc = {content: 'Mail UC', description: '<match>Mail UC</match> <dim>Ir a Mail UC</dim>'}
+var omniPortal = {
+  content: 'Portal UC',
+  description: '<match>Portal UC</match> <dim>Ir tu Portal UC</dim>'
+}
+var omniSiding = {
+  content: 'SIDING',
+  description: '<match>SIDING</match> <dim>Ir a tu SIDING</dim>'
+}
+var omniLabmat = {
+  content: 'LABMAT',
+  description: '<match>LABMAT</match> <dim>Ir a LABMAT</dim>'
+}
+var omniAleph = {
+  content: 'SIBUC',
+  description: '<match>SIBUC</match> <dim>Ir a SIBUC</dim>'
+}
+var omniWebcursos = {
+  content: 'Webcursos',
+  description: '<match>Webcursos UC</match> <dim>Ir a Webcursos UC</dim>'
+}
+var omniMailuc = {
+  content: 'Mail UC',
+  description: '<match>Mail UC</match> <dim>Ir a Mail UC</dim>'
+}
 
 chrome.omnibox.onInputChanged.addListener(
   function(text, suggest) {
 
     var suggestions = []
-    if(activatePortal() == true) {
+    if (activatePortal() == true) {
       suggestions.push(omniPortal);
     }
-    if(activateSiding() == true) {
+    if (activateSiding() == true) {
       suggestions.push(omniSiding);
     }
-    if(activateLabmat() == true) {
+    if (activateLabmat() == true) {
       suggestions.push(omniLabmat);
     }
-    if(activateAleph() == true) {
+    if (activateAleph() == true) {
       suggestions.push(omniAleph);
     }
-    if(activateWebcursos() == true) {
+    if (activateWebcursos() == true) {
       suggestions.push(omniWebcursos);
     }
-    if(activateMailUC() == true) {
+    if (activateMailUC() == true) {
       suggestions.push(omniMailuc);
     }
 
     var suggested = false;
 
-    suggestions.forEach(function(item){
+    suggestions.forEach(function(item) {
       var simpleContent = item.content.toLowerCase().replace(/\s+/g, '');
       var simpleText = text.toLowerCase().replace(/\s+/g, '');
-      if((simpleContent.indexOf(simpleText) != -1 ) && !suggested) {
+      if ((simpleContent.indexOf(simpleText) != -1) && !suggested) {
         suggested = true;
         suggestedItem = item;
-        chrome.omnibox.setDefaultSuggestion({description: item.description})
+        chrome.omnibox.setDefaultSuggestion({
+          description: item.description
+        })
       }
     });
 
-    if(suggested) {
+    if (suggested) {
       var index = suggestions.indexOf(suggestedItem);
-      suggestions.splice(index,1);
+      suggestions.splice(index, 1);
     }
 
     //suggest(suggestions);
@@ -427,13 +447,16 @@ chrome.omnibox.onInputEntered.addListener(
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-62971405-1']);
 _gaq.push(['_trackPageview']);
-if(user()!=null) {
+if (user() != null) {
   _gaq.push(['_trackEvent', 'Users', 'loaded', user()]);
 }
 
 
 (function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  var ga = document.createElement('script');
+  ga.type = 'text/javascript';
+  ga.async = true;
   ga.src = 'https://ssl.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(ga, s);
 })();

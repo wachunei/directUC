@@ -305,10 +305,46 @@ body {
   white-space: nowrap;
 }
 
+#options .option-row .remembered-user {
+  display: none;
+  margin-right: 15px;
+  background: #3D7EDB;
+  padding: 5px;
+  border-radius: 3px;
+  color: white;
+  transition: all 0.2s;
+  cursor: default;
+}
+
+#options .option-row .remembered-user .remembered-user-fullname {
+  margin-left: 5px;
+}
+
+#options .option-row .remembered-user .username {
+  opacity: 0;
+  display: inline-block;
+  width: 0px;
+  overflow: hidden;
+  transition: all 0.2s;
+  font-size: 12px;
+  margin: 0;
+
+}
+#options .option-row .remembered-user:hover {
+  padding-right: 10px;
+}
+
+#options .option-row .remembered-user:hover .username {
+  opacity: 0.9;
+  display: inline;
+  margin-left: 5px;
+}
+
 #options .option-row .forget-user {
 	background: #ddd;
 	color: #333;
-  opacity: 0.8;
+  opacity: 0.5;
+  transition: all 0.2s;
 }
 #options .option-row .remember-user {
 	background: #3D7EDB;

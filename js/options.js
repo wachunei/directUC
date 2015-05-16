@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var remembered = function() {
     return bg.user() != null
   };
+  var $rememberedUser = document.querySelector('.remembered-user');
+  var $rememberedUserFullname = document.querySelector('.remembered-user-fullname');
+  var $rememberedUserUsername = document.querySelector('.remembered-user .username');
+
   var userInput = document.querySelector('#user');
   var passInput = document.querySelector('#password');
   var $rememberButton = document.querySelector('.remember-user');
@@ -48,8 +52,15 @@ document.addEventListener('DOMContentLoaded', function() {
       $loginAlert.style.display = 'none';
       $forgetUser.style.display = 'inline-block';
 
+      $rememberedUserFullname.innerHTML = bg.userFullName();
+      $rememberedUserUsername.innerHTML = bg.user();
+      $rememberedUser.style.display = 'inline';
+
       userInput.value = bg.user();
       passInput.value = bg.pass();
+      userInput.style.display = 'none';
+      passInput.style.display = 'none';
+
 			userInput.disabled = true;
 			passInput.disabled = true;
 
@@ -119,6 +130,14 @@ document.addEventListener('DOMContentLoaded', function() {
   loadSettings();
 
   // Estado dinamico
+
+  userInput.addEventListener('blur', function(e) {
+    var ucSuffix = '@uc.cl';
+    var index = userInput.value.indexOf(ucSuffix, userInput.value.length - ucSuffix.length);
+    if(index !== -1) {
+      userInput.value = userInput.value.substr(0, index);
+    }
+  });
 
 	[passInput, userInput].forEach(function(item) {
 		item.addEventListener('keyup', function(event) {
@@ -366,9 +385,13 @@ document.addEventListener('DOMContentLoaded', function() {
 		// Usuario
 		$forgetUser.innerHTML = 'Olvidar Usuario';
 		$forgetUser.style.display = 'none';
+    $rememberedUser.style.display = 'none';
+    $rememberedUserFullname.innerHTML = '';
+    $rememberedUserUsername.innerHTML = '';
 		$rememberButton.innerHTML = 'Guardar Usuario';
 		$rememberButton.style.display = 'inline-block';
 		userInput.value = passInput.value = '';
+    userInput.style.display = passInput.style.display = 'inline-block';
 		userInput.disabled = passInput.disabled = false;
 
 
