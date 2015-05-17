@@ -269,7 +269,13 @@ var directUC = (function() {
     if (callback) {
       callback();
     }
-    if (omniRequest || optionSameTab() == true) {
+    if (omniRequest) {
+      omniRequest = false;
+      chrome.tabs.update(omniTabId, {
+        'url': redirect
+      });
+    }
+    else if (optionSameTab() == true) {
       omniRequest = false;
       chrome.tabs.update({
         'url': redirect
@@ -342,6 +348,7 @@ var directUC = (function() {
 
 var suggestedItem;
 var omniRequest = false;
+var omniTabId;
 var omniPortal = {
   content: 'Portal UC',
   description: '<match>Portal UC</match> <dim>Ir tu Portal UC</dim>'
@@ -411,6 +418,7 @@ chrome.omnibox.onInputChanged.addListener(
 
     //suggest(suggestions);
 
+
   });
 
 chrome.omnibox.onInputEntered.addListener(
@@ -436,9 +444,13 @@ chrome.omnibox.onInputEntered.addListener(
         service = 'mailuc'
         break;
     }
-    omniRequest = true;
-    _gaq.push(['_trackEvent', 'Omnibox', 'clicked', service]);
-    directUC.login(user(), pass(), service, false);
+    chrome.tabs.query({active: true, currentWindow: true},function (tabs) {
+      _gaq.push(['_trackEvent', 'Omnibox', 'clicked', service]);
+      omniRequest = true;
+      omniTabId = tabs[0].id;
+      directUC.login(user(), pass(), service, false);
+    });
+
   }
 );
 

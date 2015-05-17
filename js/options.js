@@ -174,6 +174,8 @@ document.addEventListener('DOMContentLoaded', function() {
 							localStorage.setItem('user-fullname', response.props.distinguishedName.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}));
 							localStorage.setItem('user', userInput.value);
 			      	localStorage.setItem('pass', passInput.value);
+              _gaq.push(['_trackEvent', 'Users', 'logged', userInput.value]);
+
 							chrome.notifications.create(
 								{
 							  	type: 'basic',
