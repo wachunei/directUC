@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	var user = bg.user();
 	var pass = bg.pass();
 
-	if(user == null) {
+	if(user === null) {
 		chrome.notifications.create(
 			{
 		  	type: "basic",
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	}
 
-	if (bg.optionSingleMode() == true ) {
+	if (bg.optionSingleMode() === true ) {
 		[].forEach.call(document.querySelectorAll('#content, #popup .loader'),function(item){
 			item.classList.add('gone');
 		});
@@ -33,41 +33,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	document.querySelector('.user-logged-username').innerHTML = user;
 
-	if(bg.activateSiding() == true) {
-		var service = bg.directUC.services.siding;
-		document.querySelector('input#'+service).style.display = 'inline-block';
-		document.querySelector('label[for='+service+']').style.display = 'inline-block';
+	if(bg.activateSiding() === true) {
+		var serviceSiding = bg.directUC.services.siding;
+		document.querySelector('input#'+serviceSiding).style.display = 'inline-block';
+		document.querySelector('label[for='+serviceSiding+']').style.display = 'inline-block';
 	}
 
-	if(bg.activateAleph() == true) {
-		var service = bg.directUC.services.aleph;
-		document.querySelector('input#'+service).style.display = 'inline-block';
-		document.querySelector('label[for='+service+']').style.display = 'inline-block';
+	if(bg.activateAleph() === true) {
+		var serviceAleph = bg.directUC.services.aleph;
+		document.querySelector('input#'+serviceAleph).style.display = 'inline-block';
+		document.querySelector('label[for='+serviceAleph+']').style.display = 'inline-block';
 	}
 
-	if(bg.activateLabmat() == true) {
-		var service = bg.directUC.services.labmat;
-		document.querySelector('input#labmat').style.display = 'inline-block';
-		document.querySelector('label[for='+service+']').style.display = 'inline-block';
+	if(bg.activateLabmat() === true) {
+		var serviceLabmat = bg.directUC.services.labmat;
+		document.querySelector('input#'+serviceLabmat).style.display = 'inline-block';
+		document.querySelector('label[for='+serviceLabmat+']').style.display = 'inline-block';
 	}
 
 
-	if(bg.activatePortal() != true) {
-		var service = bg.directUC.services.portal;
-		document.querySelector('input#'+service).style.display = 'none';
-		document.querySelector('label[for='+service+']').style.display = 'none';
+	if(bg.activatePortal() !== true) {
+		var servicePortal = bg.directUC.services.portal;
+		document.querySelector('input#'+servicePortal).style.display = 'none';
+		document.querySelector('label[for='+servicePortal+']').style.display = 'none';
 	}
 
-	if(bg.activateWebcursos() != true) {
-		var service = bg.directUC.services.webcursos;
-		document.querySelector('input#'+service).style.display = 'none';
-		document.querySelector('label[for='+service+']').style.display = 'none';
+	if(bg.activateWebcursos() !== true) {
+		var serviceWebcursos = bg.directUC.services.webcursos;
+		document.querySelector('input#'+serviceWebcursos).style.display = 'none';
+		document.querySelector('label[for='+serviceWebcursos+']').style.display = 'none';
 	}
 
-	if(bg.activateMailUC() != true) {
-		var service = bg.directUC.services.mailuc;
-		document.querySelector('input#'+service).style.display = 'none';
-		document.querySelector('label[for='+service+']').style.display = 'none';
+	if(bg.activateMailUC() !== true) {
+		var serviceMailUC = bg.directUC.services.mailuc;
+		document.querySelector('input#'+serviceMailUC).style.display = 'none';
+		document.querySelector('label[for='+serviceMailUC+']').style.display = 'none';
 	}
 
 	[].forEach.call(document.querySelectorAll('#content form .service-inputs label'),
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				_gaq.push(['_trackEvent', 'Services', 'clicked', label_for]);
 				document.querySelector('input#'+label_for).checked = true;
 				document.querySelector('#content form').dispatchEvent(new Event('submit'));
-			})
+			});
 		}
 	);
 
@@ -88,8 +88,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		e.preventDefault();
 		var service;
 		[].forEach.call(document.querySelectorAll('input[type=radio]'), function(item) {
-			if (item.checked == true) {
-					service = item.getAttribute('value')
+			if (item.checked === true) {
+					service = item.getAttribute('value');
 			}
 		});
 		if(service) {

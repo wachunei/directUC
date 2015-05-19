@@ -152,7 +152,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (userInput.value.length > 0 && passInput.value.length > 0) {
 			$rememberButton.innerHTML = 'Autenticando...';
 			bg.directUC.login(userInput.value, passInput.value, 'webcursos', true, function(status){
-				console.log(status);
 				if(status == 403 || status == 404) {
 					chrome.notifications.create(
 						{
@@ -292,6 +291,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (item.checked) {
           localStorage.setItem('option-siding-login', 1);
           $optionSidingLoginBox.classList.add('displayedbox');
+          $optionSidingLoginUser.disabled = false;
+          $optionSidingLoginPass.disabled = false;
         } else {
           localStorage.setItem('option-siding-login', 0);
           $optionSidingLoginBox.classList.remove('displayedbox');
@@ -357,7 +358,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function resetOptions(frombutton) {
 		if(frombutton) {
-      _gaq.push(['_trackEvent', 'Users', 'forget', user()]);
+      _gaq.push(['_trackEvent', 'Users', 'forget', bg.user()]);
 			$forgetUser.innerHTML = 'Olvidando...';
 
 			var req = new XMLHttpRequest();
