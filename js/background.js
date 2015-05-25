@@ -1,19 +1,18 @@
 /* Message Listeners */
 
 chrome.runtime.onMessage.addListener(
-  function(request, sender, callback) {
-    if (request == 'getData') {
-      callback({
+  function(message, sender, sendResponse) {
+    if (message == 'getData') {
+      sendResponse({
         user: user(),
         pass: pass(),
         redirect: localStorage.getItem('mailuc-redirect') == 1
       });
-    } else if (request == 'deleteRedirect') {
+    } else if (message == 'deleteRedirect') {
       localStorage.removeItem('mailuc-redirect');
-    } else if (request.action == 'login') {
-      directUC.login(user(), pass(), request.service, false, function() {
-        callback();
-      });
+    } else if (message.action == 'login') {
+      directUC.login(user(), pass(), message.service, false);
+      sendResponse();
     }
   });
 
@@ -36,14 +35,14 @@ var remembered = function() {
 };
 
 var optionSameTab = function() {
-  return localStorage.getItem('option-sametab') || 0;
+  return (localStorage.getItem('option-sametab') == 1 ) || 0;
 };
 var optionSingleMode = function() {
-  return localStorage.getItem('option-single-mode') || 0;
+  return (localStorage.getItem('option-single-mode') == 1) || 0;
 };
 
 var optionSingleModeService = function() {
-  return localStorage.getItem('option-single-mode-service') || 'portal';
+  return localStorage.getItem('option-single-mode-service')  || 'portal';
 };
 
 var activateSiding = function() {
@@ -282,14 +281,13 @@ var directUC = (function() {
     }
     if (omniRequest) {
       omniRequest = false;
-      chrome.tabs.update(omniTabId, {
-        'url': redirect
-      });
+
     }
     else if (optionSameTab() === true) {
-      omniRequest = false;
-      chrome.tabs.update({
-        'url': redirect
+      chrome.tabs.query({active: true, currentWindow: true},function (tabs) {
+        chrome.tabs.update(tabs[0].id, {
+          'url': redirect
+        });
       });
     } else {
       chrome.tabs.create({

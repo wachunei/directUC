@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 		_gaq.push(['_trackEvent', 'Single Mode', 'clicked', bg.optionSingleModeService()]);
 
-		chrome.runtime.sendMessage({action: 'login', service: bg.optionSingleModeService() }, function(){
+		chrome.runtime.sendMessage({action: 'login', service: bg.optionSingleModeService() }, function(response){
 			window.close();
 		});
 	}
