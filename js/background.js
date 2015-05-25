@@ -82,15 +82,15 @@ var optionAlephProfile = function() {
 };
 
 var activatePortal = function() {
-  return localStorage.getItem('activate-portal') || true;
+  return (localStorage.getItem('activate-portal') !== null)? (localStorage.getItem('activate-portal') == true) : true;
 };
 
 var activateWebcursos = function() {
-  return localStorage.getItem('activate-webcursos') || true;
+  return (localStorage.getItem('activate-webcursos') !== null)? (localStorage.getItem('activate-webcursos') == true) : true;
 };
 
 var activateMailUC = function() {
-  return localStorage.getItem('activate-mailuc') || true;
+  return (localStorage.getItem('activate-mailuc') !== null)? (localStorage.getItem('activate-mailuc') == true) : true;
 };
 
 
