@@ -1,7 +1,7 @@
 /* Message Listeners */
 
 chrome.runtime.onMessage.addListener(
-  function(message, sender, sendResponse) {
+  function(message, _, sendResponse) {
     if (message == 'getData') {
       sendResponse({
         user: user(),
@@ -42,7 +42,7 @@ var optionSingleMode = function() {
 };
 
 var optionSingleModeService = function() {
-  return localStorage.getItem('option-single-mode-service')  || 'portal';
+  return localStorage.getItem('option-single-mode-service') || 'portal';
 };
 
 var activateSiding = function() {
@@ -464,6 +464,15 @@ chrome.omnibox.onInputEntered.addListener(
   }
 );
 
+/* chrome.runtime Event Listeners for Analytics */
+
+chrome.runtime.onInstalled.addListener(function(details) {
+  if(details.reason === 'install') {
+      _gaq.push(['_trackEvent', 'Installations', 'installed', chrome.runtime.getManifest().version]);
+  } else if (details.reason === 'update' && details.previousVersion !== chrome.runtime.getManifest().version) {
+      _gaq.push(['_trackEvent', 'Installations', 'updated', chrome.runtime.getManifest().version]);
+  }
+});
 
 /* Analytics */
 var _gaq = _gaq || [];
