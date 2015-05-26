@@ -281,7 +281,9 @@ var directUC = (function() {
     }
     if (omniRequest) {
       omniRequest = false;
-
+      chrome.tabs.update(omniTabId, {
+        'url': redirect
+      });
     }
     else if (optionSameTab() === true) {
       chrome.tabs.query({active: true, currentWindow: true},function (tabs) {
@@ -455,6 +457,7 @@ chrome.omnibox.onInputEntered.addListener(
         break;
     }
     chrome.tabs.query({active: true, currentWindow: true},function (tabs) {
+      debugger;
       _gaq.push(['_trackEvent', 'Omnibox', 'clicked', service]);
       omniRequest = true;
       omniTabId = tabs[0].id;
