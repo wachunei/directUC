@@ -4,8 +4,10 @@
 
 #options {
 	background: #f4f4f4;
-	width: 95%;
+  width: 90%;
+  padding: 0 7px;
 	max-width: 700px;
+  min-width: 500px;
 	margin: 0 auto;
 	color: #555;
   font-size: 14px;
@@ -154,6 +156,42 @@
 #options .option-row #option-siding-login-box .option-siding-login-showpassword.active {
 	opacity: 1;
 }
+
+#options .facebook-link {
+  position: relative;
+  background: #3D7EDB;
+  padding: 15px 20px;
+  color: white;
+  margin: 40px auto 10px;
+  width: 60%;
+  border-radius: 2px;
+
+}
+
+#options .facebook-link a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#options .facebook-link img {
+  width: 60px;
+  height: auto;
+  display: inline-block;
+  vertical-align: text-bottom;
+  margin: 0 15px 0 0;
+  transform-origin: 50% 150%;
+}
+
+#options .facebook-link a:hover img {
+  -webkit-animation: shakeit 0.3s infinite cubic-bezier(.17,.67,.75,1.3);
+}
+
+#options .facebook-link span {
+  display: inline-block;
+  font-size: 18px;
+  width: calc(100% - 80px);
+  text-align: center;
+}
 #options footer {
 	margin-top: 20px;
 	color: #eee;
@@ -165,4 +203,19 @@
 }
 #options footer small {
 	opacity: 0.2;
+}
+
+@-webkit-keyframes shakeit {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: rotate(3deg);
+  }
+
+  75% {
+    transform: rotate(-3deg);
+  }
+
 }

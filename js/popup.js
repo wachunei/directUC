@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			{
 		  	type: "basic",
 		  	title: "Debes Iniciar Sesión",
-		  	message: "Para usar directUC debes iniciar sesión en la página de opciones",
+		  	message: "Para usar directUC debes iniciar sesión en las opciones",
 		  	iconUrl: "../i/icon_256.png"
 			},
 		function (notifID) {
