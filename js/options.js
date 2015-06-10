@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var $rememberedUserFullname = document.querySelector('.remembered-user-fullname');
   var $rememberedUserUsername = document.querySelector('.remembered-user .username');
 
+  var $facebookLink = document.querySelector('.facebook-link');
+
   var userInput = document.querySelector('#user');
   var passInput = document.querySelector('#password');
   var $rememberButton = document.querySelector('.remember-user');
@@ -144,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			if (event.keyCode == 13) {
 				$rememberButton.dispatchEvent(new Event('click'));
 			}
-		})
+		});
 	});
 
   $rememberButton.addEventListener('click', function(e) {
@@ -197,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				}
 			});
     }
-  })
+  });
 
   $optionSidingLoginShowPassword.addEventListener('mouseover', function() {
     $optionSidingLoginPass.setAttribute('type', 'text');
@@ -245,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
 
-      if (checkedNumber == 0) {
+      if (checkedNumber === 0) {
         event.preventDefault();
         item.checked = true;
         return;
@@ -427,6 +429,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 		$loginAlert.style.display = 'block';
 	}
+
+  $facebookLink.addEventListener('click', function(e) {
+    _gaq.push(['_trackEvent', 'Links', 'facebook']);
+  });
+
 });
 
 /* Analytics */
