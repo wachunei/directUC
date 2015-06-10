@@ -150,6 +150,11 @@ document.addEventListener('DOMContentLoaded', function() {
   $rememberButton.addEventListener('click', function(e) {
     e.preventDefault();
     if (userInput.value.length > 0 && passInput.value.length > 0) {
+      var ucSuffix = '@uc.cl';
+      var index = userInput.value.indexOf(ucSuffix, userInput.value.length - ucSuffix.length);
+      if(index !== -1) {
+        userInput.value = userInput.value.substr(0, index);
+      }
 			$rememberButton.innerHTML = 'Autenticando...';
 			bg.directUC.login(userInput.value, passInput.value, 'webcursos', true, function(status){
 				if(status == 403 || status == 404) {
