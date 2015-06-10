@@ -1,6 +1,6 @@
 {
   "name": "directUC",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "manifest_version": 2,
   "author": "wachunei",
   "incognito": "split",
@@ -28,7 +28,10 @@
     "scripts": ["js/background.js"],
     "persistent": true
   },
-  "options_page": "options.html",
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
   "content_scripts": [
     {
       "matches": ["https://sso.uc.cl/cas/login*", "https://webaccess.uc.cl/simplesaml/module.php/core/*"],

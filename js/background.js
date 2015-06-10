@@ -363,7 +363,7 @@ var omniRequest = false;
 var omniTabId;
 var omniPortal = {
   content: 'Portal UC',
-  description: '<match>Portal UC</match> <dim>Ir tu Portal UC</dim>'
+  description: '<match>Portal UC</match> <dim>Ir a tu Portal UC</dim>'
 };
 var omniSiding = {
   content: 'SIDING',
@@ -457,7 +457,6 @@ chrome.omnibox.onInputEntered.addListener(
         break;
     }
     chrome.tabs.query({active: true, currentWindow: true},function (tabs) {
-      debugger;
       _gaq.push(['_trackEvent', 'Omnibox', 'clicked', service]);
       omniRequest = true;
       omniTabId = tabs[0].id;
