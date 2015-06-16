@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 
-	document.querySelector('.user-logged-username').innerHTML = user;
+	document.querySelector('.user-logged-username').textContent = user;
 
 	if(bg.activateSiding() === true) {
 		var serviceSiding = bg.directUC.services.siding;

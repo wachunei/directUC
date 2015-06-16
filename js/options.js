@@ -54,8 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
       $loginAlert.style.display = 'none';
       $forgetUser.style.display = 'inline-block';
 
-      $rememberedUserFullname.innerHTML = bg.userFullName();
-      $rememberedUserUsername.innerHTML = bg.user();
+      $rememberedUserFullname.textContent = bg.userFullName();
+      $rememberedUserUsername.textContent = bg.user();
       $rememberedUser.style.display = 'inline';
 
       userInput.value = bg.user();
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if(index !== -1) {
         userInput.value = userInput.value.substr(0, index);
       }
-			$rememberButton.innerHTML = 'Autenticando...';
+			$rememberButton.textContent = 'Autenticando...';
 			bg.directUC.login(userInput.value, passInput.value, 'webcursos', true, function(status){
 				if(status == 403 || status == 404) {
 					chrome.notifications.create(
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
 							iconUrl: '../i/icon_256.png'
 						},
 					function (notifID) {
-						$rememberButton.innerHTML = 'Guardar Usuario';
+						$rememberButton.textContent = 'Guardar Usuario';
 					});
 
 				} else if(status == 201) {
@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function resetOptions(frombutton) {
 		if(frombutton) {
       _gaq.push(['_trackEvent', 'Users', 'forget', bg.user()]);
-			$forgetUser.innerHTML = 'Olvidando...';
+			$forgetUser.textContent = 'Olvidando...';
 
 			var req = new XMLHttpRequest();
 	    req.open('GET', 'http://webcurso.uc.cl/portal/logout');
@@ -394,12 +394,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		localStorage.clear();
 
 		// Usuario
-		$forgetUser.innerHTML = 'Olvidar Usuario';
+		$forgetUser.textContent = 'Olvidar Usuario';
 		$forgetUser.style.display = 'none';
     $rememberedUser.style.display = 'none';
-    $rememberedUserFullname.innerHTML = '';
-    $rememberedUserUsername.innerHTML = '';
-		$rememberButton.innerHTML = 'Guardar Usuario';
+    $rememberedUserFullname.textContent = '';
+    $rememberedUserUsername.textContent = '';
+		$rememberButton.textContent = 'Guardar Usuario';
 		$rememberButton.style.display = 'inline-block';
 		userInput.value = passInput.value = '';
     userInput.style.display = passInput.style.display = 'inline-block';
