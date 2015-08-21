@@ -320,12 +320,21 @@ var directUC = (function() {
       req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
       req.onreadystatechange = function() {
         if (req.readyState == 4 && req.status >= 200) {
+          if (service === self.services.siding ) {
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(req.responseText, 'text/html');
+            if (doc.querySelector('noscript') !== null) {
+              console.log('expired, trying again');
+              self.login(user, pass, service, noredirect, callback);
+              return;
+            }
+          }
+          
           if (noredirect) {
             callback(req.status);
           } else {
             self.redirect(redirect, callback);
           }
-
         }
       };
 
