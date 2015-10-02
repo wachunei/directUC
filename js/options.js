@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						{
 							type: 'basic',
 							title: 'Oops! No se pudo guardar tu usuario',
-							message: 'Verificar tus datos y/o conexión a internet.',
+							message: 'Verifica tus datos y/o conexión a internet.',
 							iconUrl: '../i/icon_256.png'
 						},
 					function (notifID) {

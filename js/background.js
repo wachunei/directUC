@@ -324,12 +324,11 @@ var directUC = (function() {
             var parser = new DOMParser();
             var doc = parser.parseFromString(req.responseText, 'text/html');
             if (doc.querySelector('noscript') !== null) {
-              console.log('expired, trying again');
               self.login(user, pass, service, noredirect, callback);
               return;
             }
           }
-          
+
           if (noredirect) {
             callback(req.status);
           } else {
@@ -372,27 +371,33 @@ var omniRequest = false;
 var omniTabId;
 var omniPortal = {
   content: 'Portal UC',
-  description: '<match>Portal UC</match> <dim>Ir a tu Portal UC</dim>'
+  description: '<match>Portal UC</match> <dim>Ir a tu Portal UC</dim>',
+  matchStrings: ['portal']
 };
 var omniSiding = {
   content: 'SIDING',
-  description: '<match>SIDING</match> <dim>Ir a tu SIDING</dim>'
+  description: '<match>SIDING</match> <dim>Ir a tu SIDING</dim>',
+  matchStrings: ['siding']
 };
 var omniLabmat = {
   content: 'LABMAT',
-  description: '<match>LABMAT</match> <dim>Ir a LABMAT</dim>'
+  description: '<match>LABMAT</match> <dim>Ir a LABMAT</dim>',
+  matchStrings: ['labmat']
 };
 var omniAleph = {
   content: 'SIBUC',
-  description: '<match>SIBUC</match> <dim>Ir a SIBUC</dim>'
+  description: '<match>SIBUC</match> <dim>Ir a SIBUC</dim>',
+  matchStrings: ['aleph', 'sibuc']
 };
 var omniWebcursos = {
   content: 'Webcursos',
-  description: '<match>Webcursos UC</match> <dim>Ir a Webcursos UC</dim>'
+  description: '<match>Webcursos UC</match> <dim>Ir a Webcursos UC</dim>',
+  matchStrings: ['webcursos']
 };
 var omniMailuc = {
-  content: 'Mail UC',
-  description: '<match>Mail UC</match> <dim>Ir a Mail UC</dim>'
+  content: 'Correo UC',
+  description: '<match>Correo UC</match> <dim>Ir a Correo UC</dim>',
+  matchStrings: ['correo','mail']
 };
 
 chrome.omnibox.onInputChanged.addListener(
@@ -421,15 +426,16 @@ chrome.omnibox.onInputChanged.addListener(
     var suggested = false;
 
     suggestions.forEach(function(item) {
-      var simpleContent = item.content.toLowerCase().replace(/\s+/g, '');
       var simpleText = text.toLowerCase().replace(/\s+/g, '');
-      if ((simpleContent.indexOf(simpleText) != -1) && !suggested) {
-        suggested = true;
-        suggestedItem = item;
-        chrome.omnibox.setDefaultSuggestion({
-          description: item.description
-        });
-      }
+      item.matchStrings.forEach(function(matchString) {
+        if ((matchString.indexOf(simpleText) != -1) && !suggested) {
+          suggested = true;
+          suggestedItem = item;
+          chrome.omnibox.setDefaultSuggestion({
+            description: item.description
+          });
+        }
+      });
     });
 
     if (suggested) {
