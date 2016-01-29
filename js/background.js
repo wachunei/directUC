@@ -156,7 +156,7 @@ var directUC = (function() {
   };
 
   self.urls[self.services.labmat] = function() {
-    return 'http://labmat.puc.cl/index.php';
+    return 'http://www.labmat.puc.cl/index.php';
   };
 
   /* Object Functions
@@ -319,6 +319,7 @@ var directUC = (function() {
       req.open('POST', url, true);
       req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
       req.onreadystatechange = function() {
+        debugger;
         if (req.readyState == 4 && req.status >= 200) {
           if (service === self.services.siding ) {
             var parser = new DOMParser();
