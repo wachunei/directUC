@@ -156,7 +156,7 @@ var directUC = (function() {
   };
 
   self.urls[self.services.labmat] = function() {
-    return 'http://www.labmat.puc.cl/index.php';
+    return 'http://www.labmat.puc.cl/login/actionLogin';
   };
 
   /* Object Functions
@@ -220,7 +220,6 @@ var directUC = (function() {
   self.dataObjects[self.services.labmat] = function(user, pass, callback) {
     var domain = (optionLabmatDomain() === true) ? self.strings.labmatdomain : self.strings.ucdomain;
     callback({
-      'accion': 'ingreso',
       'usuario': user + domain,
       'clave': pass
     });
@@ -236,7 +235,7 @@ var directUC = (function() {
       redirectUrl = 'https://intrawww.ing.puc.cl/siding/dirdes/ingcursos/cursos/vista.phtml';
     }
 
-    return redirectUrl ||  self.urls[self.services.siding]();
+    return redirectUrl || self.urls[self.services.siding]();
   };
 
   self.redirectUrls[self.services.webcursos] = function() {
@@ -256,7 +255,7 @@ var directUC = (function() {
   };
 
   self.redirectUrls[self.services.labmat] = function() {
-    return self.urls[self.services.labmat]();
+    return "http://www.labmat.puc.cl/dashboard"
   };
 
 
@@ -318,7 +317,9 @@ var directUC = (function() {
       }
       req.open('POST', url, true);
       req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+      req.setRequestHeader("X-Requested-With", "XMLHttpRequest");
       req.onreadystatechange = function() {
+        debugger;
         if (req.readyState == 4 && req.status >= 200) {
           if (service === self.services.siding ) {
             var parser = new DOMParser();
