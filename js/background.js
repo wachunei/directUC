@@ -319,7 +319,6 @@ var directUC = (function() {
       req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
       req.setRequestHeader("X-Requested-With", "XMLHttpRequest");
       req.onreadystatechange = function() {
-        debugger;
         if (req.readyState == 4 && req.status >= 200) {
           if (service === self.services.siding ) {
             var parser = new DOMParser();
