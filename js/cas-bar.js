@@ -24,7 +24,7 @@
 			chrome.runtime.sendMessage('deleteRedirect', function(response){});
 			document.querySelector('#username').value = user;
 			document.querySelector('#password').value = pass;
-			document.querySelector('form').submit();
+			document.querySelector('[type=submit]').click();
 		}
 	}
 
@@ -34,7 +34,7 @@
 
 			document.querySelector('#username').value = user;
 			document.querySelector('#password').value = pass;
-			document.querySelector('form').submit();
+			document.querySelector('[type=submit]').click();
 
 		});
 	}
