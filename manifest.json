@@ -9,13 +9,14 @@
     "48": "i/icon_48.png",
     "128": "i/icon_128.png",
     "256": "i/icon_256.png"
-    },
-  "description": "Accede rápidamente a diferentes servicios de la UC.",
-  "permissions" : [
-    "https://*.ing.puc.cl/",
+  },
+  "description": "Accede r?pidamente a diferentes servicios de la UC.",
+  "permissions": [
     "https://*.uc.cl/*",
     "http://*.uc.cl/*",
     "http://*.puc.cl/*",
+    "https://*.ing.puc.cl/",
+    "https://*.ing.uc.cl/",
     "notifications"
   ],
   "browser_action": {
@@ -23,9 +24,13 @@
     "default_title": "Abrir directUC",
     "default_popup": "popup.html"
   },
-  "omnibox": { "keyword" : "uc" },
+  "omnibox": {
+    "keyword": "uc"
+  },
   "background": {
-    "scripts": ["js/background.js"],
+    "scripts": [
+      "js/background.js"
+    ],
     "persistent": true
   },
   "options_ui": {
@@ -34,9 +39,16 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://sso.uc.cl/cas/login*", "https://webaccess.uc.cl/simplesaml/*"],
-      "js": ["js/cas-bar.js"],
-      "css": ["css/estilo-cas-bar.css"]
+      "matches": [
+        "https://sso.uc.cl/cas/login*",
+        "https://webaccess.uc.cl/simplesaml/*"
+      ],
+      "js": [
+        "js/cas-bar.js"
+      ],
+      "css": [
+        "css/estilo-cas-bar.css"
+      ]
     }
   ],
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
