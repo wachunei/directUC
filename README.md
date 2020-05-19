@@ -3,12 +3,11 @@ Extensión para Google Chrome que permite a alumnos de la Pontificia Universidad
 
 **Nota:** La extensión está en medio de cambios importantes para agregarle soporte a Canvas, el nuevo sitio de Bibliotecas UC, el correo Gmail UC y el nuevo inicio de sesión del SIDING.
 
-## Instalar
+## Instalar
 
-La extensión está disponible en la Chrome Web Store, [haz click acá para instalar](http://bit.ly/directUC "Instalar directUC para Google Chrome").
+La extensión está disponible en la Chrome Web Store, [haz click acá para instalar](https://chrome.google.com/webstore/detail/directuc/leflipcmaokfjdgpemeimelohgfdbdca).
 
-## Características
-
+## Características
 Guarda tu usuario y contraseña una sola vez y accede a través de una ventana emergente al presionar el botón.
 Otras características:
 
