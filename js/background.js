@@ -237,7 +237,7 @@ var directUC = (function () {
   };
 
   // Nothing to send with data, please refactor.
-  self.dataObjects[self.services.canvas] = function (user, pass, callback) {
+  self.dataObjects[self.services.canvas] = function (_user, _pass, callback) {
     callback({
     });
   };
@@ -374,7 +374,7 @@ var directUC = (function () {
     });
   };
 
-  self.openMail = function (user, pass) {
+  self.openMail = function (_user, _pass) {
 
     var url = 'http://webaccess.uc.cl';
     localStorage.setItem('mailuc-redirect', 1);
@@ -435,7 +435,7 @@ var omniMailuc = {
 };
 
 chrome.omnibox.onInputChanged.addListener(
-  function (text, suggest) {
+  function (text, _suggest) {
 
     var suggestions = [];
     if (activatePortal() === true) {
@@ -486,7 +486,7 @@ chrome.omnibox.onInputChanged.addListener(
   });
 
 chrome.omnibox.onInputEntered.addListener(
-  function (text) {
+  function (_text) {
     var service;
     switch (suggestedItem) {
       case omniPortal:
