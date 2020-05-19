@@ -1,5 +1,7 @@
-#directUC
+# directUC
 Extensión para Google Chrome que permite a alumnos de la Pontificia Universidad Católica de Chile el ingreso directo a diferentes servicios ofrecidos por esta.
+
+**Nota:** La extensión está en medio de cambios importantes para agregarle soporte a Canvas, el nuevo sitio de Bibliotecas UC, el correo Gmail UC y el nuevo inicio de sesión del SIDING.
 
 ## Instalar
 
@@ -12,8 +14,7 @@ Otras características:
 
 * Modo directo, ingresa directamente a un servicio seleccionado al presionar el botón.
 * Ingreso por Omnibox.
-* Soporte par SIDING, LABMAT y SIBUC, además de Portal UC, Webcursos y Correo UC.
-
+* Soporte para SIDING, LABMAT y SIBUC, además de Portal UC, Webcursos y Correo UC.
 ___
 
 Esta es una extensión no oficial y no guarda relación alguna con la Pontificia Universidad Católica de Chile.
