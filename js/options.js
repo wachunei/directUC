@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   'use strict';
 
   /* User Variables */
   var bg = chrome.extension.getBackgroundPage();
-  var remembered = function() {
+  var remembered = function () {
     return bg.user() != null
   };
   var $rememberedUser = document.querySelector('.remembered-user');
@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /* Other Services */
   var $optionActivatePortal = document.querySelector('.services-options #activate-portal')
+  var $optionActivateCanvas = document.querySelector('.services-options #activate-canvas')
   var $optionActivateWebcursos = document.querySelector('.services-options #activate-webcursos')
   var $optionActivateMailUC = document.querySelector('.services-options #activate-mailuc')
 
@@ -63,8 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
       userInput.style.display = 'none';
       passInput.style.display = 'none';
 
-			userInput.disabled = true;
-			passInput.disabled = true;
+      userInput.disabled = true;
+      passInput.disabled = true;
 
       $rememberButton.style.display = 'none';
 
@@ -82,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
       /* SIDING Initial State */
       $optionActivateSiding.disabled = false;
       $optionActivateSiding.checked = (bg.activateSiding() == true);
-      $optionSidingCursos.disabled = (bg.activateSiding() !=  true)
+      $optionSidingCursos.disabled = (bg.activateSiding() != true)
       $optionSidingCursos.checked = (bg.activateSiding() == true && bg.optionSidingCursos() == true);
 
       $optionSidingLogin.disabled = (bg.activateSiding() != true);
@@ -107,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
       /* Labmat Initial State */
       $optionActivateLabmat.disabled = false;
       $optionActivateLabmat.checked = (bg.activateLabmat() == true);
-      $optionLabmatDomain.disabled = (bg.activateLabmat() !=  true)
+      $optionLabmatDomain.disabled = (bg.activateLabmat() != true)
       $optionLabmatDomain.checked = (bg.activateLabmat() == true && bg.optionLabmatDomain() == true);
 
       /* Aleph Initial State */
@@ -119,6 +120,8 @@ document.addEventListener('DOMContentLoaded', function() {
       /* Rest of services */
       $optionActivatePortal.disabled = false;
       $optionActivatePortal.checked = (bg.activatePortal() == true);
+      $optionActivateCanvas.disabled = false;
+      $optionActivateCanvas.checked = (bg.activateCanvas() == true);
       $optionActivateWebcursos.disabled = false;
       $optionActivateWebcursos.checked = (bg.activateWebcursos() == true);
       $optionActivateMailUC.disabled = false;
@@ -133,89 +136,89 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Estado dinamico
 
-  userInput.addEventListener('blur', function(e) {
+  userInput.addEventListener('blur', function (e) {
     var ucSuffix = '@uc.cl';
     var index = userInput.value.indexOf(ucSuffix, userInput.value.length - ucSuffix.length);
-    if(index !== -1) {
+    if (index !== -1) {
       userInput.value = userInput.value.substr(0, index);
     }
   });
 
-	[passInput, userInput].forEach(function(item) {
-		item.addEventListener('keyup', function(event) {
-			if (event.keyCode == 13) {
-				$rememberButton.dispatchEvent(new Event('click'));
-			}
-		});
-	});
+  [passInput, userInput].forEach(function (item) {
+    item.addEventListener('keyup', function (event) {
+      if (event.keyCode == 13) {
+        $rememberButton.dispatchEvent(new Event('click'));
+      }
+    });
+  });
 
-  $rememberButton.addEventListener('click', function(e) {
+  $rememberButton.addEventListener('click', function (e) {
     e.preventDefault();
     if (userInput.value.length > 0 && passInput.value.length > 0) {
       var ucSuffix = '@uc.cl';
       var index = userInput.value.indexOf(ucSuffix, userInput.value.length - ucSuffix.length);
-      if(index !== -1) {
+      if (index !== -1) {
         userInput.value = userInput.value.substr(0, index);
       }
-			$rememberButton.textContent = 'Autenticando...';
-			bg.directUC.login(userInput.value, passInput.value, 'webcursos', true, function(status){
-				if(status == 403 || status == 404) {
-					chrome.notifications.create(
-						{
-							type: 'basic',
-							title: 'Oops! No se pudo guardar tu usuario',
-							message: 'Verifica tus datos y/o conexión a internet.',
-							iconUrl: '../i/icon_256.png'
-						},
-					function (notifID) {
-						$rememberButton.textContent = 'Guardar Usuario';
-					});
+      $rememberButton.textContent = 'Autenticando...';
+      bg.directUC.login(userInput.value, passInput.value, 'webcursos', true, function (status) {
+        if (status == 403 || status == 404) {
+          chrome.notifications.create(
+            {
+              type: 'basic',
+              title: 'Oops! No se pudo guardar tu usuario',
+              message: 'Verifica tus datos y/o conexiรณn a internet.',
+              iconUrl: '../i/icon_256.png'
+            },
+            function (notifID) {
+              $rememberButton.textContent = 'Guardar Usuario';
+            });
 
-				} else if(status == 201) {
-			    var req = new XMLHttpRequest();
-			    req.open('GET', 'http://webcurso.uc.cl/direct/user/current.json');
-			    req.onload = function() {
-			      if (req.status >= 200 && req.status < 400) {
-			      	var response = JSON.parse(req.responseText);
-							localStorage.setItem('user-fullname', response.props.distinguishedName.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}));
-							localStorage.setItem('user', userInput.value);
-			      	localStorage.setItem('pass', passInput.value);
+        } else if (status == 201) {
+          var req = new XMLHttpRequest();
+          req.open('GET', 'http://webcurso.uc.cl/direct/user/current.json');
+          req.onload = function () {
+            if (req.status >= 200 && req.status < 400) {
+              var response = JSON.parse(req.responseText);
+              localStorage.setItem('user-fullname', response.props.distinguishedName.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); }));
+              localStorage.setItem('user', userInput.value);
+              localStorage.setItem('pass', passInput.value);
               _gaq.push(['_trackEvent', 'Users', 'logged', userInput.value]);
 
-							chrome.notifications.create(
-								{
-							  	type: 'basic',
-							  	title: 'Sesión Iniciada como '+bg.userFullName(),
-							  	message: '',
-							  	iconUrl: '../i/icon_256.png'
-								},
-							function (notifID) {
-								loadSettings();
-							});
+              chrome.notifications.create(
+                {
+                  type: 'basic',
+                  title: 'Sesiรณn Iniciada como ' + bg.userFullName(),
+                  message: '',
+                  iconUrl: '../i/icon_256.png'
+                },
+                function (notifID) {
+                  loadSettings();
+                });
 
-						}
-			    };
-					req.send();
-				}
-			});
+            }
+          };
+          req.send();
+        }
+      });
     }
   });
 
-  $optionSidingLoginShowPassword.addEventListener('mouseover', function() {
+  $optionSidingLoginShowPassword.addEventListener('mouseover', function () {
     $optionSidingLoginPass.setAttribute('type', 'text');
   });
 
-  $optionSidingLoginShowPassword.addEventListener('mouseleave', function() {
+  $optionSidingLoginShowPassword.addEventListener('mouseleave', function () {
     $optionSidingLoginPass.setAttribute('type', 'password');
   });
 
-  $forgetUser.addEventListener('click', function(event) {
+  $forgetUser.addEventListener('click', function (event) {
     event.preventDefault();
     resetOptions(true);
   });
 
-  [$optionSidingLoginUser, $optionSidingLoginPass].forEach(function(item) {
-    item.addEventListener('keyup', function(e) {
+  [$optionSidingLoginUser, $optionSidingLoginPass].forEach(function (item) {
+    item.addEventListener('keyup', function (e) {
       var valor = item.value;
       if (item === $optionSidingLoginUser) {
         if (valor.length > 0) {
@@ -236,12 +239,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-  [].forEach.call(document.querySelectorAll('input[type=checkbox]'), function(item) {
+  [].forEach.call(document.querySelectorAll('input[type=checkbox]'), function (item) {
 
-    item.addEventListener('change', function(event) {
+    item.addEventListener('change', function (event) {
 
       var checkedNumber = 0;
-      [].forEach.call(document.querySelectorAll('.services-options input[id^="activate"]'), function(item) {
+      [].forEach.call(document.querySelectorAll('.services-options input[id^="activate"]'), function (item) {
         if (item.checked) {
           checkedNumber++;
         }
@@ -342,7 +345,15 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
           localStorage.setItem('activate-portal', 0);
         }
-      } else if (item === $optionActivateWebcursos) {
+      }
+      else if (item === $optionActivateCanvas) {
+        if (item.checked) {
+          localStorage.setItem('activate-canvas', 1);
+        } else {
+          localStorage.setItem('activate-canvas', 0);
+        }
+      }
+      else if (item === $optionActivateWebcursos) {
         if (item.checked) {
           localStorage.setItem('activate-webcursos', 1);
         } else {
@@ -358,79 +369,79 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  $optionSingleModeSelect.addEventListener('change', function(event) {
+  $optionSingleModeSelect.addEventListener('change', function (event) {
     localStorage.setItem('option-single-mode-service', $optionSingleModeSelect.value);
   });
 
 
   function resetOptions(frombutton) {
-		if(frombutton) {
+    if (frombutton) {
       _gaq.push(['_trackEvent', 'Users', 'forget', bg.user()]);
-			$forgetUser.textContent = 'Olvidando...';
+      $forgetUser.textContent = 'Olvidando...';
 
-			var req = new XMLHttpRequest();
-	    req.open('GET', 'http://webcurso.uc.cl/portal/logout');
-	    req.onload = function() {
-	      if (req.status >= 200 && req.status < 400) {
-						chrome.notifications.create(
-							{
-								type: 'basic',
-								title: 'Hemos olvidado tus datos correctamente',
-								message: 'Nos da penita que te vayas :(',
-								iconUrl: '../i/icon_256.png'
-							}
-						);
-						resetLocalOptions();
-				}
-	    };
-			req.send();
-		} else {
-			resetLocalOptions();
-		}
+      var req = new XMLHttpRequest();
+      req.open('GET', 'http://webcurso.uc.cl/portal/logout');
+      req.onload = function () {
+        if (req.status >= 200 && req.status < 400) {
+          chrome.notifications.create(
+            {
+              type: 'basic',
+              title: 'Hemos olvidado tus datos correctamente',
+              message: 'Nos da penita que te vayas :(',
+              iconUrl: '../i/icon_256.png'
+            }
+          );
+          resetLocalOptions();
+        }
+      };
+      req.send();
+    } else {
+      resetLocalOptions();
+    }
   }
 
-	function resetLocalOptions(){
-		// Local Storage
-		localStorage.clear();
+  function resetLocalOptions() {
+    // Local Storage
+    localStorage.clear();
 
-		// Usuario
-		$forgetUser.textContent = 'Olvidar Usuario';
-		$forgetUser.style.display = 'none';
+    // Usuario
+    $forgetUser.textContent = 'Olvidar Usuario';
+    $forgetUser.style.display = 'none';
     $rememberedUser.style.display = 'none';
     $rememberedUserFullname.textContent = '';
     $rememberedUserUsername.textContent = '';
-		$rememberButton.textContent = 'Guardar Usuario';
-		$rememberButton.style.display = 'inline-block';
-		userInput.value = passInput.value = '';
+    $rememberButton.textContent = 'Guardar Usuario';
+    $rememberButton.style.display = 'inline-block';
+    userInput.value = passInput.value = '';
     userInput.style.display = passInput.style.display = 'inline-block';
-		userInput.disabled = passInput.disabled = false;
+    userInput.disabled = passInput.disabled = false;
 
 
-		// Desactivar Servicios
-		var uncheck_forms = ['#hide-form',
-			'.services-options input[id*=siding]',
-			'.services-options input[id*=labmat]',
-			'.services-options input[id*=aleph]'
-		];
-		[].forEach.call(document.querySelectorAll(uncheck_forms.join(', ')), function(item) {
-			item.checked = false;
-		});
+    // Desactivar Servicios
+    var uncheck_forms = ['#hide-form',
+      '.services-options input[id*=siding]',
+      '.services-options input[id*=labmat]',
+      '.services-options input[id*=aleph]'
+    ];
+    [].forEach.call(document.querySelectorAll(uncheck_forms.join(', ')), function (item) {
+      item.checked = false;
+    });
 
-		$optionSidingLoginUser.value = '';
-		$optionSidingLoginPass.value = '';
-		$optionSidingLoginBox.classList.remove('displayedbox');
-		// Activar Portal y Webcursos
-		[$optionActivatePortal, $optionActivateWebcursos, $optionActivateMailUC].forEach(function(item) {
-			item.checked = true;
-		});
+    $optionSidingLoginUser.value = '';
+    $optionSidingLoginPass.value = '';
+    $optionSidingLoginBox.classList.remove('displayedbox');
+    // Activar Portal, Canvas y Webcursos
+    [$optionActivatePortal, $optionActivateWebcursos, $optionActivateMailUC, $optionActivateCanvas].forEach(function (item) {
+      item.checked = true;
+    });
 
-		[].forEach.call(document.querySelectorAll('.user-options input, .services-options input, .user-options select'), function(item) {
-			item.disabled = true;
-		});
-		$loginAlert.style.display = 'block';
-	}
+    [].forEach.call(document.querySelectorAll('.user-options input, .services-options input, .user-options select'), function (item) {
+      item.disabled = true;
+    });
+    $loginAlert.style.display = 'block';
+  }
 
-  $facebookLink.addEventListener('click', function(e) {
+  $facebookLink.addEventListener('click', function (e) {
     _gaq.push(['_trackEvent', 'Links', 'facebook']);
   });
 
@@ -441,7 +452,7 @@ var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-62971405-1']);
 _gaq.push(['_trackPageview']);
 
-(function() {
+(function () {
   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
   ga.src = 'https://ssl.google-analytics.com/ga.js';
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);

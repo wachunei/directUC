@@ -85,6 +85,11 @@ var activatePortal = function () {
   return (localStorage.getItem('activate-portal') !== null) ? (localStorage.getItem('activate-portal') == true) : true;
 };
 
+var activateCanvas = function () {
+  return (localStorage.getItem('activate-canvas') !== null) ? (localStorage.getItem('activate-canvas') == true) : true;
+};
+
+
 var activateWebcursos = function () {
   return (localStorage.getItem('activate-webcursos') !== null) ? (localStorage.getItem('activate-webcursos') == true) : true;
 };
@@ -106,6 +111,7 @@ var directUC = (function () {
     SIDING: siding
     Web Cursos UC: webcursos
     Portal UC: portal
+    Canvas: canvas
     SIBUC: aleph
     Labmat: labmat
   */
@@ -113,6 +119,7 @@ var directUC = (function () {
     'siding': 'siding',
     'webcursos': 'webcursos',
     'portal': 'portal',
+    'canvas': 'canvas',
     'aleph': 'aleph',
     'labmat': 'labmat',
     'mailuc': 'mailuc'
@@ -138,6 +145,10 @@ var directUC = (function () {
 
   self.urls[self.services.portal] = function () {
     return 'https://sso.uc.cl/cas/login?service=https%3A%2F%2Fportal.uc.cl%2Fc%2Fportal%2Flogin';
+  };
+
+  self.urls[self.services.canvas] = function () {
+    return 'https://cursos.canvas.uc.cl/';
   };
 
   self.urls[self.services.aleph] = function () {
@@ -225,6 +236,13 @@ var directUC = (function () {
     });
   };
 
+  // Nothing to send with data, please refactor.
+  self.dataObjects[self.services.canvas] = function (user, pass, callback) {
+    callback({
+    });
+  };
+
+
   /* Redirections URLs */
 
   self.redirectUrls = {};
@@ -244,6 +262,14 @@ var directUC = (function () {
 
   self.redirectUrls[self.services.portal] = function () {
     return 'https://portal.uc.cl';
+  };
+
+  self.redirectUrls[self.services.canvas] = function () {
+    return 'https://cursos.canvas.uc.cl';
+  };
+
+  self.redirectUrls[self.services.webcursos] = function () {
+    return 'http://webcurso.uc.cl/portal';
   };
 
   self.redirectUrls[self.services.aleph] = function () {
@@ -377,6 +403,11 @@ var omniPortal = {
   description: '<match>Portal UC</match> <dim>Ir a tu Portal UC</dim>',
   matchStrings: ['portal']
 };
+var omniCanvas = {
+  content: 'Canvas',
+  description: '<match>Canvas</match> <dim>Ir a Canvas</dim>',
+  matchStrings: ['canvas']
+};
 var omniSiding = {
   content: 'SIDING',
   description: '<match>SIDING</match> <dim>Ir a tu SIDING</dim>',
@@ -409,6 +440,9 @@ chrome.omnibox.onInputChanged.addListener(
     var suggestions = [];
     if (activatePortal() === true) {
       suggestions.push(omniPortal);
+    }
+    if (activateCanvas() === true) {
+      suggestions.push(omniCanvas);
     }
     if (activateSiding() === true) {
       suggestions.push(omniSiding);
@@ -457,6 +491,9 @@ chrome.omnibox.onInputEntered.addListener(
     switch (suggestedItem) {
       case omniPortal:
         service = 'portal';
+        break;
+      case omniCanvas:
+        service = 'canvas';
         break;
       case omniSiding:
         service = 'siding';

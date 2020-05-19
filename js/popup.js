@@ -57,6 +57,11 @@ document.addEventListener('DOMContentLoaded', function () {
 		document.querySelector('input#' + servicePortal).style.display = 'none';
 		document.querySelector('label[for=' + servicePortal + ']').style.display = 'none';
 	}
+	if (bg.activateCanvas() !== true) {
+		var servicePortal = bg.directUC.services.canvas;
+		document.querySelector('input#' + servicePortal).style.display = 'none';
+		document.querySelector('label[for=' + servicePortal + ']').style.display = 'none';
+	}
 
 	if (bg.activateWebcursos() !== true) {
 		var serviceWebcursos = bg.directUC.services.webcursos;
