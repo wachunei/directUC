@@ -16,7 +16,6 @@
     "http://*.uc.cl/*",
     "http://*.puc.cl/*",
     "https://*.ing.puc.cl/",
-    "https://*.ing.uc.cl/",
     "notifications"
   ],
   "browser_action": {
