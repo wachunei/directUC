@@ -14,8 +14,9 @@
   "permissions": [
     "https://*.uc.cl/*",
     "http://*.uc.cl/*",
+    "https://*.uc.cl/*",
     "http://*.puc.cl/*",
-    "https://*.ing.puc.cl/",
+    "https://*.puc.cl/*",
     "notifications"
   ],
   "browser_action": {
