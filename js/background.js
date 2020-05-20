@@ -186,8 +186,8 @@ var directUC = (function () {
 
   self.dataObjects[self.services.webcursos] = function (user, pass, callback) {
     callback({
-      'username': user,
-      'password': pass
+      '_username': user,
+      '_password': pass
     });
   };
 
