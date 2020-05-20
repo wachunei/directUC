@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
             {
               type: 'basic',
               title: 'Oops! No se pudo guardar tu usuario',
-              message: 'Verifica tus datos y/o conexiรณn a internet.',
+              message: 'Verifica tus datos y/o conexión a internet.',
               iconUrl: '../i/icon_256.png'
             },
             function (notifID) {
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
               chrome.notifications.create(
                 {
                   type: 'basic',
-                  title: 'Sesiรณn Iniciada como ' + bg.userFullName(),
+                  title: 'Sesión Iniciada como ' + bg.userFullName(),
                   message: '',
                   iconUrl: '../i/icon_256.png'
                 },

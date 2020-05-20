@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		chrome.notifications.create(
 			{
 				type: "basic",
-				title: "Debes Iniciar Sesi?n",
-				message: "Para usar directUC debes iniciar sesi?n en las opciones",
+				title: "Debes Iniciar Sesión",
+				message: "Para usar directUC debes iniciar sesión en las opciones",
 				iconUrl: "../i/icon_256.png"
 			},
 			function (notifID) {
