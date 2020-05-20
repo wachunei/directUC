@@ -12,7 +12,6 @@
   },
   "description": "Accede rápidamente a diferentes servicios de la UC.",
   "permissions": [
-    "https://*.uc.cl/*",
     "http://*.uc.cl/*",
     "https://*.uc.cl/*",
     "http://*.puc.cl/*",
