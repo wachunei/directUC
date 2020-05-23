@@ -1,0 +1,11 @@
+{
+  "name": "directUC",
+  "description": "Extensión para Google Chrome que permite a alumnos de la Pontificia Universidad Católica de Chile el ingreso directo a diferentes servicios ofrecidos por esta.",
+  "version": "1.0.0-alpha.0",
+  "main": "index.js",
+  "repository": "git@github.com:wachunei/directUC.git",
+  "author": "Pedro Pablo Aste Kompen <wachunei@gmail.com>",
+  "license": "MIT",
+  "private": false
+
+}
