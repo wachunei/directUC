@@ -1,9 +1,8 @@
-import { servicesActions } from "../redux/services";
+import { actions } from "../redux/services";
 
 const serviceActionsHandler = (handler) =>
-  Object.keys(servicesActions).reduce((acc, key) => {
-    acc[servicesActions[key].callAction] = (...params) =>
-      handler(key, ...params);
+  Object.keys(actions).reduce((acc, key) => {
+    acc[actions[key].callAction] = (...params) => handler(key, ...params);
     return acc;
   }, {});
 
