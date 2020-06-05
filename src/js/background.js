@@ -1,7 +1,7 @@
 import { wrapStore } from "webext-redux";
 import * as services from "./services";
 import configureStore from "./store";
-import { servicesActions } from "./reducers/services";
+import { servicesActions } from "./redux/services";
 import serviceActionsHandler from "./store/aliases";
 
 /* From: https://github.com/tshaddix/webext-redux

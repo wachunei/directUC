@@ -1,6 +1,6 @@
 import KeyMirror from "keymirror";
 
-export const actions = KeyMirror({
+const actions = KeyMirror({
   login: null,
   logout: null,
 });
@@ -10,7 +10,7 @@ const initialState = {
   password: "testing",
 };
 
-export const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.login: {
       return {
@@ -26,3 +26,5 @@ export const reducer = (state = initialState, action) => {
     }
   }
 };
+
+export default reducer;

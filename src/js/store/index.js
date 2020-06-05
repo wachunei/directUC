@@ -1,6 +1,6 @@
 import { createStore, compose, applyMiddleware } from "redux";
 import { logger } from "redux-logger";
-import reducers from "../reducers";
+import reducers from "../redux/reducers";
 // import { alias } from "webext-redux";
 
 const middlewares = [];
