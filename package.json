@@ -1,5 +1,5 @@
 {
-  "name": "directuc",
+  "name": "direct-uc",
   "description": "Extensión web que permite a alumnos y funcionarios de la Pontificia Universidad Católica de Chile el ingreso directo a diferentes servicios ofrecidos por esta.",
   "version": "1.0.0-alpha.0",
   "repository": "git@github.com:wachunei/directUC.git",
@@ -15,20 +15,27 @@
     "bundle:chrome": "TARGET=chrome yarn bundle",
     "bundle:firefox": "TARGET=firefox yarn bundle",
     "clean": "rimraf ./dist",
-    "chrome": "TARGET=chrome yarn clean && yarn manifest:chrome && yarn bundle:chrome",
-    "firefox": "TARGET=firefox yarn clean && yarn manifest:firefox && yarn bundle:firefox",
+    "chrome": "TARGET=chrome yarn clean && yarn manifest:chrome && yarn bundle:chrome --no-hmr",
+    "firefox": "TARGET=firefox yarn clean && yarn manifest:firefox && yarn bundle:firefox --no-hmr",
     "run:chrome": "web-ext run -t chromium --source-dir ./dist",
     "run:firefox": "web-ext run -t firefox-desktop --source-dir ./dist",
     "build": "parcel build src/manifest.json --no-content-hash",
     "build:chrome": "yarn clean && yarn manifest:chrome && TARGET=chrome yarn build",
-    "build:firefox": "yarn clean && yarn manifest:firefox && TARGET=firefox yarn build"
+    "build:firefox": "yarn clean && yarn manifest:firefox && TARGET=firefox yarn build",
+    "test": "jest"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  },
   "devDependencies": {
+    "@babel/core": "^7.10.1",
+    "@babel/preset-env": "^7.10.1",
+    "babel-jest": "^26.0.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.11.0",
@@ -38,6 +45,7 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^2.5.1",
     "husky": "^4.2.5",
+    "jest": "^26.0.1",
     "lint-staged": ">=10",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-web-extension": "^1.6.1",
@@ -45,7 +53,24 @@
     "rimraf": "^3.0.2",
     "web-ext": "^4.2.0"
   },
-  "lint-staged": {
-    "*.js": "eslint --cache --fix"
-  }
+  "dependencies": {
+    "keymirror": "^0.1.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "webext-redux": "^2.1.6",
+    "webextension-polyfill": "^0.6.0"
+  },
+  "jest": {
+    "rootDir": "src"
+  },
+  "browserslist": [
+    "last 5 Chrome versions",
+    "last 5 Firefox versions",
+    "last 5 Opera versions",
+    "last 5 Edge versions"
+  ]
 }

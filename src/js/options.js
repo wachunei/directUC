@@ -1,3 +1,3 @@
-import logger from "./test";
+import logger from "./logger";
 
 logger("options");
