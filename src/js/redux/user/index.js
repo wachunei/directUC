@@ -1,6 +1,6 @@
 import KeyMirror from "keymirror";
 
-const actions = KeyMirror({
+export const actions = KeyMirror({
   login: null,
   logout: null,
 });

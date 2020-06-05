@@ -1,1 +1,2 @@
-// TODO: action creators per reducer keys
+export { actions as services } from "./services";
+export { actions as user } from "./user";

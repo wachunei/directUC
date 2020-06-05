@@ -1,7 +1,7 @@
 import { wrapStore } from "webext-redux";
 import * as services from "./services";
 import configureStore from "./store";
-import { servicesActions } from "./redux/services";
+import * as actions from "./redux/actions";
 import serviceActionsHandler from "./store/aliases";
 
 /* From: https://github.com/tshaddix/webext-redux
@@ -49,6 +49,6 @@ const store = configureStore(aliases);
 wrapStore(store);
 
 if (process.env.NODE_ENV === "development") {
-  store.dispatch({ type: servicesActions.example.callAction });
+  store.dispatch({ type: actions.services.example.callAction });
   global.dispatch = store.dispatch;
 }

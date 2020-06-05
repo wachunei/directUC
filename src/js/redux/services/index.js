@@ -7,10 +7,10 @@ import createServicesActions from "./actions";
 import createServiceReducer from "./reducer";
 
 const initialStates = createInitialStates(services);
-export const servicesActions = createServicesActions(services);
+export const actions = createServicesActions(services);
 
 const servicesReducers = Object.keys(services).reduce((acc, key) => {
-  acc[key] = createServiceReducer(initialStates[key], servicesActions[key]);
+  acc[key] = createServiceReducer(initialStates[key], actions[key]);
   return acc;
 }, {});
 
