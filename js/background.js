@@ -434,7 +434,7 @@ var omniMailuc = {
   matchStrings: ['correo', 'mail', 'gmail']
 };
 
-
+var suggestedItem = "";
 chrome.omnibox.onInputChanged.addListener(
   function (text, _suggest) {
 
@@ -473,45 +473,51 @@ chrome.omnibox.onInputChanged.addListener(
     var fuse = new Fuse(suggestions, searchOptions);
     var searchResults = fuse.search(text);
     if (searchResults.length > 0) {
-      var suggestedItem = searchResults[0]['item'];
+      suggestedItem = searchResults[0]['item'];
+      console.log(suggestedItem)
       chrome.omnibox.setDefaultSuggestion({
         description: suggestedItem.description
       });
     }
   });
-
 chrome.omnibox.onInputEntered.addListener(
   function (_text) {
     var service;
-    switch (suggestedItem) {
-      case omniPortal:
+    switch (suggestedItem['content']) {
+      case omniPortal['content']:
         service = 'portal';
         break;
-      case omniCanvas:
+      case omniCanvas['content']:
         service = 'canvas';
         break;
-      case omniSiding:
+      case omniSiding['content']:
         service = 'siding';
         break;
-      case omniLabmat:
+      case omniLabmat['content']:
         service = 'labmat';
         break;
-      case omniAleph:
+      case omniAleph['content']:
         service = 'aleph';
         break;
-      case omniWebcursos:
+      case omniWebcursos['content']:
         service = 'webcursos';
         break;
-      case omniMailuc:
+      case omniMailuc['content']:
         service = 'mailuc';
         break;
+      default:
+        service = ''
+        break
     }
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      _gaq.push(['_trackEvent', 'Omnibox', 'clicked', service]);
-      omniRequest = true;
-      omniTabId = tabs[0].id;
-      directUC.login(user(), pass(), service, false);
-    });
+
+    if (service != '') {
+      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        _gaq.push(['_trackEvent', 'Omnibox', 'clicked', service]);
+        omniRequest = true;
+        omniTabId = tabs[0].id;
+        directUC.login(user(), pass(), service, false);
+      });
+    }
 
   }
 );
