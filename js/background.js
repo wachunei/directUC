@@ -474,14 +474,13 @@ chrome.omnibox.onInputChanged.addListener(
     var searchResults = fuse.search(text);
     if (searchResults.length > 0) {
       suggestedItem = searchResults[0]['item'];
-      console.log(suggestedItem)
       chrome.omnibox.setDefaultSuggestion({
         description: suggestedItem.description
       });
     }
   });
 chrome.omnibox.onInputEntered.addListener(
-  function (_text) {
+  function () {
     var service;
     switch (suggestedItem['content']) {
       case omniPortal['content']:
@@ -510,7 +509,7 @@ chrome.omnibox.onInputEntered.addListener(
         break
     }
 
-    if (service != '') {
+    if (service) {
       chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         _gaq.push(['_trackEvent', 'Omnibox', 'clicked', service]);
         omniRequest = true;
