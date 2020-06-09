@@ -411,7 +411,7 @@ var omniCanvas = {
 var omniSiding = {
   content: 'SIDING',
   description: '<match>SIDING</match> <dim>Ir a tu SIDING</dim>',
-  matchStrings: ['siding']
+  matchStrings: ['siding', 'ing']
 };
 var omniLabmat = {
   content: 'LABMAT',
@@ -431,9 +431,10 @@ var omniWebcursos = {
 var omniMailuc = {
   content: 'Correo UC',
   description: '<match>Correo UC</match> <dim>Ir a Correo UC</dim>',
-  matchStrings: ['correo', 'mail']
+  matchStrings: ['correo', 'mail', 'gmail']
 };
 
+var suggestedItem = "";
 chrome.omnibox.onInputChanged.addListener(
   function (text, _suggest) {
 
@@ -460,63 +461,62 @@ chrome.omnibox.onInputChanged.addListener(
       suggestions.push(omniMailuc);
     }
 
-    var suggested = false;
-
-    suggestions.forEach(function (item) {
-      var simpleText = text.toLowerCase().replace(/\s+/g, '');
-      item.matchStrings.forEach(function (matchString) {
-        if ((matchString.indexOf(simpleText) != -1) && !suggested) {
-          suggested = true;
-          suggestedItem = item;
-          chrome.omnibox.setDefaultSuggestion({
-            description: item.description
-          });
-        }
-      });
-    });
-
-    if (suggested) {
-      var index = suggestions.indexOf(suggestedItem);
-      suggestions.splice(index, 1);
+    // Fuzzy matcher
+    const searchOptions = {
+      includeScore: false,
+      isCaseSensitive: false,
+      keys: ['matchStrings'],
+      distance: 200,
+      includeMatches: false,
+      findAllMatches: true
     }
-
-    //suggest(suggestions);
-
-
+    var fuse = new Fuse(suggestions, searchOptions);
+    var searchResults = fuse.search(text);
+    if (searchResults.length > 0) {
+      suggestedItem = searchResults[0]['item'];
+      chrome.omnibox.setDefaultSuggestion({
+        description: suggestedItem.description
+      });
+    }
   });
-
 chrome.omnibox.onInputEntered.addListener(
-  function (_text) {
+  function () {
     var service;
-    switch (suggestedItem) {
-      case omniPortal:
+    switch (suggestedItem['content']) {
+      case omniPortal['content']:
         service = 'portal';
         break;
-      case omniCanvas:
+      case omniCanvas['content']:
         service = 'canvas';
         break;
-      case omniSiding:
+      case omniSiding['content']:
         service = 'siding';
         break;
-      case omniLabmat:
+      case omniLabmat['content']:
         service = 'labmat';
         break;
-      case omniAleph:
+      case omniAleph['content']:
         service = 'aleph';
         break;
-      case omniWebcursos:
+      case omniWebcursos['content']:
         service = 'webcursos';
         break;
-      case omniMailuc:
+      case omniMailuc['content']:
         service = 'mailuc';
         break;
+      default:
+        service = ''
+        break
     }
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      _gaq.push(['_trackEvent', 'Omnibox', 'clicked', service]);
-      omniRequest = true;
-      omniTabId = tabs[0].id;
-      directUC.login(user(), pass(), service, false);
-    });
+
+    if (service) {
+      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        _gaq.push(['_trackEvent', 'Omnibox', 'clicked', service]);
+        omniRequest = true;
+        omniTabId = tabs[0].id;
+        directUC.login(user(), pass(), service, false);
+      });
+    }
 
   }
 );

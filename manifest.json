@@ -28,6 +28,7 @@
   },
   "background": {
     "scripts": [
+      "js/fuse.js",
       "js/background.js"
     ],
     "persistent": true
