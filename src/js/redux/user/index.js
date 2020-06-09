@@ -6,16 +6,19 @@ export const actions = KeyMirror({
 });
 
 const initialState = {
-  username: "testeando",
-  password: "testing",
+  username: null,
+  password: null,
+  fullName: null,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.login: {
+      const { username, password, fullName } = action.payload;
       return {
-        username: action.payload.username,
-        password: action.payload.password,
+        username,
+        password,
+        fullName,
       };
     }
     case actions.logout: {

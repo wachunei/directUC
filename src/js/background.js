@@ -1,8 +1,8 @@
 import { wrapStore } from "webext-redux";
 import * as services from "./services";
-import configureStore from "./store";
 import * as actions from "./redux/actions";
 import serviceActionsHandler from "./store/aliases";
+import configureStore from "./store";
 
 /* From: https://github.com/tshaddix/webext-redux
  *
@@ -36,12 +36,11 @@ const aliases = {
     const state = await getState();
     const {
       user: { username, password },
-      services: servicesState,
+      services: { [serviceKey]: options },
     } = state;
-    const serviceOptions = servicesState[serviceKey];
 
-    // Services's actions are always called with arguments (username, password, serviceOptions)
-    await serviceAction(username, password, serviceOptions);
+    // Services's actions are always called with arguments (username, password, options)
+    await serviceAction(username, password, options);
   }),
 };
 
