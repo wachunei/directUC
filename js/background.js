@@ -376,7 +376,7 @@ var directUC = (function () {
 
   self.openMail = function (_user, _pass) {
 
-    var url = 'http://webaccess.uc.cl';
+    var url = 'https://mail.google.com/a/uc.cl';
     localStorage.setItem('mailuc-redirect', 1);
 
     if (optionSameTab() === true) {
