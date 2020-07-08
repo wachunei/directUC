@@ -201,11 +201,9 @@ var directUC = (function () {
         var responseDom = parser.parseFromString(req.responseText, 'text/html');
         if (responseDom.querySelectorAll('input[name=execution]').length > 0) {
           execution = responseDom.querySelectorAll('input[name=execution]')[0].getAttribute('value');
-          lt = responseDom.querySelectorAll('input[name=lt]')[0].getAttribute('value');
           dataObj = {
             'username': user,
             'password': pass,
-            'lt': lt,
             'execution': execution,
             '_eventId': 'submit',
             'submit': 'Iniciar Sesión'
@@ -238,8 +236,7 @@ var directUC = (function () {
 
   // Nothing to send with data, please refactor.
   self.dataObjects[self.services.canvas] = function (_user, _pass, callback) {
-    callback({
-    });
+    callback({});
   };
 
 
@@ -309,9 +306,11 @@ var directUC = (function () {
       chrome.tabs.update(omniTabId, {
         'url': redirect
       });
-    }
-    else if (optionSameTab() === true) {
-      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    } else if (optionSameTab() === true) {
+      chrome.tabs.query({
+        active: true,
+        currentWindow: true
+      }, function (tabs) {
         chrome.tabs.update(tabs[0].id, {
           'url': redirect
         });
@@ -510,7 +509,10 @@ chrome.omnibox.onInputEntered.addListener(
     }
 
     if (service) {
-      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      chrome.tabs.query({
+        active: true,
+        currentWindow: true
+      }, function (tabs) {
         _gaq.push(['_trackEvent', 'Omnibox', 'clicked', service]);
         omniRequest = true;
         omniTabId = tabs[0].id;
