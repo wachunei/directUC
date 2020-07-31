@@ -1,9 +1,9 @@
 import { actions } from "../redux/services";
 
-const serviceActionsHandler = (handler) =>
+const serviceActionsHandler = (action, handler) =>
   Object.keys(actions).reduce((acc, key) => {
-    acc[actions[key].callAction] = (action) => (dispatch, getState) =>
-      handler(key, action, { dispatch, getState });
+    acc[actions[key][action]] = (reduxAction) => (dispatch, getState) =>
+      handler(key, reduxAction, { dispatch, getState });
     return acc;
   }, {});
 

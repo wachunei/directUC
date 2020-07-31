@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import Notifications from "../../notifications";
 
-const Popup = ({ username, services }) => (
-  <>
-    <h1>username: {username}</h1>
-    <h2>services: {services}</h2>
-  </>
-);
+const Popup = ({ username, services }) => {
+  useEffect(async () => {
+    if (!username) {
+      await Notifications.createLoggedOut();
+      window.close();
+    }
+  }, [username]);
+
+  if (!username) {
+    return null;
+  }
+
+  return (
+    <>
+      <h1>username: {username}</h1>
+      <h2>services: {services}</h2>
+    </>
+  );
+};
 
 Popup.propTypes = {
   username: PropTypes.string.isRequired,

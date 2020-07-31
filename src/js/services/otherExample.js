@@ -9,7 +9,9 @@ export default {
     await new Promise((resolve) => {
       setTimeout(() => {
         // eslint-disable-next-line no-console
-        console.log(`Resolved otherExample ${username}:${password} ${email}`);
+        console.log(
+          `Resolved otherExample 5kms ${username}:${password} ${email}`
+        );
         resolve(true);
       }, amount || 2000);
     });

@@ -2,7 +2,7 @@ export const DEFAULT_OPTIONS = {
   display: true,
 };
 
-export const createServiceOptionsState = ({ options = {} }) => {
+export const createServiceOptionsState = ({ options }) => {
   if (options !== Object(options)) {
     return {};
   }
@@ -20,8 +20,8 @@ export const createServiceOptionsState = ({ options = {} }) => {
 export const createInitialStates = (services) =>
   Object.entries(services).reduce((acc, [key, service]) => {
     acc[key] = {
-      ...DEFAULT_OPTIONS,
       ...createServiceOptionsState(service),
+      ...DEFAULT_OPTIONS,
     };
     return acc;
   }, {});

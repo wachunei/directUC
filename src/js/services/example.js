@@ -10,7 +10,14 @@ export default {
       setTimeout(() => resolve(true), time || 2000);
     });
     // eslint-disable-next-line no-console
-    console.log(`Resolved example ${username}:${password}`);
+    console.log(`Resolved example ${username}:${password}`, new Date());
+  },
+  testDependency: {
+    depends: ["otherExample"],
+    action: async (username, password) => {
+      // eslint-disable-next-line no-console
+      console.log(`Resolved example ${username}:${password}`, new Date());
+    },
   },
   options: {
     time: {

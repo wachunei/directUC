@@ -2,7 +2,8 @@ import KeyMirror from "keymirror";
 
 export const actions = KeyMirror({
   login: null,
-  logout: null,
+  setUser: null,
+  clearUser: null,
 });
 
 const initialState = {
@@ -13,7 +14,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actions.login: {
+    case actions.setUser: {
       const { username, password, fullName } = action.payload;
       return {
         username,
@@ -21,7 +22,7 @@ const reducer = (state = initialState, action) => {
         fullName,
       };
     }
-    case actions.logout: {
+    case actions.clearUser: {
       return initialState;
     }
     default: {

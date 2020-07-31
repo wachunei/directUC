@@ -10,11 +10,14 @@ describe("createServiceOptionsState", () => {
       {
         options: {
           exampleOption: {
-            type: "boolean",
+            type: "checkbox",
             default: false,
+            options: {
+              hola: {},
+            },
           },
           "otherOption-WithWeirdName": {
-            type: "string",
+            type: "text",
             default: null,
           },
           undefinedOption: {
@@ -80,9 +83,9 @@ describe("createInitialStates", () => {
     };
 
     const result = {
-      a: { ...DEFAULT_OPTIONS, ...createServiceOptionsState(services.a) },
-      b: { ...DEFAULT_OPTIONS, ...createServiceOptionsState(services.b) },
-      c: { ...DEFAULT_OPTIONS, ...createServiceOptionsState(services.c) },
+      a: { ...createServiceOptionsState(services.a), ...DEFAULT_OPTIONS },
+      b: { ...createServiceOptionsState(services.b), ...DEFAULT_OPTIONS },
+      c: { ...createServiceOptionsState(services.c), ...DEFAULT_OPTIONS },
     };
 
     expect(createInitialStates(services)).toStrictEqual(result);
