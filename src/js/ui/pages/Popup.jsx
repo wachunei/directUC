@@ -1,17 +1,17 @@
 import React from "react";
 import { render } from "react-dom";
 import { Store } from "webext-redux";
-import { Provider } from "react-redux";
 
+import Providers from "./Providers";
 import Popup from "../containers/Popup";
 
 const store = new Store();
 
 store.ready().then(() => {
   render(
-    <Provider store={store}>
+    <Providers store={store}>
       <Popup />
-    </Provider>,
+    </Providers>,
     document.querySelector("#app")
   );
 });

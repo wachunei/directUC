@@ -1,6 +1,7 @@
 export default {
   id: "webcursos",
-  display: "WebCursos",
+  name: "Webcursos UC",
+  display: "Webcursos",
   description: "Webcursos UC",
 
   action: "login",
@@ -24,5 +25,8 @@ export default {
       cache: "no-cache",
     });
     return res.json();
+  },
+  options: {
+    display: false,
   },
 };

@@ -1,8 +1,8 @@
 export default {
   name: "Example Service",
-  id: "example",
+  id: "otherExample",
   description: "Example service used by directUC",
-  display: "Example",
+
   action: "login",
   login: async (username, password, options) => {
     const { amount, email } = options;

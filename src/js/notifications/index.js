@@ -37,6 +37,7 @@ class Notifications {
   }
 
   static createLoggedOut() {
+    Notifications.clear();
     return Notifications.create(Notifications.LOGGED_OUT, {
       title: "Debes Iniciar Sesión",
       message: "Para usar directUC haz click para iniciar sesión",
@@ -44,6 +45,7 @@ class Notifications {
   }
 
   static createLogOutSuccess() {
+    Notifications.clear();
     return Notifications.create(Notifications.LOG_OUT, {
       title: "Hemos olvidado tus datos correctamente",
       message: "Nos da penita que te vayas :(",
@@ -51,6 +53,7 @@ class Notifications {
   }
 
   static createLogInFailed() {
+    Notifications.clear();
     return Notifications.create(Notifications.LOG_IN_FAILED, {
       title: "Oops! No se pudo guardar tu usuario",
       message: "Verifica tus datos o conexión a internet",
@@ -58,6 +61,7 @@ class Notifications {
   }
 
   static createLogInSuccess(fullName) {
+    Notifications.clear();
     return Notifications.create(Notifications.LOG_IN_SUCCESS, {
       title: "Sesión Iniciada",
       message: `Bienvenido ${fullName}`,

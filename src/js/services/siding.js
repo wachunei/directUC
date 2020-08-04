@@ -17,8 +17,11 @@ export default {
     const { customCredentials, customUser, customPassword } = options;
     const body = new URLSearchParams();
 
-    body.append("login", customCredentials ? customUser : username);
-    body.append("passwd", customCredentials ? customPassword : password);
+    body.append("login", customCredentials ? customUser || username : username);
+    body.append(
+      "passwd",
+      customCredentials ? customPassword || password : password
+    );
 
     let attemps = 0;
 
@@ -65,12 +68,14 @@ export default {
       type: "text",
       depends: (options) => options.customCredentials,
       label: "Usuario",
+      caption: "Dejar en blanco para usar tu usuario original",
       default: "",
     },
     customPassword: {
       type: "password",
       depends: (options) => options.customCredentials,
       label: "Contraseña",
+      caption: "Dejar en blanco para usar tu contraseña original",
       default: "",
     },
   },

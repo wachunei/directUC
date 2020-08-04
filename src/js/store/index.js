@@ -1,9 +1,10 @@
 import { createStore, compose, applyMiddleware } from "redux";
-import { alias } from "webext-redux";
 import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import ReduxThunk from "redux-thunk";
+import { localStorage } from "redux-persist-webextension-storage";
+import { alias } from "webext-redux";
 import { logger } from "redux-logger";
+import ReduxThunk from "redux-thunk";
+import autoMergeLevel3 from "./autoMergeLevel3";
 
 import reducers from "../redux/reducers";
 
@@ -14,8 +15,9 @@ if (process.env.NODE_ENV === "development") {
 }
 
 const persistConfig = {
-  key: "root",
-  storage,
+  key: "localStorage",
+  storage: localStorage,
+  stateReconciler: autoMergeLevel3,
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);

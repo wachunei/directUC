@@ -2,7 +2,7 @@ import { wrapStore } from "webext-redux";
 import browser from "webextension-polyfill";
 import Notifications from "./notifications";
 
-import * as services from "./services";
+import services from "./services";
 import * as actions from "./redux/actions";
 import serviceActionsHandler from "./store/aliases";
 import configureStore from "./store";
@@ -57,10 +57,22 @@ const aliases = {
     Notifications.createLogOutSuccess();
   },
 
+  /** DIRECT MODE */
+  directMode: () => async (dispatch, getState) => {
+    const { options } = await getState();
+    const service = options.directModeService;
+    if (!service) {
+      return;
+    }
+    await dispatch({
+      type: `servicesActions.${service}.callActionAndRedirect`,
+    });
+  },
+
   /** SERVICES */
 
   /*
-   * Handler for actions { type:'serviceActions.<serviceKey>.callAction', payload: ... }
+   * Handler for actions { type:'servicesActions.<serviceKey>.callAction', payload: ... }
    *
    * `payload` is optional and it can have an
    * `action` key with the custom action to
@@ -143,7 +155,7 @@ const aliases = {
     }
   ),
   /*
-   * Handler for actions { type:'serviceActions.<serviceKey>.redirect' }
+   * Handler for actions { type:'servicesActions.<serviceKey>.redirect' }
    */
   ...serviceActionsHandler(
     "redirect",
@@ -167,7 +179,6 @@ const aliases = {
       } = await getState();
 
       // Get current options from state
-      // eslint-disable-next-line no-unused-vars
       const { options } = await getState();
 
       const redirectURL =
@@ -175,9 +186,11 @@ const aliases = {
           ? await serviceRedirect(username, password, serviceOptions)
           : serviceRedirect;
 
-      // TODO: grab same tab or new tab option
-      // eslint-disable-next-line no-constant-condition
-      if (false) {
+      if (!redirectURL) {
+        return;
+      }
+
+      if (options.sameTab) {
         const tabs = await browser.tabs.query({
           active: true,
         });
@@ -190,7 +203,7 @@ const aliases = {
     }
   ),
   /*
-   * Handler for actions { type:'serviceActions.<serviceKey>.callActionAndRedirect' }
+   * Handler for actions { type:'servicesActions.<serviceKey>.callActionAndRedirect' }
    */
   ...serviceActionsHandler(
     "callActionAndRedirect",

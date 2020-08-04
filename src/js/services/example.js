@@ -19,10 +19,4 @@ export default {
       console.log(`Resolved example ${username}:${password}`, new Date());
     },
   },
-  options: {
-    time: {
-      type: "Integer",
-      default: 3000,
-    },
-  },
 };

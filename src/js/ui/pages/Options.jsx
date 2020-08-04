@@ -1,17 +1,17 @@
 import React from "react";
 import { render } from "react-dom";
 import { Store } from "webext-redux";
-import { Provider } from "react-redux";
 
-import Options from "../containers/OptionsPage";
+import Providers from "./Providers";
+import Options from "../containers/Options";
 
 const store = new Store();
 
 store.ready().then(() => {
   render(
-    <Provider store={store}>
+    <Providers store={store}>
       <Options />
-    </Provider>,
+    </Providers>,
     document.querySelector("#app")
   );
 });

@@ -4,7 +4,8 @@
     "manifest_version": 2,
     "author": "Pedro Pablo Aste Kompen <wachunei@gmail.com>",
     "icons": {
-      "16": "img/icon_48.png",
+      "16": "img/icon_16.png",
+      "32": "img/icon_32.png",
       "48": "img/icon_48.png",
       "128": "img/icon_128.png",
       "256": "img/icon_256.png"
@@ -15,7 +16,8 @@
       "https://*.uc.cl/*",
       "http://*.puc.cl/*",
       "https://*.puc.cl/*",
-      "notifications"
+      "notifications",
+      "storage"
     ],
     "browser_action": {
       "default_icon": "img/icon_256.png",
@@ -33,7 +35,7 @@
     },
     "options_ui": {
       "page": "pages/options.html",
-      "chrome_style": true
+      "open_in_tab": true
     },
     "content_scripts": [],
     "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"

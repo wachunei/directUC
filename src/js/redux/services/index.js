@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import * as services from "../../services";
+import services from "../../services";
 
 import { createInitialStates } from "./initialStates";
 import createServicesActions from "./actions";

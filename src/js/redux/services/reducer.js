@@ -1,3 +1,5 @@
+import { actions as userActions } from "../user";
+
 const createServiceReducer = (initialState, actions) => (
   state = initialState,
   action
@@ -16,6 +18,9 @@ const createServiceReducer = (initialState, actions) => (
         ...state,
         [option]: initialState[option],
       };
+    }
+    case userActions.clearUser: {
+      return initialState;
     }
     default: {
       return state;
