@@ -14,7 +14,7 @@ const getDefaultValue = (type) => {
       return 0;
     }
     default: {
-      return null;
+      return undefined;
     }
   }
 };

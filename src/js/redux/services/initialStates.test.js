@@ -31,7 +31,7 @@ describe("createServiceOptionsState", () => {
       },
       {
         exampleOption: false,
-        "otherOption-WithWeirdName": null,
+        "otherOption-WithWeirdName": "",
         undefinedOption: undefined,
         number: 1,
       },
