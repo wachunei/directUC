@@ -1,18 +1,16 @@
 import styled, { css } from "styled-components";
 
 const Button = styled.button`
-  border-radius: 0;
   border: 0;
   padding: 0.5rem 1rem;
   font-size: 12px;
   text-shadow: none;
   font-weight: 500;
-  text-align:center;
+  text-align: center;
   text-transform: uppercase;
   cursor: pointer;
-	appearance: none;
+  appearance: none;
   transition: filter 0.1s;
-
 
   ${(props) =>
     props.block &&
@@ -48,7 +46,5 @@ const Button = styled.button`
   &:focus:not(:disabled) {
     filter: brightness(105%);
   }
-
-
 `;
 export default Button;
