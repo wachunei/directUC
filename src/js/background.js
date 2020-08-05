@@ -6,7 +6,7 @@ import services from "./services";
 import * as actions from "./redux/actions";
 import serviceActionsHandler from "./store/aliases";
 import configureStore from "./store";
-import omnibox from "./omnibox";
+import Omnibox from "./omnibox";
 
 import { parseDistinguishedName } from "./utils";
 
@@ -249,5 +249,5 @@ const aliases = {
 };
 
 const { store } = configureStore(aliases);
-omnibox(services, store);
+Omnibox(services, store);
 wrapStore(store);
