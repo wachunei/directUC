@@ -4,6 +4,7 @@ export default {
   display: "Webcursos",
   description: "Webcursos UC",
 
+  omnibox: ["webcursos"],
   action: "login",
   redirect: "http://webcurso.uc.cl/portal",
 

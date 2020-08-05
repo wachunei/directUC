@@ -6,6 +6,7 @@ import services from "./services";
 import * as actions from "./redux/actions";
 import serviceActionsHandler from "./store/aliases";
 import configureStore from "./store";
+import omnibox from "./omnibox";
 
 import { parseDistinguishedName } from "./utils";
 
@@ -66,6 +67,16 @@ const aliases = {
     }
     await dispatch({
       type: `servicesActions.${service}.callActionAndRedirect`,
+    });
+  },
+
+  /** OMNIBOX */
+  omnibox: (action) => async (dispatch) => {
+    const { payload: { service, disposition } = {} } = action;
+
+    await dispatch({
+      type: `servicesActions.${service}.callActionAndRedirect`,
+      payload: { disposition },
     });
   },
 
@@ -160,6 +171,14 @@ const aliases = {
   ...serviceActionsHandler(
     "redirect",
     async (serviceKey, action, { getState }) => {
+      /*
+       * `payload` is optional and can have a
+       * `disposition` key of type OnInputEnteredDisposition
+       * when coming from omnibox. See:
+       * https://developer.chrome.com/extensions/omnibox#type-OnInputEnteredDisposition
+       *
+       */
+      const { disposition } = action.payload || {};
       // Service is grabbed from the action.type constant
       const service = services[serviceKey];
       /*
@@ -189,8 +208,30 @@ const aliases = {
       if (!redirectURL) {
         return;
       }
-
-      if (options.sameTab) {
+      if (disposition) {
+        switch (disposition) {
+          case "newForegroundTab": {
+            browser.tabs.create({
+              url: redirectURL,
+            });
+            break;
+          }
+          case "newBackgroundTab": {
+            browser.tabs.create({
+              url: redirectURL,
+              active: false,
+            });
+            break;
+          }
+          case "currentTab":
+          default: {
+            const tabs = await browser.tabs.query({
+              active: true,
+            });
+            browser.tabs.update(tabs[0].id, { url: redirectURL, active: true });
+          }
+        }
+      } else if (options.sameTab) {
         const tabs = await browser.tabs.query({
           active: true,
         });
@@ -208,13 +249,20 @@ const aliases = {
   ...serviceActionsHandler(
     "callActionAndRedirect",
     async (serviceKey, action, { dispatch }) => {
-      await dispatch({ type: actions.services[serviceKey].callAction });
-      await dispatch({ type: actions.services[serviceKey].redirect });
+      await dispatch({
+        ...action,
+        type: actions.services[serviceKey].callAction,
+      });
+      await dispatch({
+        ...action,
+        type: actions.services[serviceKey].redirect,
+      });
     }
   ),
 };
 
 const { store } = configureStore(aliases);
+omnibox(services, store);
 wrapStore(store);
 
 if (process.env.NODE_ENV === "development") {

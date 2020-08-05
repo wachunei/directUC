@@ -54,6 +54,7 @@
     "web-ext": "^4.2.0"
   },
   "dependencies": {
+    "fuse.js": "^6.4.1",
     "keymirror": "^0.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

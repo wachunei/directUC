@@ -4,6 +4,7 @@ export default {
   description: "Siding UC",
 
   display: "SIDING",
+  omnibox: ["siding", "ing"],
   action: "login",
 
   redirect: (username, password, options) => {
