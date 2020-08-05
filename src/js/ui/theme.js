@@ -6,7 +6,7 @@ const theme = {
     body: "#505050",
     bodyBackground: "#FFFFFF",
     sectionBackground: "#FAFAFA",
-    serviceBackground: "#FCFCFC",
+    serviceBackground: "#FAFAFA",
     inputBorder: "#909090",
     inputBackground: "#FFFFFF",
     buttonBackground: "#E0E0E0",
