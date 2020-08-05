@@ -200,46 +200,33 @@ const aliases = {
       // Get current options from state
       const { options } = await getState();
 
-      const redirectURL =
+      const url =
         typeof serviceRedirect === "function"
           ? await serviceRedirect(username, password, serviceOptions)
           : serviceRedirect;
 
-      if (!redirectURL) {
+      if (!url) {
         return;
       }
       if (disposition) {
         switch (disposition) {
           case "newForegroundTab": {
-            browser.tabs.create({
-              url: redirectURL,
-            });
+            browser.tabs.create({ url });
             break;
           }
           case "newBackgroundTab": {
-            browser.tabs.create({
-              url: redirectURL,
-              active: false,
-            });
+            browser.tabs.create({ url, active: false });
             break;
           }
           case "currentTab":
           default: {
-            const tabs = await browser.tabs.query({
-              active: true,
-            });
-            browser.tabs.update(tabs[0].id, { url: redirectURL, active: true });
+            browser.tabs.update({ url });
           }
         }
       } else if (options.sameTab) {
-        const tabs = await browser.tabs.query({
-          active: true,
-        });
-        browser.tabs.update(tabs[0].id, { url: redirectURL, active: true });
+        browser.tabs.update({ url });
       } else {
-        browser.tabs.create({
-          url: redirectURL,
-        });
+        browser.tabs.create({ url });
       }
     }
   ),
@@ -264,7 +251,3 @@ const aliases = {
 const { store } = configureStore(aliases);
 omnibox(services, store);
 wrapStore(store);
-
-if (process.env.NODE_ENV === "development") {
-  global.dispatch = store.dispatch;
-}
