@@ -3,11 +3,9 @@ export default {
   name: "Webcursos UC",
   display: "Webcursos",
   description: "Webcursos UC",
-
   omnibox: ["webcursos"],
   action: "login",
   redirect: "http://webcurso.uc.cl/portal",
-
   login: (username, password) => {
     const body = new URLSearchParams();
     body.append("_username", username);

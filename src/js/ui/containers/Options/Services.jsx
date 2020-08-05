@@ -8,7 +8,7 @@ function Services() {
   const userOptions = useSelector((state) => state.services);
 
   const servicesToDisplay = Object.entries(services).filter(
-    ([, service]) => service.display
+    ([key, service]) => service.display && userOptions[key]
   );
   const displayedButtons = servicesToDisplay.filter(
     ([key]) => userOptions[key].display

@@ -104,7 +104,10 @@ const Popup = () => {
 
       {Object.entries(services)
         .filter(
-          ([key, service]) => service.display && servicesOptions[key].display
+          ([key, service]) =>
+            service.display &&
+            servicesOptions[key] &&
+            servicesOptions[key].display
         )
         .map(([key, service]) => (
           <Service

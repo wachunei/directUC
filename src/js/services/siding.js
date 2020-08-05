@@ -55,6 +55,7 @@ export default {
     await login();
   },
   options: {
+    display: false,
     redirectToCourses: {
       type: "checkbox",
       label: "Redirigir a Ing. cursos",

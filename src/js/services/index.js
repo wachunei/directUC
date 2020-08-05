@@ -1,11 +1,17 @@
-import example from "./example";
+import portaluc from "./portaluc";
 import siding from "./siding";
+import canvas from "./canvas";
+import labmat from "./labmat";
+import biblioteca from "./biblioteca";
 import webcursos from "./webcursos";
-import otherExample from "./otherExample";
+import ssocas from "./ssocas";
 
 export default {
-  example,
+  portaluc,
+  canvas,
   siding,
+  labmat,
+  biblioteca,
   webcursos,
-  otherExample,
+  ssocas,
 };
