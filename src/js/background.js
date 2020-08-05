@@ -1,5 +1,6 @@
 import { wrapStore } from "webext-redux";
 import browser from "webextension-polyfill";
+import semver from "semver";
 import Notifications from "./notifications";
 
 import services from "./services";
@@ -10,6 +11,7 @@ import Omnibox from "./omnibox";
 
 import { parseDistinguishedName } from "./utils";
 
+/** Aliases for webext-redux */
 /* From: https://github.com/tshaddix/webext-redux
  *
  * Sometimes you'll want to make sure the logic of your action
@@ -19,7 +21,7 @@ import { parseDistinguishedName } from "./utils";
  * https://github.com/tshaddix/webext-redux#4-optional-implement-actions-whose-logic-only-happens-in-the-background-script-we-call-them-aliases
  */
 const aliases = {
-  /** LOGIN */
+  /** USER */
   login: (action) => async (dispatch) => {
     const { payload: { username, password } = {} } = action;
 
@@ -54,7 +56,7 @@ const aliases = {
     Notifications.createLogInSuccess(fullName);
   },
   logout: () => (dispatch) => {
-    dispatch({ type: "clearUser" });
+    dispatch({ type: actions.user.clearUser });
     Notifications.createLogOutSuccess();
   },
 
@@ -251,3 +253,44 @@ const aliases = {
 const { store } = configureStore(aliases);
 Omnibox(services, store);
 wrapStore(store);
+
+/* Install and update listeners */
+
+browser.runtime.onInstalled.addListener(({ reason, previousVersion }) => {
+  const currentVersion = browser.runtime.getManifest().version;
+
+  if (reason === "install") {
+    // TODO: track install event
+  } else if (reason === "update") {
+    // We are receiving an update
+
+    // If the updated version is the same as the previous one do nothing
+    if (semver.eq(previousVersion, currentVersion)) {
+      return;
+    }
+
+    // If the current version is >=1.0.0
+    if (semver.gte(currentVersion, "1.0.0")) {
+      // If we are coming from the previous major version (0.x.x)
+      // we transfer the user data into the new version storage
+      // in case the user was logged in
+      if (semver.satisfies(previousVersion, ">=0.0.0 <1.0.0")) {
+        const username = localStorage.getItem("user");
+        const password = localStorage.getItem("pass");
+        const fullName = localStorage.getItem("user-fullname");
+
+        if (username && password && fullName) {
+          store.dispatch({
+            type: actions.user.setUser,
+            payload: { username, password, fullName },
+          });
+          Notifications.create(Notifications.OPEN_OPTIONS, {
+            title: "Descubre el nuevo directUC",
+            message: "Haz click y actualiza tus opciones",
+          });
+        }
+        localStorage.clear();
+      }
+    }
+  }
+});

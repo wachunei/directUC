@@ -11,6 +11,10 @@ class Notifications {
     return "logged_out_notification";
   }
 
+  static get OPEN_OPTIONS() {
+    return "open_options_notification";
+  }
+
   static get LOG_OUT() {
     return "log_out_notification";
   }
@@ -74,8 +78,9 @@ class Notifications {
 
   static handleClick(notificationId) {
     switch (notificationId) {
+      case Notifications.OPEN_OPTIONS:
       case Notifications.LOGGED_OUT: {
-        return Notifications.handleLoggedOutClick();
+        return Notifications.handleOpenOptions();
       }
       case Notifications.LOG_OUT: {
         return Notifications.handleLogOutClick();
@@ -92,7 +97,7 @@ class Notifications {
     }
   }
 
-  static handleLoggedOutClick() {
+  static handleOpenOptions() {
     browser.runtime.openOptionsPage();
     Notifications.clear();
   }
@@ -124,6 +129,7 @@ class Notifications {
   static clearAll() {
     [
       Notifications.LOGGED_OUT,
+      Notifications.OPEN_OPTIONS,
       Notifications.LOG_OUT,
       Notifications.LOG_IN_FAILED,
       Notifications.LOG_IN_SUCCESS,
