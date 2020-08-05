@@ -11,7 +11,6 @@ const Label = styled.span`
 const Caption = styled.span`
   margin-top: 0.2rem;
   display: block;
-  font-weight: normal;
   font-size: 12px;
 `;
 

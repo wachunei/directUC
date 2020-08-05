@@ -1,6 +1,35 @@
 import { createGlobalStyle } from "styled-components";
+import RedHatTextRegular from "../../../fonts/RedHatText-Regular.ttf";
+import RedHatTextMedium from "../../../fonts/RedHatText-Medium.ttf";
+import RedHatDisplayRegular from "../../../fonts/RedHatDisplay-Regular.ttf";
+import RedHatDisplayMedium from "../../../fonts/RedHatDisplay-Medium.ttf";
 
 export default createGlobalStyle`
+  @font-face {
+    font-family: "Red Hat Text";
+    font-weight: normal;
+    src: url(${RedHatTextRegular});
+    font-display: fallback;
+  }
+  @font-face {
+    font-family: "Red Hat Text";
+    font-weight: 500;
+    src: url(${RedHatTextMedium});
+    font-display: fallback;
+  }
+  @font-face {
+    font-family: "Red Hat Display";
+    font-weight: normal;
+    src: url(${RedHatDisplayRegular});
+    font-display: fallback;
+  }
+  @font-face {
+    font-family: "Red Hat Display";
+    font-weight: 500;
+    src: url(${RedHatDisplayMedium});
+    font-display: fallback;
+  }
+
   * {
     box-sizing: border-box;
     :focus {
