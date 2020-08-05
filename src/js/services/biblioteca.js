@@ -5,11 +5,14 @@ export default {
   display: "Biblioteca",
   omnibox: ["biblioteca"],
   action: "login",
-  redirect:
-    "http://bibliotecas.uc.cl/index.php?option=com_externallogin&view=server&server=1&redirect=101",
+  redirect: "http://bibliotecas.uc.cl/",
   login: {
     depends: ["ssocas"],
-    action: () => {},
+    action: async () => {
+      await fetch(
+        "http://bibliotecas.uc.cl/index.php?option=com_externallogin&view=server&server=1&redirect=101"
+      );
+    },
   },
   options: {
     display: false,
