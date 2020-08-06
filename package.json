@@ -15,13 +15,16 @@
     "bundle:chrome": "TARGET=chrome yarn bundle",
     "bundle:firefox": "TARGET=firefox yarn bundle",
     "clean": "rimraf ./dist",
+    "clean:build": "rimraf ./build",
+    "clean:build:chrome": "rimraf ./build/chrome",
+    "clean:build:firefox": "rimraf ./build/firefox",
     "chrome": "TARGET=chrome yarn clean && yarn manifest:chrome && yarn bundle:chrome --no-hmr",
     "firefox": "TARGET=firefox yarn clean && yarn manifest:firefox && yarn bundle:firefox --no-hmr",
     "run:chrome": "web-ext run -t chromium --source-dir ./dist",
     "run:firefox": "web-ext run -t firefox-desktop --source-dir ./dist",
     "build": "parcel build src/manifest.json --no-content-hash",
-    "build:chrome": "yarn clean && yarn manifest:chrome && TARGET=chrome yarn build --out-dir build/chrome",
-    "build:firefox": "yarn clean && yarn manifest:firefox && TARGET=firefox yarn build --out-dir build/firefox",
+    "build:chrome": "yarn clean:build:chrome && yarn manifest:chrome && TARGET=chrome yarn build --out-dir build/chrome",
+    "build:firefox": "yarn clean:build:firefox && yarn manifest:firefox && TARGET=firefox yarn build --out-dir build/firefox",
     "test": "jest"
   },
   "husky": {
