@@ -20,8 +20,8 @@
     "run:chrome": "web-ext run -t chromium --source-dir ./dist",
     "run:firefox": "web-ext run -t firefox-desktop --source-dir ./dist",
     "build": "parcel build src/manifest.json --no-content-hash",
-    "build:chrome": "yarn clean && yarn manifest:chrome && TARGET=chrome yarn build",
-    "build:firefox": "yarn clean && yarn manifest:firefox && TARGET=firefox yarn build",
+    "build:chrome": "yarn clean && yarn manifest:chrome && TARGET=chrome yarn build --out-dir build/chrome",
+    "build:firefox": "yarn clean && yarn manifest:firefox && TARGET=firefox yarn build --out-dir build/firefox",
     "test": "jest"
   },
   "husky": {
