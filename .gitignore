@@ -1,5 +1,6 @@
 src/manifest.json
 build/
+releases/
 web-ext-artifacts/
 
 # Created by https://www.gitignore.io/api/node,react,macos

@@ -1,13 +1,14 @@
 {
   "name": "direct-uc",
   "description": "Extensión web que permite a alumnos y funcionarios de la Pontificia Universidad Católica de Chile el ingreso directo a diferentes servicios ofrecidos por esta.",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0",
   "repository": "git@github.com:wachunei/directUC.git",
   "author": "Pedro Pablo Aste Kompen <wachunei@gmail.com>",
   "license": "MIT",
   "private": false,
   "scripts": {
     "lint": "eslint .",
+    "test": "jest",
     "manifest": "node src/manifest/generate",
     "manifest:chrome": "TARGET=chrome yarn manifest",
     "manifest:firefox": "TARGET=firefox yarn manifest",
@@ -25,7 +26,8 @@
     "build": "parcel build src/manifest.json --no-content-hash",
     "build:chrome": "yarn clean:build:chrome && yarn manifest:chrome && TARGET=chrome yarn build --out-dir build/chrome",
     "build:firefox": "yarn clean:build:firefox && yarn manifest:firefox && TARGET=firefox yarn build --out-dir build/firefox",
-    "test": "jest"
+    "pack:chrome": "yarn web-ext build -s build/chrome -a releases/chrome",
+    "pack:firefox": "yarn web-ext build -s build/firefox -a releases/firefox"
   },
   "husky": {
     "hooks": {
