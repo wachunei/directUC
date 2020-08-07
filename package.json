@@ -27,7 +27,8 @@
     "build:chrome": "yarn clean:build:chrome && yarn manifest:chrome && TARGET=chrome yarn build --out-dir build/chrome",
     "build:firefox": "yarn clean:build:firefox && yarn manifest:firefox && TARGET=firefox yarn build --out-dir build/firefox",
     "pack:chrome": "yarn web-ext build -s build/chrome -a releases/chrome",
-    "pack:firefox": "yarn web-ext build -s build/firefox -a releases/firefox"
+    "pack:firefox": "yarn web-ext build -s build/firefox -a releases/firefox",
+    "version": "yarn auto-changelog -p --hide-credit && git add CHANGELOG.md"
   },
   "husky": {
     "hooks": {
@@ -40,6 +41,7 @@
   "devDependencies": {
     "@babel/core": "^7.10.1",
     "@babel/preset-env": "^7.10.1",
+    "auto-changelog": "^2.2.0",
     "babel-jest": "^26.0.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
