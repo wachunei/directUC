@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 const fs = require("fs");
 const path = require("path");
+const pkg = require("../../package.json");
 
 async function generate() {
   console.log(`--- 📄 Generating manifest for target: ${process.env.TARGET}`);
@@ -18,6 +19,7 @@ async function generate() {
   const data = JSON.stringify(
     {
       ...base,
+      version: pkg.version,
       ...(process.env.TARGET === "chrome" ? chrome : firefox),
     },
     null,
