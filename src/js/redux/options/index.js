@@ -5,7 +5,7 @@ export const actions = KeyMirror({
   setOption: null,
 });
 
-const initialState = {
+export const initialState = {
   sameTab: false,
   directMode: false,
   directModeService: "",
@@ -15,6 +15,9 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.setOption: {
       const { option, value } = action.payload;
+      if (!Object.keys(initialState).includes(option)) {
+        return state;
+      }
       return {
         ...state,
         [option]: value,
