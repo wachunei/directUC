@@ -25,8 +25,8 @@ const CurrentUserContainer = styled.div`
 
 const CurrentUser = styled.span`
   padding: 0.3rem 0.6rem;
-  color: white;
-  background: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.currentUserBackground};
+  background: ${(props) => props.theme.currentUserForeground};
 `;
 
 const initialFormState = {

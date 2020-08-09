@@ -19,8 +19,8 @@ const CheckMark = styled.span`
   display: inline-block;
   width: 1rem;
   height: 1rem;
-  background: ${(props) => props.theme.colors.inputBackground};
-  border: 1px solid ${(props) => props.theme.colors.inputBorder};
+  background: ${(props) => props.theme.inputBackground};
+  border: 1px solid ${(props) => props.theme.inputBorder};
   margin-right: 0.8rem;
   flex: none;
   position: relative;
@@ -34,7 +34,7 @@ const CheckMark = styled.span`
     left: 0;
     width: 0.4rem;
     height: 0.8rem;
-    border: 2px solid ${(props) => props.theme.colors.primary};
+    border: 2px solid ${(props) => props.theme.checkMark};
     border-width: 0 2px 2px 0;
     transform: translate(100%, 15%) rotate(45deg);
     transform-origin: 100% 0%;
@@ -42,7 +42,7 @@ const CheckMark = styled.span`
   }
 
   ${Label}:hover & {
-    border: 1px solid ${(props) => props.theme.colors.primary};
+    border: 1px solid ${(props) => props.theme.checkboxHoverBorder};
   }
 `;
 
@@ -53,8 +53,8 @@ const CheckboxInput = styled.input.attrs({
   opacity: 0;
   pointer-events: none;
   &:focus ~ ${CheckMark} {
-    border: 1px solid ${(props) => props.theme.colors.primary};
-    outline: 1px solid ${(props) => props.theme.colors.primary};
+    border: 1px solid ${(props) => props.theme.checkboxFocusBorder};
+    outline: 1px solid ${(props) => props.theme.checkboxFocusBorder};
   }
   &:checked ~ ${CheckMark}::after {
     opacity: 1;

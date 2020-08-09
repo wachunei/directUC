@@ -21,13 +21,13 @@ const Button = styled.button`
 
   background: ${(props) =>
     props.primary
-      ? props.theme.colors.buttonBackgroundPrimary
-      : props.theme.colors.buttonBackground};
+      ? props.theme.buttonBackgroundPrimary
+      : props.theme.buttonBackground};
 
   color: ${(props) =>
     props.primary
-      ? props.theme.colors.buttonForegroundPrimary
-      : props.theme.colors.buttonForeground};
+      ? props.theme.buttonForegroundPrimary
+      : props.theme.buttonForeground};
 
   &:disabled {
     cursor: not-allowed;

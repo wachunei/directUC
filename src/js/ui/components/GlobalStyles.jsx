@@ -33,22 +33,22 @@ export default createGlobalStyle`
   * {
     box-sizing: border-box;
     :focus {
-      outline: 1px solid ${(props) => props.theme.colors.primary};
+      outline: 1px solid ${(props) => props.theme.outline};
     }
   }
 
   ::selection {
-    background: ${(props) => props.theme.colors.primary};
-    color: white;
+    background: ${(props) => props.theme.selectionBackground};
+    color: ${(props) => props.theme.selectionForeground};
   }
 
   body {
-    background: ${(props) => props.theme.colors.bodyBackground};
+    background: ${(props) => props.theme.bodyBackground};
     margin: 0 auto;
     padding: 0;
     font-family: "Red Hat Text", sans-serif;
     font-size: 16px;
-    color: ${(props) => props.theme.colors.body};
+    color: ${(props) => props.theme.body};
   }
 
   input,
@@ -56,13 +56,13 @@ export default createGlobalStyle`
   select {
     font-family: "Red Hat Text", sans-serif;
     font-size: 16px;
-    color: ${(props) => props.theme.colors.body};
+    color: ${(props) => props.theme.body};
   }
 `;
 
 export const OptionsStyle = createGlobalStyle`
   body {
-    background: ${(props) => props.theme.colors.bodyBackground};
+    background: ${(props) => props.theme.bodyBackground};
     width: 100%;
     max-width: 700px;
   }
@@ -70,7 +70,7 @@ export const OptionsStyle = createGlobalStyle`
 
 export const PopupStyle = createGlobalStyle`
   body {
-    background: ${(props) => props.theme.colors.popupBackground};
+    background: ${(props) => props.theme.popupBackground};
     padding: 10px 15px;
     width: 250px;
     position: relative;
@@ -79,7 +79,7 @@ export const PopupStyle = createGlobalStyle`
 
 export const PopupDirectModeStyle = createGlobalStyle`
   body {
-    background: ${(props) => props.theme.colors.popupBackground};
+    background: ${(props) => props.theme.popupBackground};
     padding: 10px;
     display: flex;
     align-items: center;
