@@ -25,10 +25,8 @@ jobs:
             - name: Install dependencies
             #   if: steps.yarn-cache.outputs.cache-hit != 'true'
               run: yarn --frozen-lockfile
-            - name: Get Release Changelog
-              id: get-release-changelog
-              run: echo "::set-output name=changelog::$(yarn run --silent changelog:release --starting-version v1.0.1)"
+            # - name: Get Release Changelog
+            #   id: get-release-changelog
+            #   run: echo "::set-output name=changelog::$(yarn run --silent changelog:release --starting-version v1.0.1)"
             - name: Print Changelog
-              env:
-                OUTPUT: ${{ steps.get-release-changelog.outputs.changelog }}
-              run: echo "$OUTPUT"
+              run: echo "$(yarn run --silent changelog:release --starting-version v1.0.1)"
