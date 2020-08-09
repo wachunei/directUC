@@ -25,7 +25,7 @@ jobs:
             - name: Install dependencies
             #   if: steps.yarn-cache.outputs.cache-hit != 'true'
               run: yarn --frozen-lockfile
-            - name: Get Release Changelog with yarn using realease.sh script
+            - name: Get Release Changelog with yarn using release.sh script
               id: get-release-changelog
               run: |
                 text="$(yarn run --silent changelog:release --starting-version v1.0.1)"
@@ -43,15 +43,8 @@ jobs:
                 text="${text//$'\n'/'%0A'}"
                 text="${text//$'\r'/'%0D'}"
                 echo "$text"
-            - name: Stdout
+            - name: word count with release.sh
               run: |
-                yarn --version
-                yarn run --silent auto-changelog --stdout -t ./.changelog/release-template.hbs --starting-version v1.0.1 > output
-                cat output
-                text="$(cat output)"
-                text="${text//'%'/'%25'}"
-                text="${text//$'\n'/'%0A'}"
-                text="${text//$'\r'/'%0D'}"
-                echo "$text"
+                yarn run --silent changelog:release --starting-version v1.0.1 | wc
             - name: Print Changelog
               run: echo "${{ steps.get-release-changelog.outputs.changelog }}"
