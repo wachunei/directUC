@@ -29,6 +29,7 @@ jobs:
               id: get-release-changelog
               run: |
                 text="$(yarn run --silent changelog:release --starting-version v1.0.1)"
+                echo "$text"
                 text="${text//'%'/'%25'}"
                 text="${text//$'\n'/'%0A'}"
                 text="${text//$'\r'/'%0D'}"
