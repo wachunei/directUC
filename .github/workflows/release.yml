@@ -56,5 +56,13 @@ jobs:
                 text="${text//$'\n'/'%0A'}"
                 text="${text//$'\r'/'%0D'}"
                 echo "$text"
+            - name: Get Release Changelog with default template
+              run: |
+                text="$(yarn run --silent auto-changelog --stdout --starting-version v1.0.1)"
+                echo "$text"
+                text="${text//'%'/'%25'}"
+                text="${text//$'\n'/'%0A'}"
+                text="${text//$'\r'/'%0D'}"
+                echo "$text"
             - name: Print Changelog
               run: echo "${{ steps.get-release-changelog.outputs.changelog }}"
