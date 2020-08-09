@@ -1,0 +1,26 @@
+name: checks
+on: [push]
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+              node: ['10', '12', '14']
+        name: Lint [node ${{ matrix.node }}]
+        steps:
+            - uses: actions/checkout
+            - uses: actions/setup-node@v2-beta
+              with:
+                node-version: ${{ matrix.node }}
+            - uses: actions/cache@v2
+              id: yarn-cache
+              with:
+                path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-yarn-
+            - name: Install dependencies
+              run: yarn --frozen-lockfile
+            - name: Lint
+              run: yarn lint
+
