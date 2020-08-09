@@ -1,11 +1,11 @@
 name: release
-on: [push]
+on:
+  push:
+    tags:
+      - 'v*'
 jobs:
     create-release:
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-              node: ['10']
         name: create-release
         steps:
             - uses: actions/checkout@v2
@@ -13,7 +13,7 @@ jobs:
                 fetch-depth: 0
             - uses: actions/setup-node@v2-beta
               with:
-                node-version: ${{ matrix.node }}
+                node-version: "10"
             - name: Get yarn cache directory path
               id: yarn-cache-dir-path
               run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -27,13 +27,24 @@ jobs:
             - name: Install dependencies
             #   if: steps.yarn-cache.outputs.cache-hit != 'true'
               run: yarn --frozen-lockfile
-            - name: Get Release Changelog with yarn using release.sh script
+            - name: Get Release Changelog
               id: get-release-changelog
               run: |
-                text="$(yarn run --silent changelog:release --starting-version v1.0.1)"
+                text="$(yarn run --silent changelog:release --starting-version ${{ github.ref }})"
                 text="${text//'%'/'%25'}"
                 text="${text//$'\n'/'%0A'}"
                 text="${text//$'\r'/'%0D'}"
                 echo "::set-output name=changelog::$text"
-            - name: Print Changelog
+            - name: Print Release Changelog
               run: echo "${{ steps.get-release-changelog.outputs.changelog }}"
+            - name: Create Draft Release
+              id: create-draft-release
+              uses: actions/create-release@v1
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                tag_name: ${{ github.ref }}
+                release_name: Release ${{ github.ref }}
+                body: ${{ steps.get-release-changelog.outputs.changelog }}
+                draft: true
+                prerelease: false
