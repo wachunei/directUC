@@ -1,0 +1,87 @@
+name: develop-checks
+on:
+  pull_request:
+  push:
+    branches:
+      - develop
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+              node: ['10']
+        name: lint
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2-beta
+              with:
+                node-version: ${{ matrix.node }}
+            - name: Get yarn cache directory path
+              id: yarn-cache-dir-path
+              run: echo "::set-output name=dir::$(yarn cache dir)"
+            - uses: actions/cache@v2
+              id: yarn-cache
+              with:
+                path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-yarn-
+            - name: Install dependencies
+            #   if: steps.yarn-cache.outputs.cache-hit != 'true'
+              run: yarn --frozen-lockfile
+            - name: Lint
+              run: yarn lint
+    test:
+        needs: lint
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+              node: ['10']
+        name: test
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2-beta
+              with:
+                node-version: ${{ matrix.node }}
+            - name: Get yarn cache directory path
+              id: yarn-cache-dir-path
+              run: echo "::set-output name=dir::$(yarn cache dir)"
+            - uses: actions/cache@v2
+              id: yarn-cache
+              with:
+                path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-yarn-
+            - name: Install dependencies
+              # if: steps.yarn-cache.outputs.cache-hit != 'true'
+              run: yarn --frozen-lockfile
+            - name: Run Tests
+              run: yarn test
+    build:
+        needs: test
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+              node: ['10']
+              target: ['firefox', 'chrome']
+        name: build
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2-beta
+              with:
+                node-version: ${{ matrix.node }}
+            - name: Get yarn cache directory path
+              id: yarn-cache-dir-path
+              run: echo "::set-output name=dir::$(yarn cache dir)"
+            - uses: actions/cache@v2
+              id: yarn-cache
+              with:
+                path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-yarn-
+            - name: Install dependencies
+              run: yarn --frozen-lockfile
+            - name: Build (${{ matrix.target}})
+              run: yarn build:${{ matrix.target }} && yarn pack:${{ matrix.target }}
