@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconButton Component should match snapshot 1`] = `
+.c0 {
+  all: unset;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  -webkit-transition: filter 0.2s;
+  transition: filter 0.2s;
+}
+
+.c0:hover {
+  -webkit-filter: brightness(50%);
+  filter: brightness(50%);
+}
+
+.c0:focus:not(:hover) {
+  outline-width: 2px;
+}
+
+.c0:focus:hover {
+  outline: none;
+}
+
+<button
+  className="c0"
+/>
+`;

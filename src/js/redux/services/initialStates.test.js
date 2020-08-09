@@ -9,6 +9,7 @@ describe("createServiceOptionsState", () => {
     [
       {
         options: {
+          display: false,
           exampleOption: {
             type: "checkbox",
             default: false,
@@ -23,19 +24,34 @@ describe("createServiceOptionsState", () => {
           undefinedOption: {
             type: "date",
           },
-          number: {
+          numberWithoutType: {
             default: 1,
             depends: (options) => options.exampleOption,
+          },
+          number: {
+            type: "number",
+            default: 42,
+            depends: (options) => options.exampleOption,
+          },
+          numberWithoutDefault: {
+            type: "number",
+          },
+          aCheckbox: {
+            type: "checkbox",
           },
         },
       },
       {
+        display: false,
         exampleOption: false,
         "otherOption-WithWeirdName": "",
         undefinedOption: undefined,
-        number: 1,
+        number: 42,
+        numberWithoutDefault: 0,
+        aCheckbox: false,
       },
     ],
+    [{ options: { display: true } }, { display: true }],
     [
       {
         options: {
@@ -74,6 +90,7 @@ describe("createInitialStates", () => {
         name: "My test service",
         options: {
           number: {
+            type: "number",
             default: 1,
             depends: (options) => options.exampleOption,
           },
