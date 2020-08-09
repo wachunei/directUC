@@ -32,6 +32,7 @@ jobs:
                 text="${text//'%'/'%25'}"
                 text="${text//$'\n'/'%0A'}"
                 text="${text//$'\r'/'%0D'}"
+                echo "$text"
                 echo "::set-output name=changelog::$text"
             - name: Print Changelog
               run: echo "${{ steps.get-release-changelog.outputs.changelog }}"
