@@ -7,15 +7,12 @@ on:
 jobs:
     lint:
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-              node: ['10']
         name: lint
         steps:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v2-beta
               with:
-                node-version: ${{ matrix.node }}
+                node-version: '10'
             - name: Get yarn cache directory path
               id: yarn-cache-dir-path
               run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -34,15 +31,12 @@ jobs:
     test:
         needs: lint
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-              node: ['10']
         name: test
         steps:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v2-beta
               with:
-                node-version: ${{ matrix.node }}
+                node-version: '10'
             - name: Get yarn cache directory path
               id: yarn-cache-dir-path
               run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -63,14 +57,13 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-              node: ['10']
               target: ['firefox', 'chrome']
         name: build
         steps:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v2-beta
               with:
-                node-version: ${{ matrix.node }}
+                node-version: '10'
             - name: Get yarn cache directory path
               id: yarn-cache-dir-path
               run: echo "::set-output name=dir::$(yarn cache dir)"
