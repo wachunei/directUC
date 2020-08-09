@@ -29,7 +29,7 @@
     "pack:chrome": "yarn web-ext build -s build/chrome -a releases/chrome",
     "pack:firefox": "yarn web-ext build -s build/firefox -a releases/firefox",
     "version": "auto-changelog -p -t ./.changelog/changelog-template.hbs && git add CHANGELOG.md",
-    "changelog:release": "./.changelog/release.sh"
+    "changelog:release": "auto-changelog --stdout"
   },
   "husky": {
     "hooks": {

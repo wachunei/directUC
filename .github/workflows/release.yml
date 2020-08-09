@@ -28,7 +28,7 @@ jobs:
             - name: Get Release Changelog with yarn using release.sh script
               id: get-release-changelog
               run: |
-                text="$(yarn run --silent changelog:release --starting-version v1.0.1)"
+                text="$(yarn run --silent changelog:release --starting-version v1.0.0)"
                 echo "$text"
                 text="${text//'%'/'%25'}"
                 text="${text//$'\n'/'%0A'}"
@@ -37,7 +37,7 @@ jobs:
                 echo "::set-output name=changelog::$text"
             - name: Get Release Changelog with yarn
               run: |
-                text="$(yarn run --silent auto-changelog --stdout -t ./.changelog/release-template.hbs --starting-version v1.0.1)"
+                text="$(yarn run --silent auto-changelog --stdout -t ./.changelog/release-template.hbs --starting-version v1.0.0)"
                 echo "$text"
                 text="${text//'%'/'%25'}"
                 text="${text//$'\n'/'%0A'}"
@@ -45,12 +45,12 @@ jobs:
                 echo "$text"
             - name: word count with release.sh
               run: |
-                yarn run --silent changelog:release --starting-version v1.0.1 | wc
-                yarn run changelog:release --starting-version v1.0.1
-                yarn run changelog:release --starting-version v1.0.1 | wc
+                yarn run --silent changelog:release --starting-version v1.0.0 | wc
+                yarn run changelog:release --starting-version v1.0.0
+                yarn run changelog:release --starting-version v1.0.0 | wc
             - name: Get Release Changelog with yarn bin
               run: |
-                text="$($(yarn bin)/auto-changelog --stdout -t ./.changelog/release-template.hbs --starting-version v1.0.1)"
+                text="$($(yarn bin)/auto-changelog --stdout -t ./.changelog/release-template.hbs --starting-version v1.0.0)"
                 echo "$text"
                 text="${text//'%'/'%25'}"
                 text="${text//$'\n'/'%0A'}"
@@ -58,7 +58,7 @@ jobs:
                 echo "$text"
             - name: Get Release Changelog with default template
               run: |
-                text="$(yarn run --silent auto-changelog --stdout --starting-version v1.0.1)"
+                text="$(yarn run --silent auto-changelog --stdout --starting-version v1.0.0)"
                 echo "$text"
                 text="${text//'%'/'%25'}"
                 text="${text//$'\n'/'%0A'}"
