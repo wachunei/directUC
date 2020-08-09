@@ -43,5 +43,15 @@ jobs:
                 text="${text//$'\n'/'%0A'}"
                 text="${text//$'\r'/'%0D'}"
                 echo "$text"
+            - name: Stdout
+              run: |
+                yarn --version
+                yarn run --silent auto-changelog --stdout -t ./.changelog/release-template.hbs --starting-version v1.0.1 > output
+                cat output
+                text="$(cat output)"
+                text="${text//'%'/'%25'}"
+                text="${text//$'\n'/'%0A'}"
+                text="${text//$'\r'/'%0D'}"
+                echo "$text"
             - name: Print Changelog
               run: echo "${{ steps.get-release-changelog.outputs.changelog }}"
