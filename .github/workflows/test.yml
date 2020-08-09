@@ -1,12 +1,16 @@
-name: checks
-on: [push]
+name: test
+on:
+  pull_request:
+  push:
+    branches:
+      - develop
 jobs:
     lint:
         runs-on: ubuntu-latest
         strategy:
             matrix:
               node: ['10']
-        name: lint
+        name: test
         steps:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v2-beta
@@ -25,5 +29,5 @@ jobs:
             - name: Install dependencies
               if: steps.yarn-cache.outputs.cache-hit != 'true'
               run: yarn --frozen-lockfile
-            - name: Lint
-              run: yarn lint
+            - name: Run Tests
+              run: yarn test
