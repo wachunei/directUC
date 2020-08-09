@@ -48,5 +48,13 @@ jobs:
                 yarn run --silent changelog:release --starting-version v1.0.1 | wc
                 yarn run changelog:release --starting-version v1.0.1
                 yarn run changelog:release --starting-version v1.0.1 | wc
+            - name: Get Release Changelog with yarn bin
+              run: |
+                text="$($(yarn bin)/auto-changelog --stdout -t ./.changelog/release-template.hbs --starting-version v1.0.1)"
+                echo "$text"
+                text="${text//'%'/'%25'}"
+                text="${text//$'\n'/'%0A'}"
+                text="${text//$'\r'/'%0D'}"
+                echo "$text"
             - name: Print Changelog
               run: echo "${{ steps.get-release-changelog.outputs.changelog }}"
