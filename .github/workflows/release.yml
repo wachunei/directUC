@@ -9,6 +9,8 @@ jobs:
         name: create-release
         steps:
             - uses: actions/checkout@v2
+              with:
+                fetch-depth: 0
             - uses: actions/setup-node@v2-beta
               with:
                 node-version: ${{ matrix.node }}
@@ -28,41 +30,10 @@ jobs:
             - name: Get Release Changelog with yarn using release.sh script
               id: get-release-changelog
               run: |
-                text="$(yarn run --silent changelog:release)"
-                echo "$text"
+                text="$(yarn run --silent changelog:release --starting-version v1.0.1)"
                 text="${text//'%'/'%25'}"
                 text="${text//$'\n'/'%0A'}"
                 text="${text//$'\r'/'%0D'}"
-                echo "$text"
                 echo "::set-output name=changelog::$text"
-            - name: Get Release Changelog with yarn
-              run: |
-                text="$(yarn run --silent auto-changelog --stdout -t ./.changelog/release-template.hbs)"
-                echo "$text"
-                text="${text//'%'/'%25'}"
-                text="${text//$'\n'/'%0A'}"
-                text="${text//$'\r'/'%0D'}"
-                echo "$text"
-            - name: word count with release.sh
-              run: |
-                yarn run --silent changelog:release  | wc
-                yarn run changelog:release
-                yarn run changelog:release  | wc
-            - name: Get Release Changelog with yarn bin
-              run: |
-                text="$($(yarn bin)/auto-changelog --stdout -t ./.changelog/release-template.hbs)"
-                echo "$text"
-                text="${text//'%'/'%25'}"
-                text="${text//$'\n'/'%0A'}"
-                text="${text//$'\r'/'%0D'}"
-                echo "$text"
-            - name: Get Release Changelog with default template
-              run: |
-                text="$(yarn run --silent auto-changelog --stdout )"
-                echo "$text"
-                text="${text//'%'/'%25'}"
-                text="${text//$'\n'/'%0A'}"
-                text="${text//$'\r'/'%0D'}"
-                echo "$text"
             - name: Print Changelog
               run: echo "${{ steps.get-release-changelog.outputs.changelog }}"
