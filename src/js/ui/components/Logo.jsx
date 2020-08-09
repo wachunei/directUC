@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "styled-components";
 
 export default function Logo({ ...props }) {
+  const { brandColor } = useContext(ThemeContext);
   return (
     <svg
       width="65"
       height="22"
       viewBox="0 0 65 22"
-      fill="#000"
+      fill={brandColor}
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >

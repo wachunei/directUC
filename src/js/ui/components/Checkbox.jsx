@@ -19,7 +19,7 @@ const CheckMark = styled.span`
   display: inline-block;
   width: 1rem;
   height: 1rem;
-  background: ${(props) => props.theme.inputBackground};
+  background: ${(props) => props.theme.checkboxBackground};
   border: 1px solid ${(props) => props.theme.inputBorder};
   margin-right: 0.8rem;
   flex: none;

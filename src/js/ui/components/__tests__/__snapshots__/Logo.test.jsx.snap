@@ -2,7 +2,7 @@
 
 exports[`Logo Component should accept props 1`] = `
 <svg
-  fill="#000"
+  fill="#000000"
   height="22"
   viewBox="0 0 65 22"
   width="200px"
@@ -16,7 +16,7 @@ exports[`Logo Component should accept props 1`] = `
 
 exports[`Logo Component should match snapshot 1`] = `
 <svg
-  fill="#000"
+  fill="#000000"
   height="22"
   viewBox="0 0 65 22"
   width="65"

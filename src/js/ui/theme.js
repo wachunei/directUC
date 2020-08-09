@@ -1,16 +1,50 @@
 const colors = {
   primary: "#1F95EB",
+  black: "#000000",
   white: "#FFFFFF",
   gray0: "#FAFAFA",
   gray1: "#E0E0E0",
   gray2: "#909090",
   gray3: "#505050",
   gray4: "#303030",
+  gray5: "#202020",
+  gray6: "#191919",
+  gray7: "#101010",
+};
+
+export const darkTheme = {
+  primary: colors.primary,
+  outline: colors.primary,
+  brandColor: colors.white,
+  selectionBackground: colors.primary,
+  selectionForeground: colors.white,
+  currentUserBackground: colors.primary,
+  currentUserForeground: colors.white,
+  title: colors.gray1,
+  popupBackground: colors.gray6,
+  body: colors.gray1,
+  bodyBackground: colors.gray6,
+  sectionBackground: colors.gray5,
+  serviceBackground: colors.gray5,
+  inputBorder: colors.gray4,
+  inputBackground: colors.gray1,
+  inputForeground: colors.gray4,
+  inputFocusBorder: colors.primary,
+  checkboxBackground: colors.white,
+  checkboxHoverBorder: colors.primary,
+  checkboxFocusBorder: colors.primary,
+  checkMark: colors.primary,
+  buttonBackground: colors.gray3,
+  buttonForeground: colors.gray1,
+  buttonBackgroundPrimary: colors.primary,
+  buttonForegroundPrimary: colors.white,
+  horizontalSeparator: colors.gray4,
 };
 
 const theme = {
   primary: colors.primary,
   outline: colors.primary,
+  brandColor: colors.black,
   selectionBackground: colors.primary,
   selectionForeground: colors.white,
   currentUserBackground: colors.primary,
@@ -23,7 +57,9 @@ const theme = {
   serviceBackground: colors.gray0,
   inputBorder: colors.gray2,
   inputBackground: colors.white,
+  inputForeground: colors.gray3,
   inputFocusBorder: colors.primary,
+  checkboxBackground: colors.white,
   checkboxHoverBorder: colors.primary,
   checkboxFocusBorder: colors.primary,
   checkMark: colors.primary,
@@ -35,5 +71,4 @@ const theme = {
 };
 
 export const lightTheme = theme;
-export const darkTheme = theme;
-export default theme;
+export default lightTheme;

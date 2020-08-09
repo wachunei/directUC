@@ -52,11 +52,16 @@ export default createGlobalStyle`
   }
 
   input,
-  button,
   select {
     font-family: "Red Hat Text", sans-serif;
     font-size: 16px;
-    color: ${(props) => props.theme.body};
+    color: ${(props) => props.theme.inputForeground};
+  }
+
+  button {
+    font-family: "Red Hat Text", sans-serif;
+    font-size: 16px;
+    color: ${(props) => props.theme.buttonForeground};
   }
 `;
 
