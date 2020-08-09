@@ -46,5 +46,7 @@ jobs:
             - name: word count with release.sh
               run: |
                 yarn run --silent changelog:release --starting-version v1.0.1 | wc
+                yarn run changelog:release --starting-version v1.0.1
+                yarn run changelog:release --starting-version v1.0.1 | wc
             - name: Print Changelog
               run: echo "${{ steps.get-release-changelog.outputs.changelog }}"
