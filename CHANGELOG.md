@@ -1,5 +1,17 @@
 ## Changelog
 
+### [v1.0.2](https://github.com/wachunei/directUC/compare/v1.0.1...v1.0.2)
+
+> 10 August 2020
+
+- Add Dark Mode [`#27`](https://github.com/wachunei/directUC/pull/27)
+- Add release action. Add develop branch checks [`#26`](https://github.com/wachunei/directUC/pull/26)
+- 📝 Changelog Templates [`#24`](https://github.com/wachunei/directUC/pull/24)
+- Add tests and initial github actions [`#23`](https://github.com/wachunei/directUC/pull/23)
+- Add missing reducers test [`#22`](https://github.com/wachunei/directUC/pull/22)
+- Add LICENSE [`#21`](https://github.com/wachunei/directUC/pull/21)
+- Add auto-changelog [`#20`](https://github.com/wachunei/directUC/pull/20)
+
 ### [v1.0.1](https://github.com/wachunei/directUC/compare/v1.0.0...v1.0.1)
 
 > 7 August 2020
