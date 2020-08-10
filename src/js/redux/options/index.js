@@ -9,6 +9,7 @@ export const initialState = {
   sameTab: false,
   directMode: false,
   directModeService: "",
+  colorScheme: "auto",
 };
 
 const reducer = (state = initialState, action) => {

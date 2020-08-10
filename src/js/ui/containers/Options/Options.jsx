@@ -22,6 +22,20 @@ function Options() {
     });
   };
 
+  const handleDarkModeOptionChange = async (e) => {
+    const {
+      target: { name, value, type, checked },
+    } = e;
+    await dispatch({
+      type: "setOption",
+      payload: {
+        option: name,
+        // eslint-disable-next-line no-nested-ternary
+        value: type === "checkbox" ? (checked ? "auto" : "light") : value,
+      },
+    });
+  };
+  console.log(options);
   return (
     <>
       <FormControl>
@@ -65,6 +79,30 @@ function Options() {
               </option>
             );
           })}
+        </Select>
+      </FormControl>
+      <FormControl label="Modo Oscuro">
+        <Checkbox
+          onChange={handleDarkModeOptionChange}
+          name="colorScheme"
+          checked={options.colorScheme === "auto"}
+          disabled={!loggedIn}
+        >
+          Usar preferencias del sistema
+        </Checkbox>
+      </FormControl>
+      <FormControl>
+        <Select
+          disabled={options.colorScheme === "auto" || !loggedIn}
+          onChange={handleDarkModeOptionChange}
+          name="colorScheme"
+          value={options.colorScheme}
+        >
+          <option hidden disabled value="auto">
+            Automático
+          </option>
+          <option value="light">Siempre Claro</option>
+          <option value="dark">Siempre Oscuro</option>
         </Select>
       </FormControl>
     </>

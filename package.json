@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint . --ext .jsx,.js",
     "test": "jest",
     "manifest": "node src/manifest/generate",
     "manifest:chrome": "TARGET=chrome yarn manifest",

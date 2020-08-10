@@ -2,13 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Provider } from "react-redux";
 import { Store } from "webext-redux";
-
-import { ThemeProvider } from "styled-components";
-import theme from "../theme";
+import ColorSchemeThemeProvider from "./ColorSchemeThemeProvider";
 
 const Providers = ({ store, children }) => (
   <Provider store={store}>
-    <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    <ColorSchemeThemeProvider>{children}</ColorSchemeThemeProvider>
   </Provider>
 );
 
