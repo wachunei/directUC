@@ -84,6 +84,174 @@ exports[`Checkbox Component should match snapshot 1`] = `
 </span>
 `;
 
+exports[`Checkbox Component should match snapshot with darkTheme 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.c4 {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background: #505050;
+  border: 1px solid #303030;
+  margin-right: 0.8rem;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  position: relative;
+}
+
+.c4::after {
+  display: block;
+  opacity: 0;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.4rem;
+  height: 0.8rem;
+  border: 2px solid #FFFFFF;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: translate(100%,15%) rotate(45deg);
+  -ms-transform: translate(100%,15%) rotate(45deg);
+  transform: translate(100%,15%) rotate(45deg);
+  -webkit-transform-origin: 100% 0%;
+  -ms-transform-origin: 100% 0%;
+  transform-origin: 100% 0%;
+  -webkit-transition: opacity 0.05s;
+  transition: opacity 0.05s;
+}
+
+.c0:hover .c4 {
+  border: 1px solid #1F95EB;
+}
+
+.c2 {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.c2:focus ~ .c3 {
+  border: 1px solid #1F95EB;
+  outline: 1px solid #1F95EB;
+}
+
+.c2:checked ~ .c3::after {
+  opacity: 1;
+}
+
+<span
+  className="c0 c1"
+  disabled={false}
+>
+  <input
+    className="c2"
+    disabled={false}
+    type="checkbox"
+  />
+  <span
+    className="c3 c4"
+  />
+  <span>
+    A test checkbox
+  </span>
+</span>
+`;
+
+exports[`Checkbox Component should match snapshot with lightTheme 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.c4 {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background: #FFFFFF;
+  border: 1px solid #909090;
+  margin-right: 0.8rem;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  position: relative;
+}
+
+.c4::after {
+  display: block;
+  opacity: 0;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.4rem;
+  height: 0.8rem;
+  border: 2px solid #1F95EB;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: translate(100%,15%) rotate(45deg);
+  -ms-transform: translate(100%,15%) rotate(45deg);
+  transform: translate(100%,15%) rotate(45deg);
+  -webkit-transform-origin: 100% 0%;
+  -ms-transform-origin: 100% 0%;
+  transform-origin: 100% 0%;
+  -webkit-transition: opacity 0.05s;
+  transition: opacity 0.05s;
+}
+
+.c0:hover .c4 {
+  border: 1px solid #1F95EB;
+}
+
+.c2 {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.c2:focus ~ .c3 {
+  border: 1px solid #1F95EB;
+  outline: 1px solid #1F95EB;
+}
+
+.c2:checked ~ .c3::after {
+  opacity: 1;
+}
+
+<span
+  className="c0 c1"
+  disabled={false}
+>
+  <input
+    className="c2"
+    disabled={false}
+    type="checkbox"
+  />
+  <span
+    className="c3 c4"
+  />
+  <span>
+    A test checkbox
+  </span>
+</span>
+`;
+
 exports[`Checkbox Component should render checked 1`] = `
 .c1 {
   display: -webkit-box;

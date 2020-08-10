@@ -18,6 +18,42 @@ exports[`FormControl Component should match snapshot 1`] = `
 </div>
 `;
 
+exports[`FormControl Component should match snapshot with darkTheme 1`] = `
+.c0 {
+  margin-bottom: 0.5rem;
+}
+
+.c0 .sc-AxjAm {
+  margin-bottom: 0.2rem;
+}
+
+<div
+  className="c0"
+>
+  <label>
+    control
+  </label>
+</div>
+`;
+
+exports[`FormControl Component should match snapshot with lightTheme 1`] = `
+.c0 {
+  margin-bottom: 0.5rem;
+}
+
+.c0 .sc-AxjAm {
+  margin-bottom: 0.2rem;
+}
+
+<div
+  className="c0"
+>
+  <label>
+    control
+  </label>
+</div>
+`;
+
 exports[`FormControl Component should render caption 1`] = `
 .c2 {
   display: block;

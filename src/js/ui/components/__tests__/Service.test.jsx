@@ -1,19 +1,19 @@
 import React from "react";
-import Fieldset from "../Fieldset";
+import Service from "../Service";
 import { renderTree } from "./utils";
 import "jest-styled-components";
 
-describe("Fieldset Component", () => {
+describe("Service Component", () => {
   test("should match snapshot", () => {
-    const tree = renderTree(<Fieldset />);
+    const tree = renderTree(<Service />);
     expect(tree).toMatchSnapshot();
   });
   test("should match snapshot with lightTheme", () => {
-    const tree = renderTree(<Fieldset />, "lightTheme");
+    const tree = renderTree(<Service />, "lightTheme");
     expect(tree).toMatchSnapshot();
   });
   test("should match snapshot with darkTheme", () => {
-    const tree = renderTree(<Fieldset />, "darkTheme");
+    const tree = renderTree(<Service />, "darkTheme");
     expect(tree).toMatchSnapshot();
   });
 });

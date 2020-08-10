@@ -9,6 +9,16 @@ describe("Checkbox Component", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  test("should match snapshot with lightTheme", () => {
+    const tree = renderTree(<Checkbox>A test checkbox</Checkbox>, "lightTheme");
+    expect(tree).toMatchSnapshot();
+  });
+
+  test("should match snapshot with darkTheme", () => {
+    const tree = renderTree(<Checkbox>A test checkbox</Checkbox>, "darkTheme");
+    expect(tree).toMatchSnapshot();
+  });
+
   test("should render checked", () => {
     const tree = renderTree(<Checkbox checked>A test checkbox</Checkbox>);
     expect(tree).toMatchSnapshot();

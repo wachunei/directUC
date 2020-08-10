@@ -9,6 +9,16 @@ describe("Button Component", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  test("default should match snapshot with lightTheme", () => {
+    const tree = renderTree(<Button>Click Me!</Button>, "lightTheme");
+    expect(tree).toMatchSnapshot();
+  });
+
+  test("default should match snapshot with darkTheme", () => {
+    const tree = renderTree(<Button>Click Me!</Button>, "darkTheme");
+    expect(tree).toMatchSnapshot();
+  });
+
   test("should render primary", () => {
     const tree = renderTree(<Button primary>Click Me!</Button>);
     expect(tree).toMatchSnapshot();

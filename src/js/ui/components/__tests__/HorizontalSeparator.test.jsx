@@ -8,4 +8,12 @@ describe("HorizontalSeparator Component", () => {
     const tree = renderTree(<HorizontalSeparator />);
     expect(tree).toMatchSnapshot();
   });
+  test("should match snapshot with lightTheme", () => {
+    const tree = renderTree(<HorizontalSeparator />, "lightTheme");
+    expect(tree).toMatchSnapshot();
+  });
+  test("should match snapshot with darkTheme", () => {
+    const tree = renderTree(<HorizontalSeparator />, "darkTheme");
+    expect(tree).toMatchSnapshot();
+  });
 });

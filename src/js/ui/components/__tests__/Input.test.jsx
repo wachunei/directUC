@@ -8,6 +8,14 @@ describe("Input Component", () => {
     const tree = renderTree(<Input />);
     expect(tree).toMatchSnapshot();
   });
+  test("should match snapshot with lightTheme", () => {
+    const tree = renderTree(<Input />, "lightTheme");
+    expect(tree).toMatchSnapshot();
+  });
+  test("should match snapshot with darkTheme", () => {
+    const tree = renderTree(<Input />, "darkTheme");
+    expect(tree).toMatchSnapshot();
+  });
 
   test("should accept props", () => {
     const tree = renderTree(<Input type="text" value="Input value" />);
