@@ -9,6 +9,16 @@ describe("Brand Component", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  test("should match snapshot with light theme", () => {
+    const tree = renderTree(<Brand />, "lightTheme");
+    expect(tree).toMatchSnapshot();
+  });
+
+  test("should match snapshot with dark theme", () => {
+    const tree = renderTree(<Brand />, "darkTheme");
+    expect(tree).toMatchSnapshot();
+  });
+
   test("should accept props", () => {
     const tree = renderTree(<Brand width="200px" />);
     expect(tree).toMatchSnapshot();

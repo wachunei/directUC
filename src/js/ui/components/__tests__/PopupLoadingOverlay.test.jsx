@@ -8,4 +8,12 @@ describe("PopupLoadingOverlay Component", () => {
     const tree = renderTree(<PopupLoadingOverlay />);
     expect(tree).toMatchSnapshot();
   });
+  test("should match snapshot with lightTheme", () => {
+    const tree = renderTree(<PopupLoadingOverlay />, "lightTheme");
+    expect(tree).toMatchSnapshot();
+  });
+  test("should match snapshot with darkTheme", () => {
+    const tree = renderTree(<PopupLoadingOverlay />, "darkTheme");
+    expect(tree).toMatchSnapshot();
+  });
 });

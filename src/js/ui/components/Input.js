@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 const Input = styled.input`
-  border: 1px solid ${(props) => props.theme.colors.inputBorder};
-  background: ${(props) => props.theme.colors.inputBackground};
+  border: 1px solid ${(props) => props.theme.inputBorder};
+  background: ${(props) => props.theme.inputBackground};
   padding: 0.5rem;
   border-radius: 0;
   width: ${(props) => (props.block ? "100%" : "unset")};
 
   &:focus {
-    border: 1px solid ${(props) => props.theme.colors.primary};
+    border: 1px solid ${(props) => props.theme.inputFocusBorder};
   }
 
   &:disabled {

@@ -11,3 +11,27 @@ exports[`Fieldset Component should match snapshot 1`] = `
   className="c0"
 />
 `;
+
+exports[`Fieldset Component should match snapshot with darkTheme 1`] = `
+.c0 {
+  margin: 0 0 1rem 0;
+  border: 0;
+  padding: 0;
+}
+
+<fieldset
+  className="c0"
+/>
+`;
+
+exports[`Fieldset Component should match snapshot with lightTheme 1`] = `
+.c0 {
+  margin: 0 0 1rem 0;
+  border: 0;
+  padding: 0;
+}
+
+<fieldset
+  className="c0"
+/>
+`;

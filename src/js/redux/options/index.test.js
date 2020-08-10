@@ -5,6 +5,7 @@ const existingInitialState = {
   sameTab: true,
   directMode: true,
   directModeService: "siding",
+  colorScheme: "auto",
 };
 describe("options reducer", () => {
   test("returns initial state", () => {

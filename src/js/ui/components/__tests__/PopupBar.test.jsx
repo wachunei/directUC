@@ -8,4 +8,12 @@ describe("PopupBar Component", () => {
     const tree = renderTree(<PopupBar />);
     expect(tree).toMatchSnapshot();
   });
+  test("should match snapshot with lightTheme", () => {
+    const tree = renderTree(<PopupBar />, "lightTheme");
+    expect(tree).toMatchSnapshot();
+  });
+  test("should match snapshot with darkTheme", () => {
+    const tree = renderTree(<PopupBar />, "darkTheme");
+    expect(tree).toMatchSnapshot();
+  });
 });
