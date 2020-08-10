@@ -27,10 +27,13 @@ jobs:
             - name: Install dependencies
             #   if: steps.yarn-cache.outputs.cache-hit != 'true'
               run: yarn --frozen-lockfile
+            - name: Get the version
+              id: get-version
+              run: echo ::set-output name=version::${GITHUB_REF/refs\/tags\//}
             - name: Get Release Changelog
               id: get-release-changelog
               run: |
-                text="$(yarn run --silent changelog:release --starting-version ${{ github.ref }})"
+                text="$(yarn run --silent changelog:release --starting-version ${{ steps.get-version.outputs.version }})"
                 text="${text//'%'/'%25'}"
                 text="${text//$'\n'/'%0A'}"
                 text="${text//$'\r'/'%0D'}"
