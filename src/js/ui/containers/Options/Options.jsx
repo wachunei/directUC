@@ -35,7 +35,6 @@ function Options() {
       },
     });
   };
-  console.log(options);
   return (
     <>
       <FormControl>
