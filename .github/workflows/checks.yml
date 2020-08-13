@@ -3,15 +3,12 @@ on: [push]
 jobs:
     lint:
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-              node: ['10']
         name: lint
         steps:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v2-beta
               with:
-                node-version: ${{ matrix.node }}
+                node-version: '12'
             - name: Get yarn cache directory path
               id: yarn-cache-dir-path
               run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -23,7 +20,6 @@ jobs:
                 restore-keys: |
                   ${{ runner.os }}-yarn-
             - name: Install dependencies
-            #   if: steps.yarn-cache.outputs.cache-hit != 'true'
               run: yarn --frozen-lockfile
             - name: Lint
               run: yarn lint
