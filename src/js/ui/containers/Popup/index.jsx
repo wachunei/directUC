@@ -53,15 +53,31 @@ const Popup = () => {
     })();
   }, [username]);
 
-  const handleServiceClick = async ({ target }) => {
-    const { service } = target.dataset;
+  const handleServiceClick = async (event) => {
+    const {
+      type,
+      button,
+      target: {
+        dataset: { service },
+      },
+    } = event;
+
+    const isMiddleClick = type === "auxclick" && button === 1;
+
     setLoading(true);
     try {
       await dispatch({
         type: `servicesActions.${service}.callActionAndRedirect`,
+        payload: {
+          disposition: isMiddleClick ? "newBackgroundTab" : undefined,
+        },
       });
+
       setLoading(false);
-      window.close();
+
+      if (!isMiddleClick) {
+        window.close();
+      }
     } catch {
       setLoading(false);
     }
@@ -114,6 +130,7 @@ const Popup = () => {
             key={key}
             service={service}
             onClick={handleServiceClick}
+            onAuxClick={handleServiceClick}
             data-service={key}
             title={`Abrir ${service.name}`}
             // eslint-disable-next-line jsx-a11y/tabindex-no-positive
