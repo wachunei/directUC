@@ -12,7 +12,7 @@ jobs:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v2-beta
               with:
-                node-version: '10'
+                node-version: '12'
             - name: Get yarn cache directory path
               id: yarn-cache-dir-path
               run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -24,7 +24,6 @@ jobs:
                 restore-keys: |
                   ${{ runner.os }}-yarn-
             - name: Install dependencies
-            #   if: steps.yarn-cache.outputs.cache-hit != 'true'
               run: yarn --frozen-lockfile
             - name: Lint
               run: yarn lint
@@ -36,7 +35,7 @@ jobs:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v2-beta
               with:
-                node-version: '10'
+                node-version: '12'
             - name: Get yarn cache directory path
               id: yarn-cache-dir-path
               run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -48,7 +47,6 @@ jobs:
                 restore-keys: |
                   ${{ runner.os }}-yarn-
             - name: Install dependencies
-              # if: steps.yarn-cache.outputs.cache-hit != 'true'
               run: yarn --frozen-lockfile
             - name: Run Tests
               run: yarn test
@@ -63,7 +61,7 @@ jobs:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v2-beta
               with:
-                node-version: '10'
+                node-version: '12'
             - name: Get yarn cache directory path
               id: yarn-cache-dir-path
               run: echo "::set-output name=dir::$(yarn cache dir)"
