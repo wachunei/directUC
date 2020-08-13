@@ -53,17 +53,39 @@ const Popup = () => {
     })();
   }, [username]);
 
-  const handleServiceClick = async ({ target }) => {
-    const { service } = target.dataset;
+  const handleServiceClick = async (event) => {
     setLoading(true);
-    try {
-      await dispatch({
-        type: `servicesActions.${service}.callActionAndRedirect`,
-      });
-      setLoading(false);
-      window.close();
-    } catch {
-      setLoading(false);
+    const { service } = event.target.dataset;
+    event.preventDefault();
+    switch (event.button) {
+      case 0: {
+        try {
+          await dispatch({
+            type: `servicesActions.${service}.callActionAndRedirect`,
+          });
+          setLoading(false);
+          window.close()
+        } catch {
+          setLoading(false);
+        };
+        break;
+      };
+      case 1: {
+        try {
+          await dispatch({
+            type: `servicesActions.${service}.redirect`,
+            payload: {
+              disposition: "newBackgroundTab",
+            },
+          });
+        } finally {
+          setLoading(false);
+        };
+        break;
+      };
+      default: {
+        setLoading(false);
+      };
     }
   };
 
@@ -113,7 +135,7 @@ const Popup = () => {
           <Service
             key={key}
             service={service}
-            onClick={handleServiceClick}
+            onMouseDown={handleServiceClick}
             data-service={key}
             title={`Abrir ${service.name}`}
             // eslint-disable-next-line jsx-a11y/tabindex-no-positive
