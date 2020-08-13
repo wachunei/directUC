@@ -64,12 +64,12 @@ const Popup = () => {
             type: `servicesActions.${service}.callActionAndRedirect`,
           });
           setLoading(false);
-          window.close()
+          window.close();
         } catch {
           setLoading(false);
-        };
+        }
         break;
-      };
+      }
       case 1: {
         try {
           await dispatch({
@@ -80,12 +80,12 @@ const Popup = () => {
           });
         } finally {
           setLoading(false);
-        };
+        }
         break;
-      };
+      }
       default: {
         setLoading(false);
-      };
+      }
     }
   };
 
