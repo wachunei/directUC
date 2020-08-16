@@ -8,9 +8,9 @@ import * as actions from "./redux/actions";
 import serviceActionsHandler from "./store/aliases";
 import configureStore from "./store";
 import Omnibox from "./omnibox";
+import analytics from "./analytics";
 
 import { parseDistinguishedName } from "./utils";
-import analytics from "./analytics";
 
 /** Aliases for webext-redux */
 /* From: https://github.com/tshaddix/webext-redux
@@ -54,9 +54,9 @@ const aliases = {
       },
     });
 
-    analytics.track("login", {
-      category: "User",
-      value: username,
+    analytics.track("logged", {
+      category: "Users",
+      label: username,
     });
 
     analytics.identify(username, {
@@ -71,9 +71,9 @@ const aliases = {
     } = await getState();
     dispatch({ type: actions.user.clearUser });
     Notifications.createLogOutSuccess();
-    analytics.track("logout", {
-      category: "User",
-      value: username,
+    analytics.track("forget", {
+      category: "Users",
+      label: username,
     });
     analytics.reset();
   },
@@ -85,8 +85,8 @@ const aliases = {
     if (!service) {
       return;
     }
-    analytics.track("directMode", {
-      category: "Services",
+    analytics.track("clicked", {
+      category: "Single Mode",
       label: service,
     });
 
@@ -99,8 +99,8 @@ const aliases = {
   omnibox: (action) => async (dispatch) => {
     const { payload: { service, disposition } = {} } = action;
 
-    analytics.track("omnibox", {
-      category: "Services",
+    analytics.track("clicked", {
+      category: "Omnibox",
       label: service,
     });
 
@@ -254,7 +254,7 @@ const aliases = {
           }
         }
       } else {
-        analytics.track("click", {
+        analytics.track("clicked", {
           category: "Services",
           label: service,
         });
@@ -289,15 +289,16 @@ const { store } = configureStore(aliases);
 Omnibox(services, store);
 wrapStore(store);
 
+analytics.page();
+
 /* Install and update listeners */
 browser.runtime.onInstalled.addListener(({ reason, previousVersion }) => {
   const currentVersion = browser.runtime.getManifest().version;
 
   if (reason === "install") {
-    analytics.track("install", {
-      category: "Install",
-      label: "version",
-      value: currentVersion,
+    analytics.track("installed", {
+      category: "Installations",
+      label: currentVersion,
     });
   } else if (reason === "update") {
     // We are receiving an update
@@ -307,10 +308,9 @@ browser.runtime.onInstalled.addListener(({ reason, previousVersion }) => {
       return;
     }
 
-    analytics.track("update", {
-      category: "Install",
-      label: "version",
-      value: currentVersion,
+    analytics.track("updated", {
+      category: "Installations",
+      label: currentVersion,
     });
 
     // If the current version is >=1.0.0
@@ -324,10 +324,9 @@ browser.runtime.onInstalled.addListener(({ reason, previousVersion }) => {
         const fullName = localStorage.getItem("user-fullname");
 
         if (username && password && fullName) {
-          analytics.track("upgrade", {
-            category: "Install",
-            label: "previousVersion",
-            value: previousVersion,
+          analytics.track("upgraded", {
+            category: "Installations",
+            label: `${previousVersion} > ${currentVersion}`,
           });
           store.dispatch({
             type: actions.user.setUser,

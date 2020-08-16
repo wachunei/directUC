@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import browser from "webextension-polyfill";
+import { useAnalytics } from "use-analytics";
 import services from "../../../services";
 import Notifications from "../../../notifications";
 
@@ -26,6 +27,7 @@ const CurrentUser = styled.span`
 
 const Popup = () => {
   const dispatch = useDispatch();
+  const { page } = useAnalytics();
   const { directMode, directModeService } = useSelector(
     (state) => state.options
   );
@@ -52,6 +54,12 @@ const Popup = () => {
       }
     })();
   }, [username]);
+
+  useEffect(() => {
+    if (!isDirectMode && username) {
+      page();
+    }
+  }, [username, isDirectMode]);
 
   const handleServiceClick = async (event) => {
     const {

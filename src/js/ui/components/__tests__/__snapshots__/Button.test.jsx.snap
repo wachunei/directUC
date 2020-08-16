@@ -29,7 +29,7 @@ exports[`Button Component default should match snapshot 1`] = `
   outline-width: 2px;
 }
 
-.c0.c0.c0:active {
+.c0.c0:not(:disabled):active {
   -webkit-filter: brightness(95%);
   filter: brightness(95%);
 }
@@ -76,7 +76,7 @@ exports[`Button Component default should match snapshot with darkTheme 1`] = `
   outline-width: 2px;
 }
 
-.c0.c0.c0:active {
+.c0.c0:not(:disabled):active {
   -webkit-filter: brightness(95%);
   filter: brightness(95%);
 }
@@ -123,7 +123,7 @@ exports[`Button Component default should match snapshot with lightTheme 1`] = `
   outline-width: 2px;
 }
 
-.c0.c0.c0:active {
+.c0.c0:not(:disabled):active {
   -webkit-filter: brightness(95%);
   filter: brightness(95%);
 }
@@ -172,7 +172,7 @@ exports[`Button Component should render block 1`] = `
   outline-width: 2px;
 }
 
-.c0.c0.c0:active {
+.c0.c0:not(:disabled):active {
   -webkit-filter: brightness(95%);
   filter: brightness(95%);
 }
@@ -219,7 +219,7 @@ exports[`Button Component should render disabled 1`] = `
   outline-width: 2px;
 }
 
-.c0.c0.c0:active {
+.c0.c0:not(:disabled):active {
   -webkit-filter: brightness(95%);
   filter: brightness(95%);
 }
@@ -267,7 +267,7 @@ exports[`Button Component should render primary 1`] = `
   outline-width: 2px;
 }
 
-.c0.c0.c0:active {
+.c0.c0:not(:disabled):active {
   -webkit-filter: brightness(95%);
   filter: brightness(95%);
 }
@@ -316,7 +316,7 @@ exports[`Button Component should render primary block 1`] = `
   outline-width: 2px;
 }
 
-.c0.c0.c0:active {
+.c0.c0:not(:disabled):active {
   -webkit-filter: brightness(95%);
   filter: brightness(95%);
 }

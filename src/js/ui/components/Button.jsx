@@ -38,7 +38,7 @@ const Button = styled.button`
     outline-width: 2px;
   }
 
-  &&&:active {
+  &&:not(:disabled):active {
     filter: brightness(95%);
   }
 

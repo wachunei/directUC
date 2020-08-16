@@ -82,6 +82,7 @@
     "redux-thunk": "^2.3.0",
     "semver": "^7.3.2",
     "styled-components": "^5.1.1",
+    "use-analytics": "^0.0.3",
     "webext-redux": "^2.1.6",
     "webextension-polyfill": "^0.6.0"
   },

@@ -2,11 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Provider } from "react-redux";
 import { Store } from "webext-redux";
+import { AnalyticsProvider } from "use-analytics";
 import ColorSchemeThemeProvider from "./ColorSchemeThemeProvider";
+import analytics from "../../../analytics";
 
 const Providers = ({ store, children }) => (
   <Provider store={store}>
-    <ColorSchemeThemeProvider>{children}</ColorSchemeThemeProvider>
+    <AnalyticsProvider instance={analytics}>
+      <ColorSchemeThemeProvider>{children}</ColorSchemeThemeProvider>
+    </AnalyticsProvider>
   </Provider>
 );
 
