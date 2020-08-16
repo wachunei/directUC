@@ -1,8 +1,18 @@
 ## Changelog
 
+### [v1.0.3](https://github.com/wachunei/directUC/compare/v1.0.2...v1.0.3)
+
+> 16 August 2020
+
+- Restore previous analytics setup [`#34`](https://github.com/wachunei/directUC/pull/34)
+- Add middleclick support for service button [`#33`](https://github.com/wachunei/directUC/pull/33)
+- Use node version 12 [`#30`](https://github.com/wachunei/directUC/pull/30)
+- Add Privacy Policy and Terms & Conditions [`#29`](https://github.com/wachunei/directUC/pull/29)
+- Get the version name to generate release changelog [`#28`](https://github.com/wachunei/directUC/pull/28)
+
 ### [v1.0.2](https://github.com/wachunei/directUC/compare/v1.0.1...v1.0.2)
 
-> 10 August 2020
+> 9 August 2020
 
 - Add Dark Mode [`#27`](https://github.com/wachunei/directUC/pull/27)
 - Add release action. Add develop branch checks [`#26`](https://github.com/wachunei/directUC/pull/26)
