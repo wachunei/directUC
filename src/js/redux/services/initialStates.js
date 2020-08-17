@@ -28,8 +28,7 @@ export const createServiceOptionsState = ({ options }) => {
   Object.entries(options).forEach(([key, value]) => {
     if (key === "display") {
       serviceOptions[key] = value;
-    }
-    if (value) {
+    } else if (value && value.type) {
       serviceOptions[key] = value.default ?? getDefaultValue(value.type);
     }
   });

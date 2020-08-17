@@ -1,0 +1,335 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component default should match snapshot 1`] = `
+.c0 {
+  border: 0;
+  padding: 0.5rem 1rem;
+  font-size: 12px;
+  text-shadow: none;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: filter 0.1s;
+  transition: filter 0.1s;
+  background: #E0E0E0;
+  color: #505050;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  -webkit-filter: grayscale(100%) opacity(80%);
+  filter: grayscale(100%) opacity(80%);
+}
+
+.c0:focus {
+  outline-width: 2px;
+}
+
+.c0.c0:not(:disabled):active {
+  -webkit-filter: brightness(95%);
+  filter: brightness(95%);
+}
+
+.c0:hover:not(:disabled),
+.c0:focus:not(:disabled) {
+  -webkit-filter: brightness(105%);
+  filter: brightness(105%);
+}
+
+<button
+  className="c0"
+>
+  Click Me!
+</button>
+`;
+
+exports[`Button Component default should match snapshot with darkTheme 1`] = `
+.c0 {
+  border: 0;
+  padding: 0.5rem 1rem;
+  font-size: 12px;
+  text-shadow: none;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: filter 0.1s;
+  transition: filter 0.1s;
+  background: #505050;
+  color: #E0E0E0;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  -webkit-filter: grayscale(100%) opacity(80%);
+  filter: grayscale(100%) opacity(80%);
+}
+
+.c0:focus {
+  outline-width: 2px;
+}
+
+.c0.c0:not(:disabled):active {
+  -webkit-filter: brightness(95%);
+  filter: brightness(95%);
+}
+
+.c0:hover:not(:disabled),
+.c0:focus:not(:disabled) {
+  -webkit-filter: brightness(105%);
+  filter: brightness(105%);
+}
+
+<button
+  className="c0"
+>
+  Click Me!
+</button>
+`;
+
+exports[`Button Component default should match snapshot with lightTheme 1`] = `
+.c0 {
+  border: 0;
+  padding: 0.5rem 1rem;
+  font-size: 12px;
+  text-shadow: none;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: filter 0.1s;
+  transition: filter 0.1s;
+  background: #E0E0E0;
+  color: #505050;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  -webkit-filter: grayscale(100%) opacity(80%);
+  filter: grayscale(100%) opacity(80%);
+}
+
+.c0:focus {
+  outline-width: 2px;
+}
+
+.c0.c0:not(:disabled):active {
+  -webkit-filter: brightness(95%);
+  filter: brightness(95%);
+}
+
+.c0:hover:not(:disabled),
+.c0:focus:not(:disabled) {
+  -webkit-filter: brightness(105%);
+  filter: brightness(105%);
+}
+
+<button
+  className="c0"
+>
+  Click Me!
+</button>
+`;
+
+exports[`Button Component should render block 1`] = `
+.c0 {
+  border: 0;
+  padding: 0.5rem 1rem;
+  font-size: 12px;
+  text-shadow: none;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: filter 0.1s;
+  transition: filter 0.1s;
+  display: block;
+  width: 100%;
+  background: #E0E0E0;
+  color: #505050;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  -webkit-filter: grayscale(100%) opacity(80%);
+  filter: grayscale(100%) opacity(80%);
+}
+
+.c0:focus {
+  outline-width: 2px;
+}
+
+.c0.c0:not(:disabled):active {
+  -webkit-filter: brightness(95%);
+  filter: brightness(95%);
+}
+
+.c0:hover:not(:disabled),
+.c0:focus:not(:disabled) {
+  -webkit-filter: brightness(105%);
+  filter: brightness(105%);
+}
+
+<button
+  className="c0"
+>
+  Click Me!
+</button>
+`;
+
+exports[`Button Component should render disabled 1`] = `
+.c0 {
+  border: 0;
+  padding: 0.5rem 1rem;
+  font-size: 12px;
+  text-shadow: none;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: filter 0.1s;
+  transition: filter 0.1s;
+  background: #E0E0E0;
+  color: #505050;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  -webkit-filter: grayscale(100%) opacity(80%);
+  filter: grayscale(100%) opacity(80%);
+}
+
+.c0:focus {
+  outline-width: 2px;
+}
+
+.c0.c0:not(:disabled):active {
+  -webkit-filter: brightness(95%);
+  filter: brightness(95%);
+}
+
+.c0:hover:not(:disabled),
+.c0:focus:not(:disabled) {
+  -webkit-filter: brightness(105%);
+  filter: brightness(105%);
+}
+
+<button
+  className="c0"
+  disabled={true}
+>
+  Click Me!
+</button>
+`;
+
+exports[`Button Component should render primary 1`] = `
+.c0 {
+  border: 0;
+  padding: 0.5rem 1rem;
+  font-size: 12px;
+  text-shadow: none;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: filter 0.1s;
+  transition: filter 0.1s;
+  background: #1F95EB;
+  color: #FFFFFF;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  -webkit-filter: grayscale(100%) opacity(80%);
+  filter: grayscale(100%) opacity(80%);
+}
+
+.c0:focus {
+  outline-width: 2px;
+}
+
+.c0.c0:not(:disabled):active {
+  -webkit-filter: brightness(95%);
+  filter: brightness(95%);
+}
+
+.c0:hover:not(:disabled),
+.c0:focus:not(:disabled) {
+  -webkit-filter: brightness(105%);
+  filter: brightness(105%);
+}
+
+<button
+  className="c0"
+>
+  Click Me!
+</button>
+`;
+
+exports[`Button Component should render primary block 1`] = `
+.c0 {
+  border: 0;
+  padding: 0.5rem 1rem;
+  font-size: 12px;
+  text-shadow: none;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: filter 0.1s;
+  transition: filter 0.1s;
+  display: block;
+  width: 100%;
+  background: #1F95EB;
+  color: #FFFFFF;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  -webkit-filter: grayscale(100%) opacity(80%);
+  filter: grayscale(100%) opacity(80%);
+}
+
+.c0:focus {
+  outline-width: 2px;
+}
+
+.c0.c0:not(:disabled):active {
+  -webkit-filter: brightness(95%);
+  filter: brightness(95%);
+}
+
+.c0:hover:not(:disabled),
+.c0:focus:not(:disabled) {
+  -webkit-filter: brightness(105%);
+  filter: brightness(105%);
+}
+
+<button
+  className="c0"
+>
+  Click Me!
+</button>
+`;

@@ -1,13 +1,13 @@
 {
   "name": "direct-uc",
   "description": "Extensión web que permite a alumnos y funcionarios de la Pontificia Universidad Católica de Chile el ingreso directo a diferentes servicios ofrecidos por esta.",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "repository": "git@github.com:wachunei/directUC.git",
   "author": "Pedro Pablo Aste Kompen <wachunei@gmail.com>",
   "license": "MIT",
   "private": false,
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint . --ext .jsx,.js",
     "test": "jest",
     "manifest": "node src/manifest/generate",
     "manifest:chrome": "TARGET=chrome yarn manifest",
@@ -27,7 +27,9 @@
     "build:chrome": "yarn clean:build:chrome && yarn manifest:chrome && TARGET=chrome yarn build --out-dir build/chrome",
     "build:firefox": "yarn clean:build:firefox && yarn manifest:firefox && TARGET=firefox yarn build --out-dir build/firefox",
     "pack:chrome": "yarn web-ext build -s build/chrome -a releases/chrome",
-    "pack:firefox": "yarn web-ext build -s build/firefox -a releases/firefox"
+    "pack:firefox": "yarn web-ext build -s build/firefox -a releases/firefox",
+    "version": "auto-changelog -p -t ./.changelog/changelog-template.hbs && git add CHANGELOG.md",
+    "changelog:release": "auto-changelog --stdout -t ./.changelog/release-template.hbs"
   },
   "husky": {
     "hooks": {
@@ -40,6 +42,8 @@
   "devDependencies": {
     "@babel/core": "^7.10.1",
     "@babel/preset-env": "^7.10.1",
+    "@babel/preset-react": "^7.10.4",
+    "auto-changelog": "^2.2.0",
     "babel-jest": "^26.0.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
@@ -51,10 +55,12 @@
     "eslint-plugin-react-hooks": "^2.5.1",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
+    "jest-styled-components": "^7.0.2",
     "lint-staged": ">=10",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-web-extension": "^1.6.1",
     "prettier": "^2.0.5",
+    "react-test-renderer": "^16.13.1",
     "rimraf": "^3.0.2",
     "web-ext": "^4.2.0"
   },
@@ -63,6 +69,7 @@
     "analytics": "^0.5.5",
     "fuse.js": "^6.4.1",
     "keymirror": "^0.1.1",
+    "polished": "^3.6.5",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -75,11 +82,15 @@
     "redux-thunk": "^2.3.0",
     "semver": "^7.3.2",
     "styled-components": "^5.1.1",
+    "use-analytics": "^0.0.3",
     "webext-redux": "^2.1.6",
     "webextension-polyfill": "^0.6.0"
   },
   "jest": {
-    "rootDir": "src"
+    "testMatch": [
+      "**/__tests__/**/?(*.)+(spec|test).[jt]s?(x)",
+      "**/?(*.)+(spec|test).[jt]s?(x)"
+    ]
   },
   "browserslist": [
     "last 5 Chrome versions",

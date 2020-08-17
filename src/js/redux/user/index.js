@@ -1,12 +1,11 @@
 import KeyMirror from "keymirror";
 
 export const actions = KeyMirror({
-  login: null,
   setUser: null,
   clearUser: null,
 });
 
-const initialState = {
+export const initialState = {
   username: null,
   password: null,
   fullName: null,

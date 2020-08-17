@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Section Component should match snapshot 1`] = `
+.c0 {
+  padding: 15px 20px;
+  background-color: #FAFAFA;
+  margin-bottom: 15px;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Section Component should match snapshot with darkTheme 1`] = `
+.c0 {
+  padding: 15px 20px;
+  background-color: #202020;
+  margin-bottom: 15px;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Section Component should match snapshot with lightTheme 1`] = `
+.c0 {
+  padding: 15px 20px;
+  background-color: #FAFAFA;
+  margin-bottom: 15px;
+}
+
+<div
+  className="c0"
+/>
+`;

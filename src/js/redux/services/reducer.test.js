@@ -1,4 +1,5 @@
 import createServiceReducer from "./reducer";
+import { actions as userActions } from "../user";
 
 const initialState = {
   display: true,
@@ -73,6 +74,21 @@ describe("createServiceReducer", () => {
       });
 
       expect(lastState).toStrictEqual(initialState);
+    });
+
+    test("should return initial when clearing user", () => {
+      const reducer = createServiceReducer(initialState, actions);
+
+      const state = reducer(initialState, {
+        type: actions.setOption,
+        payload: { option: "email", value: "mynew@email.com" },
+      });
+
+      const clearedState = reducer(state, {
+        type: userActions.clearUser,
+      });
+
+      expect(clearedState).toStrictEqual(initialState);
     });
   });
 });

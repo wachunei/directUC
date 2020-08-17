@@ -1,4 +1,5 @@
 import styled /* , { keyframes } */ from "styled-components";
+import { rgba } from "polished";
 
 // const overlayAnimation = keyframes`
 //   from {
@@ -13,7 +14,7 @@ import styled /* , { keyframes } */ from "styled-components";
 const Overlay = styled.div`
   z-index: 1;
   position: absolute;
-  background: rgba(255, 255, 255, 0.8);
+  background: ${(props) => rgba(props.theme.popupBackground, 0.8)};
   margin: 0;
   padding: 0;
   top: 0;

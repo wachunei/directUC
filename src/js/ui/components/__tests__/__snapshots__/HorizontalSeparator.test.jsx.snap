@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HorizontalSeparator Component should match snapshot 1`] = `
+.c0 {
+  border-bottom: 1px solid #E0E0E0;
+  margin-bottom: 0.5rem;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`HorizontalSeparator Component should match snapshot with darkTheme 1`] = `
+.c0 {
+  border-bottom: 1px solid #303030;
+  margin-bottom: 0.5rem;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`HorizontalSeparator Component should match snapshot with lightTheme 1`] = `
+.c0 {
+  border-bottom: 1px solid #E0E0E0;
+  margin-bottom: 0.5rem;
+}
+
+<div
+  className="c0"
+/>
+`;

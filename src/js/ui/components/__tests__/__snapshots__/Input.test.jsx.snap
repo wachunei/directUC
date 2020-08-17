@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Component should accept props 1`] = `
+.c0 {
+  border: 1px solid #909090;
+  background: #FFFFFF;
+  padding: 0.5rem;
+  border-radius: 0;
+  width: unset;
+}
+
+.c0:focus {
+  border: 1px solid #1F95EB;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  -webkit-filter: grayscale(100%) opacity(70%);
+  filter: grayscale(100%) opacity(70%);
+}
+
+<input
+  className="c0"
+  type="text"
+  value="Input value"
+/>
+`;
+
+exports[`Input Component should match snapshot 1`] = `
+.c0 {
+  border: 1px solid #909090;
+  background: #FFFFFF;
+  padding: 0.5rem;
+  border-radius: 0;
+  width: unset;
+}
+
+.c0:focus {
+  border: 1px solid #1F95EB;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  -webkit-filter: grayscale(100%) opacity(70%);
+  filter: grayscale(100%) opacity(70%);
+}
+
+<input
+  className="c0"
+/>
+`;
+
+exports[`Input Component should match snapshot with darkTheme 1`] = `
+.c0 {
+  border: 1px solid #303030;
+  background: #505050;
+  padding: 0.5rem;
+  border-radius: 0;
+  width: unset;
+}
+
+.c0:focus {
+  border: 1px solid #1F95EB;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  -webkit-filter: grayscale(100%) opacity(70%);
+  filter: grayscale(100%) opacity(70%);
+}
+
+<input
+  className="c0"
+/>
+`;
+
+exports[`Input Component should match snapshot with lightTheme 1`] = `
+.c0 {
+  border: 1px solid #909090;
+  background: #FFFFFF;
+  padding: 0.5rem;
+  border-radius: 0;
+  width: unset;
+}
+
+.c0:focus {
+  border: 1px solid #1F95EB;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  -webkit-filter: grayscale(100%) opacity(70%);
+  filter: grayscale(100%) opacity(70%);
+}
+
+<input
+  className="c0"
+/>
+`;

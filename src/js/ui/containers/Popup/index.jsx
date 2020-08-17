@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import browser from "webextension-polyfill";
+import { useAnalytics } from "use-analytics";
 import services from "../../../services";
 import Notifications from "../../../notifications";
 
@@ -26,6 +27,7 @@ const CurrentUser = styled.span`
 
 const Popup = () => {
   const dispatch = useDispatch();
+  const { page } = useAnalytics();
   const { directMode, directModeService } = useSelector(
     (state) => state.options
   );
@@ -53,15 +55,37 @@ const Popup = () => {
     })();
   }, [username]);
 
-  const handleServiceClick = async ({ target }) => {
-    const { service } = target.dataset;
+  useEffect(() => {
+    if (!isDirectMode && username) {
+      page();
+    }
+  }, [username, isDirectMode]);
+
+  const handleServiceClick = async (event) => {
+    const {
+      type,
+      button,
+      target: {
+        dataset: { service },
+      },
+    } = event;
+
+    const isMiddleClick = type === "auxclick" && button === 1;
+
     setLoading(true);
     try {
       await dispatch({
         type: `servicesActions.${service}.callActionAndRedirect`,
+        payload: {
+          disposition: isMiddleClick ? "newBackgroundTab" : undefined,
+        },
       });
+
       setLoading(false);
-      window.close();
+
+      if (!isMiddleClick) {
+        window.close();
+      }
     } catch {
       setLoading(false);
     }
@@ -114,6 +138,7 @@ const Popup = () => {
             key={key}
             service={service}
             onClick={handleServiceClick}
+            onAuxClick={handleServiceClick}
             data-service={key}
             title={`Abrir ${service.name}`}
             // eslint-disable-next-line jsx-a11y/tabindex-no-positive

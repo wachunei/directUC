@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import { Store } from "webext-redux";
 
-import Providers from "./Providers";
+import Providers from "./providers";
 import Options from "../containers/Options";
 
 const store = new Store();

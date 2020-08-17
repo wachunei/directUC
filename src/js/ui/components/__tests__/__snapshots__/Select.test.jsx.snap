@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select Component should accept options 1`] = `
+.c0 {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #909090;
+  background: #FFFFFF;
+  padding: 0.5rem 1.6rem 0.5rem 0.5rem;
+  border-radius: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='13' height='13' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath d='M9.48486 4.24268L5.24219 8.48535L0.999512 4.24268' stroke='%23909090'/%3E %3C/svg%3E ");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem top calc(50% - 1px);
+  -webkit-transition: filter 0.05s;
+  transition: filter 0.05s;
+}
+
+.c0:focus:not(:disabled) {
+  border: 1px solid #1F95EB;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  -webkit-filter: grayscale(100%) opacity(60%);
+  filter: grayscale(100%) opacity(60%);
+}
+
+<select
+  className="c0"
+>
+  <option
+    disabled={true}
+    hidden={true}
+    value=""
+  >
+    option
+  </option>
+</select>
+`;
+
+exports[`Select Component should match snapshot 1`] = `
+.c0 {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #909090;
+  background: #FFFFFF;
+  padding: 0.5rem 1.6rem 0.5rem 0.5rem;
+  border-radius: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='13' height='13' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath d='M9.48486 4.24268L5.24219 8.48535L0.999512 4.24268' stroke='%23909090'/%3E %3C/svg%3E ");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem top calc(50% - 1px);
+  -webkit-transition: filter 0.05s;
+  transition: filter 0.05s;
+}
+
+.c0:focus:not(:disabled) {
+  border: 1px solid #1F95EB;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  -webkit-filter: grayscale(100%) opacity(60%);
+  filter: grayscale(100%) opacity(60%);
+}
+
+<select
+  className="c0"
+/>
+`;
+
+exports[`Select Component should match snapshot with darkTheme 1`] = `
+.c0 {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #303030;
+  background: #505050;
+  padding: 0.5rem 1.6rem 0.5rem 0.5rem;
+  border-radius: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='13' height='13' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath d='M9.48486 4.24268L5.24219 8.48535L0.999512 4.24268' stroke='%23909090'/%3E %3C/svg%3E ");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem top calc(50% - 1px);
+  -webkit-transition: filter 0.05s;
+  transition: filter 0.05s;
+}
+
+.c0:focus:not(:disabled) {
+  border: 1px solid #1F95EB;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  -webkit-filter: grayscale(100%) opacity(60%);
+  filter: grayscale(100%) opacity(60%);
+}
+
+<select
+  className="c0"
+/>
+`;
+
+exports[`Select Component should match snapshot with lightTheme 1`] = `
+.c0 {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #909090;
+  background: #FFFFFF;
+  padding: 0.5rem 1.6rem 0.5rem 0.5rem;
+  border-radius: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='13' height='13' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath d='M9.48486 4.24268L5.24219 8.48535L0.999512 4.24268' stroke='%23909090'/%3E %3C/svg%3E ");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem top calc(50% - 1px);
+  -webkit-transition: filter 0.05s;
+  transition: filter 0.05s;
+}
+
+.c0:focus:not(:disabled) {
+  border: 1px solid #1F95EB;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  -webkit-filter: grayscale(100%) opacity(60%);
+  filter: grayscale(100%) opacity(60%);
+}
+
+<select
+  className="c0"
+/>
+`;
