@@ -11212,10 +11212,10 @@ web-ext@^4.2.0:
     yargs "15.1.0"
     zip-dir "1.0.2"
 
-webext-redux@^2.1.6:
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/webext-redux/-/webext-redux-2.1.6.tgz#38579fc2c41d454e327d90062dc3e6f51532d49f"
-  integrity sha512-3AWR6T5c0QXl6rmmgzorlELvXgwP0aIxPJ8sWXzpAMhLuL0gcY+vEyD2FI3r9QDLh9bjZIqywdPJNYNqL1W7jA==
+webext-redux@^2.1.7:
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/webext-redux/-/webext-redux-2.1.7.tgz#b6bb0124b24912ad0b823d4c754eb72ef65d6186"
+  integrity sha512-BGWbr/jbZl26nGN3YpTjAC7cxERCbxSwx8les9mEBALNe+g9fm31Vi5miRpk0cqEo3aGKTQ++SZ9MpNHJWPpCw==
   dependencies:
     lodash.assignin "^4.2.0"
     lodash.clonedeep "^4.5.0"

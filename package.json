@@ -83,7 +83,7 @@
     "semver": "^7.3.2",
     "styled-components": "^5.1.1",
     "use-analytics": "^0.0.3",
-    "webext-redux": "^2.1.6",
+    "webext-redux": "^2.1.7",
     "webextension-polyfill": "^0.6.0"
   },
   "jest": {
