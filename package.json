@@ -59,7 +59,7 @@
     "lint-staged": ">=10.2.11",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-web-extension": "^1.6.1",
-    "prettier": "^2.0.5",
+    "prettier": "^2.1.0",
     "react-test-renderer": "^16.13.1",
     "rimraf": "^3.0.2",
     "web-ext": "^5.0.0"
