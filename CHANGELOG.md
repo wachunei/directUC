@@ -1,5 +1,25 @@
 ## Changelog
 
+### [v1.0.4](https://github.com/wachunei/directUC/compare/v1.0.3...v1.0.4)
+
+> 27 August 2020
+
+- fix: Make analytics work again [`#49`](https://github.com/wachunei/directUC/pull/49)
+- Bump prettier from 2.1.0 to 2.1.1 [`#48`](https://github.com/wachunei/directUC/pull/48)
+- Bump lint-staged from 10.2.11 to 10.2.13 [`#47`](https://github.com/wachunei/directUC/pull/47)
+- Bump prettier from 2.0.5 to 2.1.0 [`#46`](https://github.com/wachunei/directUC/pull/46)
+- Bump jest from 26.4.1 to 26.4.2 [`#45`](https://github.com/wachunei/directUC/pull/45)
+- Bump jest from 26.4.0 to 26.4.1 [`#44`](https://github.com/wachunei/directUC/pull/44)
+- Bump @babel/core from 7.11.1 to 7.11.4 [`#43`](https://github.com/wachunei/directUC/pull/43)
+- Bump jest-styled-components from 7.0.2 to 7.0.3 [`#42`](https://github.com/wachunei/directUC/pull/42)
+- Upgrade dependencies [`#41`](https://github.com/wachunei/directUC/pull/41)
+- Bump eslint-plugin-prettier from 3.1.3 to 3.1.4 [`#39`](https://github.com/wachunei/directUC/pull/39)
+- Bump react-redux from 7.2.0 to 7.2.1 [`#36`](https://github.com/wachunei/directUC/pull/36)
+- Bump @babel/core from 7.10.1 to 7.11.1 [`#38`](https://github.com/wachunei/directUC/pull/38)
+- Bump webext-redux from 2.1.6 to 2.1.7 [`#37`](https://github.com/wachunei/directUC/pull/37)
+- Bump eslint-plugin-import from 2.20.2 to 2.22.0 [`#40`](https://github.com/wachunei/directUC/pull/40)
+- Create dependabot.yml [`#35`](https://github.com/wachunei/directUC/pull/35)
+
 ### [v1.0.3](https://github.com/wachunei/directUC/compare/v1.0.2...v1.0.3)
 
 > 16 August 2020
