@@ -8,6 +8,9 @@ const analytics = Analytics({
   plugins: [
     googleAnalytics({
       trackingId: "UA-62971405-1",
+      tasks: {
+        checkProtocolTask: null,
+      },
     }),
   ],
 });

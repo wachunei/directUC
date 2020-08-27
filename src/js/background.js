@@ -285,11 +285,26 @@ const aliases = {
   ),
 };
 
-const { store } = configureStore(aliases);
+const { store, persistor } = configureStore(aliases);
 Omnibox(services, store);
 wrapStore(store);
 
 analytics.page();
+
+persistor.subscribe(() => {
+  const { bootstrapped } = persistor.getState();
+  if (bootstrapped) {
+    const {
+      user: { username },
+    } = store.getState();
+    if (username) {
+      analytics.track("loaded", {
+        category: "Users",
+        label: username,
+      });
+    }
+  }
+});
 
 /* Install and update listeners */
 browser.runtime.onInstalled.addListener(({ reason, previousVersion }) => {
