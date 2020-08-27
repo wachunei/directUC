@@ -1,8 +1,14 @@
 ## Changelog
 
-### [v1.0.4](https://github.com/wachunei/directUC/compare/v1.0.3...v1.0.4)
+### [v1.0.5](https://github.com/wachunei/directUC/compare/v1.0.4...v1.0.5)
 
 > 27 August 2020
+
+- Fix service name analytics [`#50`](https://github.com/wachunei/directUC/pull/50)
+
+### [v1.0.4](https://github.com/wachunei/directUC/compare/v1.0.3...v1.0.4)
+
+> 26 August 2020
 
 - fix: Make analytics work again [`#49`](https://github.com/wachunei/directUC/pull/49)
 - Bump prettier from 2.1.0 to 2.1.1 [`#48`](https://github.com/wachunei/directUC/pull/48)
