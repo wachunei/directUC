@@ -256,7 +256,7 @@ const aliases = {
       } else {
         analytics.track("clicked", {
           category: "Services",
-          label: service,
+          label: serviceKey,
         });
 
         if (options.sameTab) {
