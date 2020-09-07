@@ -47,7 +47,7 @@ exports[`Checkbox Component should match snapshot 1`] = `
   transition: opacity 0.05s;
 }
 
-.c0:hover .c4 {
+.c0:hover .c3 {
   border: 1px solid #1F95EB;
 }
 
@@ -131,7 +131,7 @@ exports[`Checkbox Component should match snapshot with darkTheme 1`] = `
   transition: opacity 0.05s;
 }
 
-.c0:hover .c4 {
+.c0:hover .c3 {
   border: 1px solid #1F95EB;
 }
 
@@ -215,7 +215,7 @@ exports[`Checkbox Component should match snapshot with lightTheme 1`] = `
   transition: opacity 0.05s;
 }
 
-.c0:hover .c4 {
+.c0:hover .c3 {
   border: 1px solid #1F95EB;
 }
 
@@ -299,7 +299,7 @@ exports[`Checkbox Component should render checked 1`] = `
   transition: opacity 0.05s;
 }
 
-.c0:hover .c4 {
+.c0:hover .c3 {
   border: 1px solid #1F95EB;
 }
 
@@ -387,7 +387,7 @@ exports[`Checkbox Component should render disabled 1`] = `
   transition: opacity 0.05s;
 }
 
-.c0:hover .c4 {
+.c0:hover .c3 {
   border: 1px solid #1F95EB;
 }
 
