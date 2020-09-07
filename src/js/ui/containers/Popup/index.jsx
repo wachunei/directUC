@@ -65,25 +65,31 @@ const Popup = () => {
     const {
       type,
       button,
+      metaKey,
+      ctrlKey,
       target: {
         dataset: { service },
       },
     } = event;
 
-    const isMiddleClick = type === "auxclick" && button === 1;
+    const isModClick =
+      (type === "auxclick" && button === 1) ||
+      (type === "click" &&
+        navigator &&
+        (/Mac/.test(navigator.platform) ? metaKey : ctrlKey));
 
     setLoading(true);
     try {
       await dispatch({
         type: `servicesActions.${service}.callActionAndRedirect`,
         payload: {
-          disposition: isMiddleClick ? "newBackgroundTab" : undefined,
+          disposition: isModClick ? "newBackgroundTab" : undefined,
         },
       });
 
       setLoading(false);
 
-      if (!isMiddleClick) {
+      if (!isModClick) {
         window.close();
       }
     } catch {
