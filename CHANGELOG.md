@@ -1,5 +1,19 @@
 ## Changelog
 
+### [v1.0.6](https://github.com/wachunei/directUC/compare/v1.0.5...v1.0.6)
+
+> 7 September 2020
+
+- feat: Add modifier click to open service in background new tab [`#59`](https://github.com/wachunei/directUC/pull/59)
+- Bump styled-components from 5.1.1 to 5.2.0 [`#58`](https://github.com/wachunei/directUC/pull/58)
+- Bump lint-staged from 10.2.13 to 10.3.0 [`#56`](https://github.com/wachunei/directUC/pull/56)
+- Bump @babel/core from 7.11.5 to 7.11.6 [`#57`](https://github.com/wachunei/directUC/pull/57)
+- Bump eslint from 7.8.0 to 7.8.1 [`#55`](https://github.com/wachunei/directUC/pull/55)
+- Bump @babel/core from 7.11.4 to 7.11.5 [`#52`](https://github.com/wachunei/directUC/pull/52)
+- Bump eslint from 7.7.0 to 7.8.0 [`#53`](https://github.com/wachunei/directUC/pull/53)
+- Bump @babel/preset-env from 7.11.0 to 7.11.5 [`#54`](https://github.com/wachunei/directUC/pull/54)
+- Bump polished from 3.6.5 to 3.6.6 [`#51`](https://github.com/wachunei/directUC/pull/51)
+
 ### [v1.0.5](https://github.com/wachunei/directUC/compare/v1.0.4...v1.0.5)
 
 > 27 August 2020
