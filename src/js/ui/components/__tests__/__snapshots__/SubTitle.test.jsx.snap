@@ -8,11 +8,14 @@ exports[`SubTitle Component should match snapshot 1`] = `
   color: #303030;
   font-family: "Red Hat Display",sans-serif;
   margin: 0 0 0.5rem;
+}
+
+.c1 {
   font-size: 18px;
 }
 
 <h3
-  className="c0"
+  className="c0 c1"
 />
 `;
 
@@ -24,11 +27,14 @@ exports[`SubTitle Component should match snapshot with darkTheme 1`] = `
   color: #E0E0E0;
   font-family: "Red Hat Display",sans-serif;
   margin: 0 0 0.5rem;
+}
+
+.c1 {
   font-size: 18px;
 }
 
 <h3
-  className="c0"
+  className="c0 c1"
 />
 `;
 
@@ -40,10 +46,13 @@ exports[`SubTitle Component should match snapshot with lightTheme 1`] = `
   color: #303030;
   font-family: "Red Hat Display",sans-serif;
   margin: 0 0 0.5rem;
+}
+
+.c1 {
   font-size: 18px;
 }
 
 <h3
-  className="c0"
+  className="c0 c1"
 />
 `;
