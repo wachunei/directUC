@@ -79,11 +79,13 @@ const Popup = () => {
         (/Mac/.test(navigator.platform) ? metaKey : ctrlKey));
 
     setLoading(true);
+
     try {
       await dispatch({
         type: `servicesActions.${service}.callActionAndRedirect`,
         payload: {
           disposition: isModClick ? "newBackgroundTab" : undefined,
+          modClick: isModClick,
         },
       });
 

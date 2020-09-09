@@ -8,7 +8,7 @@ import * as actions from "./redux/actions";
 import serviceActionsHandler from "./store/aliases";
 import configureStore from "./store";
 import Omnibox from "./omnibox";
-import analytics from "./analytics";
+import analytics from "./analytics/next";
 
 import { parseDistinguishedName } from "./utils";
 
@@ -59,10 +59,6 @@ const aliases = {
       label: username,
     });
 
-    analytics.identify(username, {
-      fullName,
-    });
-
     Notifications.createLogInSuccess(fullName);
   },
   logout: () => async (dispatch, getState) => {
@@ -75,7 +71,6 @@ const aliases = {
       category: "Users",
       label: username,
     });
-    analytics.reset();
   },
 
   /** DIRECT MODE */
@@ -208,7 +203,7 @@ const aliases = {
        * https://developer.chrome.com/extensions/omnibox#type-OnInputEnteredDisposition
        *
        */
-      const { disposition } = action.payload || {};
+      const { disposition, modClick } = action.payload || {};
       // Service is grabbed from the action.type constant
       const service = services[serviceKey];
       /*
@@ -238,6 +233,18 @@ const aliases = {
       if (!url) {
         return;
       }
+
+      /*
+       Action comes from the default click of the popup
+       or from a modClick (middleclick or with meta key modifier)
+      */
+      if (!disposition || modClick) {
+        analytics.track("clicked", {
+          category: "Services",
+          label: serviceKey,
+        });
+      }
+
       if (disposition) {
         switch (disposition) {
           case "newForegroundTab": {
@@ -253,17 +260,10 @@ const aliases = {
             browser.tabs.update({ url });
           }
         }
+      } else if (options.sameTab) {
+        browser.tabs.update({ url });
       } else {
-        analytics.track("clicked", {
-          category: "Services",
-          label: serviceKey,
-        });
-
-        if (options.sameTab) {
-          browser.tabs.update({ url });
-        } else {
-          browser.tabs.create({ url });
-        }
+        browser.tabs.create({ url });
       }
     }
   ),
