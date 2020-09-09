@@ -1,5 +1,12 @@
 ## Changelog
 
+### [v1.0.7](https://github.com/wachunei/directUC/compare/v1.0.6...v1.0.7)
+
+> 9 September 2020
+
+- Refactor Analytics and add policies checkbox [`#61`](https://github.com/wachunei/directUC/pull/61)
+- Bump husky from 4.2.5 to 4.3.0 [`#60`](https://github.com/wachunei/directUC/pull/60)
+
 ### [v1.0.6](https://github.com/wachunei/directUC/compare/v1.0.5...v1.0.6)
 
 > 7 September 2020
