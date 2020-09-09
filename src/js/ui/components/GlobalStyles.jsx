@@ -51,6 +51,10 @@ export default createGlobalStyle`
     color: ${(props) => props.theme.body};
   }
 
+  a {
+    color: ${(props) => props.theme.primary}
+  }
+
   input,
   select {
     font-family: "Red Hat Text", sans-serif;
