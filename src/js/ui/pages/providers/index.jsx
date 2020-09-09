@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { Store } from "webext-redux";
 import { AnalyticsProvider } from "use-analytics";
 import ColorSchemeThemeProvider from "./ColorSchemeThemeProvider";
-import analytics from "../../../analytics";
+import analytics from "../../../analytics/next";
 
 const Providers = ({ store, children }) => (
   <Provider store={store}>
