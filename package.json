@@ -65,8 +65,6 @@
     "web-ext": "^5.0.0"
   },
   "dependencies": {
-    "@analytics/google-analytics": "^0.5.0",
-    "analytics": "^0.5.5",
     "fuse.js": "^6.4.1",
     "keymirror": "^0.1.1",
     "polished": "^3.6.6",

@@ -7,4 +7,7 @@ export const parseDistinguishedName = (name) =>
     (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
   );
 
-export const isFirefox = !window.chrome.app;
+export const isFirefox = process.env.TARGET === "firefox";
+
+export const trackingId =
+  process.env.NODE_ENV === "development" ? "UA-177532719-1" : "UA-62971405-1";

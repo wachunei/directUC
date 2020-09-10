@@ -1,21 +1,28 @@
-import browser from "webextension-polyfill";
-import Analytics from "analytics";
-import googleAnalytics from "@analytics/google-analytics";
+import ReactGA from "react-ga";
+import { isFirefox, trackingId } from "../utils";
 
-const trackingId =
-  process.env.NODE_ENV === "development" ? "UA-177532719-1" : "UA-62971405-1";
+let analytics;
 
-const analytics = Analytics({
-  app: "directUC",
-  version: browser.runtime.getManifest().version,
-  plugins: [
-    googleAnalytics({
-      trackingId,
-      tasks: {
-        checkProtocolTask: null,
-      },
-    }),
-  ],
-});
+if (!isFirefox) {
+  analytics = ReactGA;
+  analytics.initialize(trackingId, {
+    titleCase: false,
+  });
 
-export default analytics;
+  analytics.ga("set", "checkProtocolTask", null);
+}
+
+export default {
+  track(action, options) {
+    if (analytics) {
+      analytics.event({ action, ...options });
+    }
+  },
+  page() {
+    if (analytics) {
+      analytics.pageview(window.location.pathname);
+    }
+  },
+  identify() {},
+  reset() {},
+};
