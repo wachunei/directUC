@@ -1,5 +1,11 @@
 ## Changelog
 
+### [v1.0.8](https://github.com/wachunei/directUC/compare/v1.0.7...v1.0.8)
+
+> 10 September 2020
+
+- Use titleCase false in react-ga [`#62`](https://github.com/wachunei/directUC/pull/62)
+
 ### [v1.0.7](https://github.com/wachunei/directUC/compare/v1.0.6...v1.0.7)
 
 > 9 September 2020
