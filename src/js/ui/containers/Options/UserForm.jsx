@@ -8,7 +8,6 @@ import Fieldset from "../../components/Fieldset";
 import FormControl from "../../components/FormControl";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-import Checkbox from "../../components/Checkbox";
 
 const NarrowForm = styled.form`
   margin: 10px auto;
@@ -103,20 +102,6 @@ function UserForm() {
                 block
                 required
               />
-            </FormControl>
-            <FormControl>
-              <Checkbox required>
-                <small>
-                  Al guardar usuario confirmo aceptar las{" "}
-                  <a
-                    href="https://github.com/wachunei/directUC/blob/develop/POLICIES.md#policies"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    políticas de privacidad y términos de uso
-                  </a>
-                </small>
-              </Checkbox>
             </FormControl>
           </Fieldset>
         )}

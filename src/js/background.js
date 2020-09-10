@@ -8,7 +8,7 @@ import * as actions from "./redux/actions";
 import serviceActionsHandler from "./store/aliases";
 import configureStore from "./store";
 import Omnibox from "./omnibox";
-import analytics from "./analytics/next";
+import analytics from "./analytics";
 
 import { parseDistinguishedName } from "./utils";
 
