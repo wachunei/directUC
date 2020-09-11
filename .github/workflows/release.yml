@@ -103,8 +103,8 @@ jobs:
                 prerelease: false
             - name: Create Artifacts
               run: |
-                echo ${{ steps.get-version-number.outputs.number }} > version.txt
-                echo ${{ steps.create-draft-release.outputs.upload_url }} > upload_url.txt
+                echo "${{ steps.get-version-number.outputs.number }}" > version.txt
+                echo "${{ steps.create-draft-release.outputs.upload_url }}" > upload_url.txt
             - name: Save Version Number
               uses: actions/upload-artifact@v2
               with:
