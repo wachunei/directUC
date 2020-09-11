@@ -1,5 +1,11 @@
 ## Changelog
 
+### [v1.0.11](https://github.com/wachunei/directUC/compare/v1.0.10...v1.0.11)
+
+> 11 September 2020
+
+- 📦✨ Add releases packed artifacts [`#66`](https://github.com/wachunei/directUC/pull/66)
+
 ### [v1.0.10](https://github.com/wachunei/directUC/compare/v1.0.8...v1.0.10)
 
 > 11 September 2020
