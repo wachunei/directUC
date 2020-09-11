@@ -74,9 +74,10 @@ jobs:
               run: yarn --frozen-lockfile
             - name: Get the version
               id: get-version
-              run:
-                echo ::set-output name=version::${GITHUB_REF/refs\/tags\//}
-                echo ::set-output name=version-number::${GITHUB_REF/refs\/tags\//:1}
+              run: echo ::set-output name=version::${GITHUB_REF/refs\/tags\//}
+            - name: Get the version number
+              id: get-version-number
+              run: echo ::set-output name=number::${GITHUB_REF/refs\/tags\//:1}
             - name: Get Release Changelog
               id: get-release-changelog
               run: |
@@ -130,7 +131,7 @@ jobs:
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
-                upload_url: ${{ steps.create-release.outputs.upload_url }}
-                asset_path: ./releases/${{ matrix.target }}/directuc-${{ steps.get-version.outputs.version-number }}.zip
-                asset_name: directuc-${{ steps.get-version.outputs.version-number }}-${{ matrix.target }}.zip
+                upload_url: ${{ steps.create-draft-release.outputs.upload_url }}
+                asset_path: ./releases/${{ matrix.target }}/directuc-${{ steps.get-version-number.outputs.number }}.zip
+                asset_name: directuc-${{ steps.get-version-number.outputs.number }}-${{ matrix.target }}.zip
                 asset_content_type: application/zip
