@@ -1,5 +1,9 @@
 ## Changelog
 
+### [v1.0.11-alpha2](https://github.com/wachunei/directUC/compare/v1.0.11-alpha1...v1.0.11-alpha2)
+
+> 11 September 2020
+
 ### [v1.0.11-alpha1](https://github.com/wachunei/directUC/compare/v1.0.11-alpha0...v1.0.11-alpha1)
 
 > 11 September 2020
