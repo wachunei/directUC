@@ -53,9 +53,6 @@ jobs:
         name: create-release
         needs: test
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-              target: ['firefox', 'chrome']
         steps:
             - uses: actions/checkout@v2
               with:
@@ -104,15 +101,64 @@ jobs:
                 body: ${{ steps.get-release-changelog.outputs.changelog }}
                 draft: true
                 prerelease: false
+            - name: Create Artifacts
+              run: |
+                echo ${{ steps.get-version-number.outputs.number }} > version.txt
+                echo ${{ steps.create-draft-release.outputs.upload_url }} > upload_url.txt
+            - name: Save Version Number
+              uses: actions/upload-artifact@v2
+              with:
+                name: version
+                path: version.txt
+            - name: Save Upload URL
+              uses: actions/upload-artifact@v2
+              with:
+                name: upload_url
+                path: upload_url.txt
+    pack:
+        needs: create-release
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+              target: ['firefox', 'chrome']
+        name: pack
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2-beta
+              with:
+                node-version: '12'
+            - name: Get yarn cache directory path
+              id: yarn-cache-dir-path
+              run: echo "::set-output name=dir::$(yarn cache dir)"
+            - uses: actions/cache@v2
+              id: yarn-cache
+              with:
+                path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-yarn-
+            - name: Install dependencies
+              run: yarn --frozen-lockfile
             - name: Build (${{ matrix.target}})
               run: yarn build:${{ matrix.target }} && yarn pack:${{ matrix.target }}
+            - uses: actions/download-artifact@v2
+              with:
+                name: version
+            - uses: actions/download-artifact@v2
+              with:
+                name: upload_url
+            - name: Create Artifacts outputs
+              id: artifacts
+              run: |
+                run: echo "::set-output name=version::$(cat version.txt)"
+                run: echo "::set-output name=upload_url::$(cat upload_url.txt)"
             - name: Upload Release Asset (${{ matrix.target}})
               id: upload-release-asset
               uses: actions/upload-release-asset@v1
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
-                upload_url: ${{ steps.create-draft-release.outputs.upload_url }}
-                asset_path: ./releases/${{ matrix.target }}/directuc-${{ steps.get-version-number.outputs.number }}.zip
-                asset_name: directuc-${{ steps.get-version-number.outputs.number }}-${{ matrix.target }}.zip
+                upload_url: ${{ steps.artifacts.outputs.upload_url }}
+                asset_path: ./releases/${{ matrix.target }}/directuc-${{ steps.artifacts.outputs.version }}.zip
+                asset_name: directuc-${{ steps.artifacts.outputs.version }}-${{ matrix.target }}.zip
                 asset_content_type: application/zip
