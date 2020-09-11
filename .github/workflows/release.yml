@@ -77,7 +77,7 @@ jobs:
               run: echo ::set-output name=version::${GITHUB_REF/refs\/tags\//}
             - name: Get the version number
               id: get-version-number
-              run: echo ::set-output name=number::${GITHUB_REF/refs\/tags\//:1}
+              run: echo ::set-output name=number::${${{ steps.get-version.outputs.version}}:1}
             - name: Get Release Changelog
               id: get-release-changelog
               run: |
@@ -99,6 +99,8 @@ jobs:
                 body: ${{ steps.get-release-changelog.outputs.changelog }}
                 draft: true
                 prerelease: false
+            - name: Build (${{ matrix.target}})
+              run: yarn build:${{ matrix.target }} && yarn pack:${{ matrix.target }}
             - name: Upload Release Asset (${{ matrix.target}})
               id: upload-release-asset
               uses: actions/upload-release-asset@v1
