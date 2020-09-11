@@ -1,7 +1,7 @@
 {
   "name": "direct-uc",
   "description": "Extensión web que permite a alumnos y funcionarios de la Pontificia Universidad Católica de Chile el ingreso directo a diferentes servicios ofrecidos por esta.",
-  "version": "1.0.11-alpha8",
+  "version": "1.0.11-alpha9",
   "repository": "git@github.com:wachunei/directUC.git",
   "author": "Pedro Pablo Aste Kompen <wachunei@gmail.com>",
   "license": "MIT",
