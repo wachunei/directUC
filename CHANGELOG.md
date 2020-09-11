@@ -1,5 +1,11 @@
 ## Changelog
 
+### [v1.0.11-alpha3](https://github.com/wachunei/directUC/compare/v1.0.11-alpha2...v1.0.11-alpha3)
+
+> 11 September 2020
+
+- Update action [`73772d3`](https://github.com/wachunei/directUC/commit/73772d3f2dee7ecd2d0c657abcab0038b6648182)
+
 ### [v1.0.11-alpha2](https://github.com/wachunei/directUC/compare/v1.0.11-alpha1...v1.0.11-alpha2)
 
 > 11 September 2020
