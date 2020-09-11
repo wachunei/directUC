@@ -53,6 +53,9 @@ jobs:
         name: create-release
         needs: test
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+              target: ['firefox', 'chrome']
         steps:
             - uses: actions/checkout@v2
               with:
