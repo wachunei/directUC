@@ -1,5 +1,13 @@
 ## Changelog
 
+### [v1.0.10](https://github.com/wachunei/directUC/compare/v1.0.8...v1.0.10)
+
+> 11 September 2020
+
+- Bump node-fetch from 2.6.0 to 2.6.1 [`#65`](https://github.com/wachunei/directUC/pull/65)
+- Bump eslint-plugin-react-hooks from 4.1.0 to 4.1.1 [`#64`](https://github.com/wachunei/directUC/pull/64)
+- Disable analytics for Firefox [`#63`](https://github.com/wachunei/directUC/pull/63)
+
 ### [v1.0.8](https://github.com/wachunei/directUC/compare/v1.0.7...v1.0.8)
 
 > 10 September 2020
