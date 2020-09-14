@@ -26,12 +26,18 @@ function Options() {
     const {
       target: { name, value, type, checked },
     } = e;
+
+    const defaultValue = window.matchMedia("(prefers-color-scheme: dark)")
+      .matches
+      ? "dark"
+      : "light";
+
     await dispatch({
       type: "setOption",
       payload: {
         option: name,
         // eslint-disable-next-line no-nested-ternary
-        value: type === "checkbox" ? (checked ? "auto" : "light") : value,
+        value: type === "checkbox" ? (checked ? "auto" : defaultValue) : value,
       },
     });
   };
