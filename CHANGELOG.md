@@ -1,16 +1,5 @@
 ## Changelog
 
-### [v1.0.12](https://github.com/wachunei/directUC/compare/v1.0.11...v1.0.12)
-
-> 18 September 2020
-
-- Add services sorting using drag and drop [`#72`](https://github.com/wachunei/directUC/pull/72)
-- Bump lint-staged from 10.3.0 to 10.4.0 [`#71`](https://github.com/wachunei/directUC/pull/71)
-- Bump prettier from 2.1.1 to 2.1.2 [`#70`](https://github.com/wachunei/directUC/pull/70)
-- Avoid accidentally burning your eyes when disabling auto dark mode [`#69`](https://github.com/wachunei/directUC/pull/69)
-- Bump eslint from 7.8.1 to 7.9.0 [`#68`](https://github.com/wachunei/directUC/pull/68)
-- Bump eslint-plugin-react-hooks from 4.1.1 to 4.1.2 [`#67`](https://github.com/wachunei/directUC/pull/67)
-
 ### [v1.0.11](https://github.com/wachunei/directUC/compare/v1.0.10...v1.0.11)
 
 > 11 September 2020
