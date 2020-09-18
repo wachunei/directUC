@@ -10,7 +10,7 @@ import configureStore from "./store";
 import Omnibox from "./omnibox";
 import analytics from "./analytics";
 
-import { parseDistinguishedName } from "./utils";
+import { parseDistinguishedName, version } from "./utils";
 
 /** Aliases for webext-redux */
 /* From: https://github.com/tshaddix/webext-redux
@@ -308,28 +308,26 @@ persistor.subscribe(() => {
 
 /* Install and update listeners */
 browser.runtime.onInstalled.addListener(({ reason, previousVersion }) => {
-  const currentVersion = browser.runtime.getManifest().version;
-
   if (reason === "install") {
     analytics.track("installed", {
       category: "Installations",
-      label: currentVersion,
+      label: version,
     });
   } else if (reason === "update") {
     // We are receiving an update
 
     // If the updated version is the same as the previous one do nothing
-    if (semver.eq(previousVersion, currentVersion)) {
+    if (semver.eq(previousVersion, version)) {
       return;
     }
 
     analytics.track("updated", {
       category: "Installations",
-      label: currentVersion,
+      label: version,
     });
 
     // If the current version is >=1.0.0
-    if (semver.gte(currentVersion, "1.0.0")) {
+    if (semver.gte(version, "1.0.0")) {
       // If we are coming from the previous major version (0.x.x)
       // we transfer the user data into the new version storage
       // in case the user was logged in
@@ -341,7 +339,7 @@ browser.runtime.onInstalled.addListener(({ reason, previousVersion }) => {
         if (username && password && fullName) {
           analytics.track("upgraded", {
             category: "Installations",
-            label: `${previousVersion} > ${currentVersion}`,
+            label: `${previousVersion} > ${version}`,
           });
           store.dispatch({
             type: actions.user.setUser,

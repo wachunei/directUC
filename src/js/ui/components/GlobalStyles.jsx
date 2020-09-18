@@ -42,13 +42,17 @@ export default createGlobalStyle`
     color: ${(props) => props.theme.selectionForeground};
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background: ${(props) => props.theme.bodyBackground};
+    color: ${(props) => props.theme.body};
     margin: 0 auto;
     padding: 0;
     font-family: "Red Hat Text", sans-serif;
     font-size: 16px;
-    color: ${(props) => props.theme.body};
   }
 
   a {

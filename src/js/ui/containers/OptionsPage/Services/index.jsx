@@ -1,8 +1,8 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import services from "../../../services";
-import Section from "../../components/Section";
-import Title from "../../components/Title";
+import services from "../../../../services";
+import Section from "../../../components/Section";
+import Title from "../../../components/Title";
 import Service from "./Service";
 
 function Services() {

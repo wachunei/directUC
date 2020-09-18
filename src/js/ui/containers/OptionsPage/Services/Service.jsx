@@ -6,13 +6,28 @@ import React, {
   useState,
 } from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import Service from "../../components/Service";
-import SubTitle from "../../components/SubTitle";
-import FormControl from "../../components/FormControl";
-import Checkbox from "../../components/Checkbox";
+import Service from "../../../components/Service";
+import SubTitle from "../../../components/SubTitle";
+import FormControl from "../../../components/FormControl";
+import Checkbox from "../../../components/Checkbox";
+import Box from "../../../components/Box";
 
 import ServiceOption from "./ServiceOption";
+
+const DragHandle = styled.span`
+  opacity: 0;
+  transition: opacity 0.2s;
+`;
+
+const StyledService = styled(Service)`
+  &:hover {
+    ${DragHandle} {
+      opacity: ${({ loggedIn }) => (loggedIn ? 1 : 0)};
+    }
+  }
+`;
 
 const ServiceContainer = forwardRef(function ServiceContainerComponent(
   {
@@ -64,20 +79,25 @@ const ServiceContainer = forwardRef(function ServiceContainerComponent(
   }, []);
 
   return (
-    <Service
+    <StyledService
       draggable={draggable}
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
       dragging={dragging}
+      loggedIn={loggedIn}
       ref={serviceRef}
     >
-      <SubTitle
+      <Box
+        horizontal
+        between
+        middle
         style={loggedIn ? { cursor: dragging ? "grabbing" : "grab" } : null}
         onMouseEnter={handleDragHandlerEnter}
         onMouseLeave={handleDragHandlerLeave}
       >
-        {name}
-      </SubTitle>
+        <SubTitle>{name}</SubTitle>
+        <DragHandle>⠿</DragHandle>
+      </Box>
 
       <FormControl>
         <Checkbox
@@ -108,7 +128,7 @@ const ServiceContainer = forwardRef(function ServiceContainerComponent(
             />
           );
         })}
-    </Service>
+    </StyledService>
   );
 });
 

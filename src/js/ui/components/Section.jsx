@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Section = styled.div`
   padding: 15px 20px;
-  background-color: ${({ theme }) => theme.sectionBackground};
+  background-color: ${({ theme, ghost }) => !ghost && theme.sectionBackground};
   margin-bottom: 15px;
 `;
 
