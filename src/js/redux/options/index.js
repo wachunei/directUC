@@ -10,6 +10,7 @@ export const initialState = {
   directMode: false,
   directModeService: "",
   colorScheme: "auto",
+  order: null,
 };
 
 const reducer = (state = initialState, action) => {

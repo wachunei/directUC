@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import browser from "webextension-polyfill";
@@ -33,6 +33,8 @@ const Popup = () => {
   );
   const { username, fullName } = useSelector((state) => state.user);
   const servicesOptions = useSelector((state) => state.services);
+  const order = useSelector((state) => state.options.order);
+
   const [loading, setLoading] = useState(false);
 
   const isDirectMode = directMode && directModeService;
@@ -60,6 +62,28 @@ const Popup = () => {
       page();
     }
   }, [username, isDirectMode]);
+
+  const servicesToDisplay = useMemo(
+    () =>
+      Object.entries(services).filter(
+        ([key, service]) =>
+          service.display &&
+          servicesOptions[key] &&
+          servicesOptions[key].display
+      ),
+    [services, servicesOptions]
+  );
+
+  const currentOrder = useMemo(() => {
+    const keys = servicesToDisplay.map(([key]) => key);
+    if (!order) {
+      return keys;
+    }
+    return [
+      ...order.filter((service) => keys.includes(service)),
+      ...keys.filter((service) => !order.includes(service)),
+    ];
+  }, [order, servicesToDisplay]);
 
   const handleServiceClick = async (event) => {
     const {
@@ -134,14 +158,9 @@ const Popup = () => {
         </IconButton>
       </PopupBar>
 
-      {Object.entries(services)
-        .filter(
-          ([key, service]) =>
-            service.display &&
-            servicesOptions[key] &&
-            servicesOptions[key].display
-        )
-        .map(([key, service]) => (
+      {currentOrder.map((key) => {
+        const service = services[key];
+        return (
           <Service
             key={key}
             service={service}
@@ -154,7 +173,8 @@ const Popup = () => {
           >
             {service.display}
           </Service>
-        ))}
+        );
+      })}
 
       <PopupBar>
         <CurrentUser title={`Sesión iniciada como ${fullName} (${username})`}>

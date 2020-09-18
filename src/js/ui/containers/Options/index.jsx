@@ -30,10 +30,7 @@ function OptionsPage() {
         <Title>Opciones</Title>
         <Options />
       </Section>
-      <Section>
-        <Title>Servicios</Title>
-        <Services />
-      </Section>
+      <Services />
     </>
   );
 }
