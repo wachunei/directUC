@@ -1,8 +1,14 @@
 ## Changelog
 
-### [v1.0.12](https://github.com/wachunei/directUC/compare/v1.0.11...v1.0.12)
+### [v1.0.13](https://github.com/wachunei/directUC/compare/v1.0.12...v1.0.13)
 
 > 18 September 2020
+
+- Add Drag Handler and About section [`#74`](https://github.com/wachunei/directUC/pull/74)
+
+### [v1.0.12](https://github.com/wachunei/directUC/compare/v1.0.11...v1.0.12)
+
+> 17 September 2020
 
 - Fix keeping always at least one service displayed in popup [`#73`](https://github.com/wachunei/directUC/pull/73)
 - Add services sorting using drag and drop [`#72`](https://github.com/wachunei/directUC/pull/72)
