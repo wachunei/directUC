@@ -3,14 +3,14 @@ import { render } from "react-dom";
 import { Store } from "webext-redux";
 
 import Providers from "./providers";
-import Options from "../containers/Options";
+import OptionsPage from "../containers/OptionsPage";
 
 const store = new Store();
 
 store.ready().then(() => {
   render(
     <Providers store={store}>
-      <Options />
+      <OptionsPage />
     </Providers>,
     document.querySelector("#app")
   );

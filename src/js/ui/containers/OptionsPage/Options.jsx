@@ -5,7 +5,6 @@ import services from "../../../services";
 import FormControl from "../../components/FormControl";
 import Checkbox from "../../components/Checkbox";
 import Select from "../../components/Select";
-import HorizontalSeparator from "../../components/HorizontalSeparator";
 
 function Options() {
   const dispatch = useDispatch();
@@ -53,7 +52,6 @@ function Options() {
           Abrir siempre en la pestaña actual
         </Checkbox>
       </FormControl>
-      <HorizontalSeparator />
       <FormControl label="Modo Directo">
         <Checkbox
           onChange={handleOptionChange}

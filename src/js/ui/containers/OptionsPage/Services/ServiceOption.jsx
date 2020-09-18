@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import FormControl from "../../components/FormControl";
-import Input from "../../components/Input";
-import Checkbox from "../../components/Checkbox";
+import FormControl from "../../../components/FormControl";
+import Input from "../../../components/Input";
+import Checkbox from "../../../components/Checkbox";
 
 function ServiceOption({
   option,
