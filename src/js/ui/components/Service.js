@@ -7,6 +7,7 @@ const Service = styled.div`
     padding-bottom: 20px;
   }
   margin-bottom: 20px;
+  opacity: ${({ dragging }) => (dragging ? 0.3 : 1)};
 `;
 
 export default Service;

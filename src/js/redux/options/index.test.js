@@ -6,6 +6,7 @@ const existingInitialState = {
   directMode: true,
   directModeService: "siding",
   colorScheme: "auto",
+  order: null,
 };
 describe("options reducer", () => {
   test("returns initial state", () => {

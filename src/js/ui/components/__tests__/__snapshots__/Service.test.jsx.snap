@@ -4,6 +4,7 @@ exports[`Service Component should match snapshot 1`] = `
 .c0 {
   background-color: #FAFAFA;
   margin-bottom: 20px;
+  opacity: 1;
 }
 
 .c0:not(:last-child) {
@@ -20,6 +21,7 @@ exports[`Service Component should match snapshot with darkTheme 1`] = `
 .c0 {
   background-color: #202020;
   margin-bottom: 20px;
+  opacity: 1;
 }
 
 .c0:not(:last-child) {
@@ -36,6 +38,7 @@ exports[`Service Component should match snapshot with lightTheme 1`] = `
 .c0 {
   background-color: #FAFAFA;
   margin-bottom: 20px;
+  opacity: 1;
 }
 
 .c0:not(:last-child) {
