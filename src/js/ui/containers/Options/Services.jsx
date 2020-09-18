@@ -18,7 +18,7 @@ function Services() {
       Object.entries(services).filter(
         ([key, service]) => service.display && userOptions[key]
       ),
-    [services]
+    [services, userOptions]
   );
 
   const currentOrder = useMemo(() => {
@@ -34,7 +34,7 @@ function Services() {
 
   const displayedButtons = useMemo(
     () => servicesToDisplay.filter(([key]) => userOptions[key].display).length,
-    [servicesToDisplay]
+    [servicesToDisplay, userOptions]
   );
 
   const servicesRefCallback = useCallback((service) => {
