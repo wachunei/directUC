@@ -1962,10 +1962,10 @@ atomic-sleep@^1.0.0:
   resolved "https://registry.yarnpkg.com/atomic-sleep/-/atomic-sleep-1.0.0.tgz#eb85b77a601fc932cfe432c5acd364a9e2c9075b"
   integrity sha512-kNOjDqAh7px0XWNI+4QbzoiR/nTkHAWNud2uvnJquD1/x5a7EQZMJT0AczqK0Qn67oY/TTQ1LbUKajZpp3I9tQ==
 
-auto-changelog@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/auto-changelog/-/auto-changelog-2.2.0.tgz#2b6e502868ac4c59ebbccb7e4fe5b07838912b8f"
-  integrity sha512-RBY0hhVNXstggOQL0SyUaCfSiVD11CVXEHvDwB+mEt9UnhXPqhdpQ7nIVGDEog7JopTdYbydULLLt6v//qrWjw==
+auto-changelog@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/auto-changelog/-/auto-changelog-2.2.1.tgz#a031fbf1dfe140dda2ec8c77a524031478a0e933"
+  integrity sha512-XlykJfZrXlWUAADBqGoN1elmntrRcx7oEymyYB3NRPEZxv0TfYHfivmwzejUMnwAdXKCgbQPo7GV5ULs3jwpfw==
   dependencies:
     commander "^5.0.0"
     handlebars "^4.7.3"
