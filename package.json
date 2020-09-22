@@ -63,7 +63,7 @@
     "prettier": "^2.1.2",
     "react-test-renderer": "^16.13.1",
     "rimraf": "^3.0.2",
-    "web-ext": "^5.0.0"
+    "web-ext": "^5.1.0"
   },
   "dependencies": {
     "fuse.js": "^6.4.1",
