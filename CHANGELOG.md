@@ -1,5 +1,18 @@
 ## Changelog
 
+### [v1.0.14](https://github.com/wachunei/directUC/compare/v1.0.13...v1.0.14)
+
+- Add Google Drive service [`#84`](https://github.com/wachunei/directUC/pull/84)
+- Bump eslint-config-prettier from 6.11.0 to 6.12.0 [`#83`](https://github.com/wachunei/directUC/pull/83)
+- Bump eslint-plugin-import from 2.22.0 to 2.22.1 [`#82`](https://github.com/wachunei/directUC/pull/82)
+- Bump eslint from 7.9.0 to 7.10.0 [`#81`](https://github.com/wachunei/directUC/pull/81)
+- Bump eslint-plugin-react from 7.21.1 to 7.21.2 [`#80`](https://github.com/wachunei/directUC/pull/80)
+- Bump eslint-plugin-react from 7.21.0 to 7.21.1 [`#79`](https://github.com/wachunei/directUC/pull/79)
+- Bump web-ext from 5.0.0 to 5.1.0 [`#77`](https://github.com/wachunei/directUC/pull/77)
+- Bump eslint-plugin-react from 7.20.6 to 7.21.0 [`#78`](https://github.com/wachunei/directUC/pull/78)
+- Bump polished from 3.6.6 to 3.6.7 [`#76`](https://github.com/wachunei/directUC/pull/76)
+- Bump auto-changelog from 2.2.0 to 2.2.1 [`#75`](https://github.com/wachunei/directUC/pull/75)
+
 ### [v1.0.13](https://github.com/wachunei/directUC/compare/v1.0.12...v1.0.13)
 
 > 18 September 2020
