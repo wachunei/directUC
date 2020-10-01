@@ -1,4 +1,3 @@
-import React from "react";
 import EngineIcon from "../EngineIcon";
 import { renderTree } from "./utils";
 import "jest-styled-components";

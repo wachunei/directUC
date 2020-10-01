@@ -1,4 +1,3 @@
-import React from "react";
 import PopupLoadingOverlay from "../PopupLoadingOverlay";
 import { renderTree } from "./utils";
 import "jest-styled-components";

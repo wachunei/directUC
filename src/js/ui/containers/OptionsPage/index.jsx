@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useAnalytics } from "use-analytics";
 import GlobalStyle, { OptionsStyle } from "../../components/GlobalStyles";
 import Section from "../../components/Section";

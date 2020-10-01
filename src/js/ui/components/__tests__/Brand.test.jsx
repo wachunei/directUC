@@ -1,4 +1,3 @@
-import React from "react";
 import Brand from "../Brand";
 import { renderTree } from "./utils";
 import "jest-styled-components";

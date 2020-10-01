@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "../Button";
 import { renderTree } from "./utils";
 import "jest-styled-components";
