@@ -92,6 +92,12 @@
       "**/?(*.)+(spec|test).[jt]s?(x)"
     ]
   },
+  "babel":{
+    "presets": [
+      "@babel/preset-env",
+      ["@babel/preset-react", { "runtime": "classic" }]
+    ]
+  },
   "browserslist": [
     "last 5 Chrome versions",
     "last 5 Firefox versions",
