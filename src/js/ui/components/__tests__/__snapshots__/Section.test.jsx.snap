@@ -7,6 +7,11 @@ exports[`Section Component should match snapshot 1`] = `
   margin-bottom: 15px;
 }
 
+.c0 p {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
 <div
   className="c0"
 />
@@ -16,6 +21,11 @@ exports[`Section Component should match snapshot with darkTheme 1`] = `
 .c0 {
   padding: 15px 20px;
   background-color: #202020;
+  margin-bottom: 15px;
+}
+
+.c0 p {
+  margin-top: 0;
   margin-bottom: 15px;
 }
 
@@ -30,6 +40,11 @@ exports[`Section Component should match snapshot with ghost 1`] = `
   margin-bottom: 15px;
 }
 
+.c0 p {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
 <div
   className="c0"
 />
@@ -39,6 +54,11 @@ exports[`Section Component should match snapshot with lightTheme 1`] = `
 .c0 {
   padding: 15px 20px;
   background-color: #FAFAFA;
+  margin-bottom: 15px;
+}
+
+.c0 p {
+  margin-top: 0;
   margin-bottom: 15px;
 }
 
