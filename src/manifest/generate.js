@@ -1,38 +1,52 @@
-/* eslint-disable no-console */
 const fs = require("fs");
 const path = require("path");
-const pkg = require("../../package.json");
+const chalk = require("chalk");
+const { version } = require("../../package.json");
+
+const isMain = require.main === module;
+
+// eslint-disable-next-line no-console
+const log = isMain ? console.log : () => {};
+const tag = chalk.dim.bold("📜 manifest/generate ");
+const readJSON = async (...filePath) =>
+  JSON.parse(
+    await fs.promises.readFile(path.join(__dirname, ...filePath), "utf8")
+  );
 
 async function generate() {
-  console.log(`--- 📄 Generating manifest for target: ${process.env.TARGET}`);
-  const base = JSON.parse(
-    await fs.promises.readFile(path.join(__dirname, "base.json"), "utf8")
-  );
+  const target = process.env.TARGET;
+  log(tag, `📄 Generating manifest for target ${chalk.bold(target)}`);
 
-  const chrome = JSON.parse(
-    await fs.promises.readFile(path.join(__dirname, "chrome.json"), "utf8")
-  );
-  const firefox = JSON.parse(
-    await fs.promises.readFile(path.join(__dirname, "firefox.json"), "utf8")
-  );
+  const base = await readJSON("base.json");
+  const targetManifest = await readJSON(`${target}.json`);
 
-  const data = JSON.stringify(
-    {
-      ...base,
-      version: pkg.version,
-      ...(process.env.TARGET === "chrome" ? chrome : firefox),
-    },
-    null,
-    2
-  );
+  const data = JSON.stringify({ version, ...base, ...targetManifest }, null, 2);
 
   await fs.promises.writeFile(
     path.join(__dirname, "..", "manifest.json"),
     data
   );
-  console.log(`--- ✨ Manifest generated for target: ${process.env.TARGET}`);
+
+  log(
+    tag,
+    chalk.green(`✨ Manifest generated for target ${chalk.bold(target)}`)
+  );
 }
 
-generate().catch((error) => {
-  console.error(`--- ❌ Error generating manifest: ${error}`);
-});
+if (isMain) {
+  const target = process.env.TARGET;
+  generate().catch((error) => {
+    // eslint-disable-next-line no-console
+    console.error(
+      tag,
+      chalk.red(
+        `❌ Error generating manifest for target ${chalk.bold(
+          target
+        )}:\n${error}`
+      )
+    );
+    process.exit(1);
+  });
+}
+
+module.exports = generate;
