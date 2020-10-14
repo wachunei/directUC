@@ -1,6 +1,14 @@
 ## Changelog
 
+### [v1.0.15](https://github.com/wachunei/directUC/compare/v1.0.14...v1.0.15)
+
+- Add services to omnibox according to settings [`#89`](https://github.com/wachunei/directUC/pull/89)
+- Use babel package.json config [`#88`](https://github.com/wachunei/directUC/pull/88)
+- Update babel config [`#86`](https://github.com/wachunei/directUC/pull/86)
+
 ### [v1.0.14](https://github.com/wachunei/directUC/compare/v1.0.13...v1.0.14)
+
+> 28 September 2020
 
 - Add Google Drive service [`#84`](https://github.com/wachunei/directUC/pull/84)
 - Bump eslint-config-prettier from 6.11.0 to 6.12.0 [`#83`](https://github.com/wachunei/directUC/pull/83)

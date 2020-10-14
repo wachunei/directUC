@@ -106,7 +106,7 @@ const ServiceContainer = forwardRef(function ServiceContainerComponent(
           checked={userOptions.display}
           onChange={handleOptionChange}
         >
-          Mostrar Botón
+          Activar
         </Checkbox>
       </FormControl>
 

@@ -90,6 +90,10 @@ function Services() {
   return (
     <Section onDragOver={handleDragOver}>
       <Title>Servicios</Title>
+      <p>
+        Los servicios activos aparecerán como botón y en los resultados de la
+        omnibox. Arrastra los servicios para reordernarlos.
+      </p>
       {currentOrder.map((key) => {
         const service = services[key];
         return (

@@ -2,67 +2,79 @@ import browser from "webextension-polyfill";
 import Fuse from "fuse.js";
 import { isFirefox } from "./utils";
 
-function omnibox(services, { getState, dispatch }) {
-  const servicesList = Object.entries(services)
-    .filter(([, service]) => service.display)
+const strings = {
+  goTo: "Ir a",
+  openOptions: "Presiona enter para iniciar sesión en directUC",
+  typeToSearch: "Escribe para buscar un servicio",
+  notFound: "No encontramos servicios 😕",
+};
+
+const fuseOptions = {
+  // isCaseSensitive: false,
+  // includeScore: true,
+  // shouldSort: true,
+  // includeMatches: true,
+  // findAllMatches: true,
+  // minMatchCharLength: 1,
+  // location: 0,
+  threshold: 0.3,
+  distance: 10,
+  // useExtendedSearch: false,
+  // ignoreLocation: false,
+  // ignoreFieldNorm: true,
+  keys: ["omnibox", "name", "display"],
+  sortFn: (a, b) =>
+    // eslint-disable-next-line no-nested-ternary
+    a.score === b.score ? (a.idx < b.idx ? -1 : 1) : a.score < b.score ? 1 : -1,
+};
+
+const getServicesList = (services, servicesOptions) =>
+  Object.entries(services)
+    .filter(
+      ([key, service]) =>
+        service.display && servicesOptions[key] && servicesOptions[key].display
+    )
     .map(([key, service]) => ({
       id: key,
       ...service,
     }));
 
-  const resultToSuggestion = ({ item: service }) => ({
-    content: service.name || service.display,
-    description: isFirefox
-      ? `directUC - ${service.name || service.display} - Ir a ${service.name}`
-      : `<match>${service.name || service.display}</match> <dim>Ir a ${
-          service.name
-        }</dim>`,
-  });
+const resultToSuggestion = ({ item: service }) => ({
+  content: service.name || service.display,
+  description: isFirefox
+    ? `directUC - ${service.name || service.display} - ${strings.goTo} ${
+        service.name
+      }`
+    : `<match>${service.name || service.display}</match> <dim>${strings.goTo} ${
+        service.name
+      }</dim>`,
+});
 
-  const resultToDefaultSuggestion = (result) => {
-    const { content, ...suggestion } = resultToSuggestion(result);
-    return suggestion;
-  };
+const resultToDefaultSuggestion = (result) => {
+  const { content, ...suggestion } = resultToSuggestion(result);
+  return suggestion;
+};
 
+function omnibox(services, { getState, dispatch }) {
   let latestSuggestion = null;
-
-  const fuseOptions = {
-    // isCaseSensitive: false,
-    // includeScore: true,
-    // shouldSort: true,
-    // includeMatches: true,
-    // findAllMatches: true,
-    // minMatchCharLength: 1,
-    // location: 0,
-    threshold: 0.3,
-    distance: 10,
-    // useExtendedSearch: false,
-    // ignoreLocation: false,
-    // ignoreFieldNorm: true,
-    keys: ["omnibox", "name", "display"],
-    sortFn: (a, b) =>
-      // eslint-disable-next-line no-nested-ternary
-      a.score === b.score
-        ? a.idx < b.idx
-          ? -1
-          : 1
-        : a.score < b.score
-        ? 1
-        : -1,
-  };
-
-  const servicesFuse = new Fuse(servicesList, fuseOptions);
+  let servicesFuse = null;
 
   browser.omnibox.onInputStarted.addListener(() => {
     const {
       user: { username },
+      services: servicesOptions,
     } = getState();
     if (!username) {
       latestSuggestion = null;
       browser.omnibox.setDefaultSuggestion({
-        description: "Presiona enter para iniciar sesión en directUC",
+        description: strings.openOptions,
       });
     }
+
+    servicesFuse = new Fuse(
+      getServicesList(services, servicesOptions),
+      fuseOptions
+    );
   });
 
   browser.omnibox.onInputChanged.addListener((text, suggest) => {
@@ -70,15 +82,16 @@ function omnibox(services, { getState, dispatch }) {
       user: { username },
     } = getState();
 
-    if (!username) {
+    if (!username || !servicesFuse) {
       return;
     }
 
     if (text.length === 0) {
       latestSuggestion = null;
       browser.omnibox.setDefaultSuggestion({
-        description: "Escribe para buscar un servicio",
+        description: strings.typeToSearch,
       });
+      return;
     }
 
     const fuseResults = servicesFuse.search(text);
@@ -91,7 +104,12 @@ function omnibox(services, { getState, dispatch }) {
       if (results.length > 0) {
         suggest(results.map(resultToSuggestion));
       }
+      return;
     }
+
+    browser.omnibox.setDefaultSuggestion({
+      description: strings.notFound,
+    });
   });
 
   browser.omnibox.onInputEntered.addListener((text, disposition) => {
