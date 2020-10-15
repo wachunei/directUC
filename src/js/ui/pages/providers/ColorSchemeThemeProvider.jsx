@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { useSelector } from "react-redux";
 import theme, { darkTheme, lightTheme } from "../../theme";

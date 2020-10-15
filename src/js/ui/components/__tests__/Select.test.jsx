@@ -1,4 +1,3 @@
-import React from "react";
 import Select from "../Select";
 import { renderTree } from "./utils";
 import "jest-styled-components";
