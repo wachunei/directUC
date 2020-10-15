@@ -1,4 +1,3 @@
-import React from "react";
 import PopupBar from "../PopupBar";
 import { renderTree } from "./utils";
 import "jest-styled-components";

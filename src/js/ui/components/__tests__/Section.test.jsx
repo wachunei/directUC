@@ -1,4 +1,3 @@
-import React from "react";
 import Section from "../Section";
 import { renderTree } from "./utils";
 import "jest-styled-components";

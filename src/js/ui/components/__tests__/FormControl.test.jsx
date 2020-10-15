@@ -1,4 +1,3 @@
-import React from "react";
 import FormControl from "../FormControl";
 import { renderTree } from "./utils";
 import "jest-styled-components";

@@ -1,4 +1,3 @@
-import React from "react";
 import SubTitle from "../SubTitle";
 import { renderTree } from "./utils";
 import "jest-styled-components";

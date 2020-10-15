@@ -1,4 +1,3 @@
-import React from "react";
 import CloseIcon from "../CloseIcon";
 import { renderTree } from "./utils";
 import "jest-styled-components";
