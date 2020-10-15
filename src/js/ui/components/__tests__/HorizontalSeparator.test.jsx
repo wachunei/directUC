@@ -1,4 +1,3 @@
-import React from "react";
 import HorizontalSeparator from "../HorizontalSeparator";
 import { renderTree } from "./utils";
 import "jest-styled-components";

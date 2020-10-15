@@ -1,4 +1,3 @@
-import React from "react";
 import IconButton from "../IconButton";
 import { renderTree } from "./utils";
 import "jest-styled-components";

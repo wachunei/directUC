@@ -1,4 +1,3 @@
-import React from "react";
 import Fieldset from "../Fieldset";
 import { renderTree } from "./utils";
 import "jest-styled-components";

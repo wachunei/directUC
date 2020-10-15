@@ -1,4 +1,3 @@
-import React from "react";
 import Box from "../Box";
 import { renderTree } from "./utils";
 import "jest-styled-components";
