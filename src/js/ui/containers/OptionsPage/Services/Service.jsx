@@ -51,18 +51,21 @@ const ServiceContainer = forwardRef(function ServiceContainerComponent(
   const [draggable, setDraggable] = useState(false);
   const [dragging, setDragging] = useState(false);
 
-  const handleOptionChange = async (e) => {
-    const {
-      target: { name: inputName, value, type, checked },
-    } = e;
-    await dispatch({
-      type: `servicesActions.${serviceKey}.setOption`,
-      payload: {
-        option: inputName,
-        value: type === "checkbox" ? checked : value,
-      },
-    });
-  };
+  const handleOptionChange = useCallback(
+    async (e) => {
+      const {
+        target: { name: inputName, value, type, checked },
+      } = e;
+      await dispatch({
+        type: `servicesActions.${serviceKey}.setOption`,
+        payload: {
+          option: inputName,
+          value: type === "checkbox" ? checked : value,
+        },
+      });
+    },
+    [dispatch, serviceKey]
+  );
 
   const handleDragHandlerEnter = useCallback(() => setDraggable(loggedIn), [
     loggedIn,
@@ -71,12 +74,12 @@ const ServiceContainer = forwardRef(function ServiceContainerComponent(
   const handleDragStart = useCallback(() => {
     setDragging(true);
     onDragStart(serviceKey);
-  }, []);
+  }, [onDragStart, serviceKey]);
 
   const handleDragEnd = useCallback(() => {
     setDragging(false);
     onDragEnd();
-  }, []);
+  }, [onDragEnd]);
 
   return (
     <StyledService

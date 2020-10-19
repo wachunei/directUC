@@ -46,7 +46,7 @@ const Popup = () => {
         window.close();
       }
     })();
-  }, [isDirectMode]);
+  }, [isDirectMode, dispatch]);
 
   useEffect(() => {
     (async () => {
@@ -61,7 +61,7 @@ const Popup = () => {
     if (!isDirectMode && username) {
       page();
     }
-  }, [username, isDirectMode]);
+  }, [username, isDirectMode, page]);
 
   const servicesToDisplay = useMemo(
     () =>
@@ -71,7 +71,7 @@ const Popup = () => {
           servicesOptions[key] &&
           servicesOptions[key].display
       ),
-    [services, servicesOptions]
+    [servicesOptions]
   );
 
   const currentOrder = useMemo(() => {
