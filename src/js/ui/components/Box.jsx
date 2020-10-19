@@ -2,21 +2,21 @@ import styled, { css } from "styled-components";
 
 const Box = styled.div`
   display: flex;
-  flex-direction: ${({ horizontal }) => (horizontal ? "row" : "column")};
+  flex-direction: ${({ $horizontal }) => ($horizontal ? "row" : "column")};
 
-  ${({ horizontal, center, start, end, between, around }) => {
-    if (!horizontal) {
-      if (start) {
+  ${({ $horizontal, $center, $start, $end, $between, $around }) => {
+    if (!$horizontal) {
+      if ($start) {
         return css`
           align-items: flex-start;
         `;
       }
-      if (center) {
+      if ($center) {
         return css`
           align-items: center;
         `;
       }
-      if (end) {
+      if ($end) {
         return css`
           align-items: flex-end;
         `;
@@ -24,27 +24,27 @@ const Box = styled.div`
       return null;
     }
 
-    if (start) {
+    if ($start) {
       return css`
         justify-content: flex-start;
       `;
     }
-    if (center) {
+    if ($center) {
       return css`
         justify-content: center;
       `;
     }
-    if (end) {
+    if ($end) {
       return css`
         justify-content: flex-end;
       `;
     }
-    if (between) {
+    if ($between) {
       return css`
         justify-content: space-between;
       `;
     }
-    if (around) {
+    if ($around) {
       return css`
         justify-content: space-around;
       `;
@@ -52,19 +52,19 @@ const Box = styled.div`
     return null;
   }}
 
-  ${({ horizontal, top, middle, bottom }) => {
-    if (horizontal) {
-      if (top) {
+  ${({ $horizontal, $top, $middle, $bottom }) => {
+    if ($horizontal) {
+      if ($top) {
         return css`
           align-items: flex-start;
         `;
       }
-      if (middle) {
+      if ($middle) {
         return css`
           align-items: center;
         `;
       }
-      if (bottom) {
+      if ($bottom) {
         return css`
           align-items: flex-end;
         `;

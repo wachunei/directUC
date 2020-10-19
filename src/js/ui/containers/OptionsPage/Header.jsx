@@ -25,7 +25,7 @@ const HeaderSection = styled(Section)`
 `;
 const Header = () => (
   <HeaderSection>
-    <Box horizontal between middle>
+    <Box $horizontal $between $middle>
       <CenterBrand width="120" />
       <Version href="#about">
         <small>v{version}</small>

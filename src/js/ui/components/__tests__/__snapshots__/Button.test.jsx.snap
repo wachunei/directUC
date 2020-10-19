@@ -41,7 +41,7 @@ exports[`Button Component default should match snapshot 1`] = `
 }
 
 <button
-  className="c0"
+  class="c0"
 >
   Click Me!
 </button>
@@ -88,7 +88,7 @@ exports[`Button Component default should match snapshot with darkTheme 1`] = `
 }
 
 <button
-  className="c0"
+  class="c0"
 >
   Click Me!
 </button>
@@ -135,7 +135,7 @@ exports[`Button Component default should match snapshot with lightTheme 1`] = `
 }
 
 <button
-  className="c0"
+  class="c0"
 >
   Click Me!
 </button>
@@ -184,7 +184,7 @@ exports[`Button Component should render block 1`] = `
 }
 
 <button
-  className="c0"
+  class="c0"
 >
   Click Me!
 </button>
@@ -231,8 +231,8 @@ exports[`Button Component should render disabled 1`] = `
 }
 
 <button
-  className="c0"
-  disabled={true}
+  class="c0"
+  disabled=""
 >
   Click Me!
 </button>
@@ -279,7 +279,7 @@ exports[`Button Component should render primary 1`] = `
 }
 
 <button
-  className="c0"
+  class="c0"
 >
   Click Me!
 </button>
@@ -328,7 +328,7 @@ exports[`Button Component should render primary block 1`] = `
 }
 
 <button
-  className="c0"
+  class="c0"
 >
   Click Me!
 </button>

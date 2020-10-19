@@ -15,7 +15,7 @@ exports[`SubTitle Component should match snapshot 1`] = `
 }
 
 <h3
-  className="c0 c1"
+  class="c0 c1"
 />
 `;
 
@@ -34,7 +34,7 @@ exports[`SubTitle Component should match snapshot with darkTheme 1`] = `
 }
 
 <h3
-  className="c0 c1"
+  class="c0 c1"
 />
 `;
 
@@ -53,6 +53,6 @@ exports[`SubTitle Component should match snapshot with lightTheme 1`] = `
 }
 
 <h3
-  className="c0 c1"
+  class="c0 c1"
 />
 `;

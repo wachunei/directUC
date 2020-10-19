@@ -24,7 +24,7 @@ exports[`IconButton Component should match snapshot 1`] = `
 }
 
 <button
-  className="c0"
+  class="c0"
 />
 `;
 
@@ -52,7 +52,7 @@ exports[`IconButton Component should match snapshot with darkTheme 1`] = `
 }
 
 <button
-  className="c0"
+  class="c0"
 />
 `;
 
@@ -80,6 +80,6 @@ exports[`IconButton Component should match snapshot with lightTheme 1`] = `
 }
 
 <button
-  className="c0"
+  class="c0"
 />
 `;

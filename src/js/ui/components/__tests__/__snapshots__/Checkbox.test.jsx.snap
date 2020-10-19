@@ -67,16 +67,14 @@ exports[`Checkbox Component should match snapshot 1`] = `
 }
 
 <span
-  className="c0 c1"
-  disabled={false}
+  class="c0 c1"
 >
   <input
-    className="c2"
-    disabled={false}
+    class="c2"
     type="checkbox"
   />
   <span
-    className="c3 c4"
+    class="c3 c4"
   />
   <span>
     A test checkbox
@@ -151,16 +149,14 @@ exports[`Checkbox Component should match snapshot with darkTheme 1`] = `
 }
 
 <span
-  className="c0 c1"
-  disabled={false}
+  class="c0 c1"
 >
   <input
-    className="c2"
-    disabled={false}
+    class="c2"
     type="checkbox"
   />
   <span
-    className="c3 c4"
+    class="c3 c4"
   />
   <span>
     A test checkbox
@@ -235,16 +231,14 @@ exports[`Checkbox Component should match snapshot with lightTheme 1`] = `
 }
 
 <span
-  className="c0 c1"
-  disabled={false}
+  class="c0 c1"
 >
   <input
-    className="c2"
-    disabled={false}
+    class="c2"
     type="checkbox"
   />
   <span
-    className="c3 c4"
+    class="c3 c4"
   />
   <span>
     A test checkbox
@@ -319,17 +313,15 @@ exports[`Checkbox Component should render checked 1`] = `
 }
 
 <span
-  className="c0 c1"
-  disabled={false}
+  class="c0 c1"
 >
   <input
-    checked={true}
-    className="c2"
-    disabled={false}
+    checked=""
+    class="c2"
     type="checkbox"
   />
   <span
-    className="c3 c4"
+    class="c3 c4"
   />
   <span>
     A test checkbox
@@ -407,16 +399,16 @@ exports[`Checkbox Component should render disabled 1`] = `
 }
 
 <span
-  className="c0 c1"
-  disabled={true}
+  class="c0 c1"
+  disabled=""
 >
   <input
-    className="c2"
-    disabled={true}
+    class="c2"
+    disabled=""
     type="checkbox"
   />
   <span
-    className="c3 c4"
+    class="c3 c4"
   />
   <span>
     A test checkbox

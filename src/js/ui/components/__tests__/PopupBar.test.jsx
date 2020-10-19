@@ -1,18 +1,17 @@
 import PopupBar from "../PopupBar";
-import { renderTree } from "./utils";
-import "jest-styled-components";
+import { render, getElement } from "./utils";
 
 describe("PopupBar Component", () => {
   test("should match snapshot", () => {
-    const tree = renderTree(<PopupBar />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<PopupBar />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with lightTheme", () => {
-    const tree = renderTree(<PopupBar />, "lightTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<PopupBar />, "lightTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with darkTheme", () => {
-    const tree = renderTree(<PopupBar />, "darkTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<PopupBar />, "darkTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
 });

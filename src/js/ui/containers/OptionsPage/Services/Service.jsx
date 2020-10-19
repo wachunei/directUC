@@ -91,9 +91,9 @@ const ServiceContainer = forwardRef(function ServiceContainerComponent(
       ref={serviceRef}
     >
       <Box
-        horizontal
-        between
-        middle
+        $horizontal
+        $between
+        $middle
         style={loggedIn ? { cursor: dragging ? "grabbing" : "grab" } : null}
         onMouseEnter={handleDragHandlerEnter}
         onMouseLeave={handleDragHandlerLeave}
