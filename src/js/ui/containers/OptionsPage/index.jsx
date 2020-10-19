@@ -15,7 +15,7 @@ function OptionsPage() {
 
   useEffect(() => {
     page();
-  }, []);
+  }, [page]);
 
   return (
     <>

@@ -18,7 +18,7 @@ function Services() {
       Object.entries(services).filter(
         ([key, service]) => service.display && userOptions[key]
       ),
-    [services, userOptions]
+    [userOptions]
   );
 
   const currentOrder = useMemo(() => {
@@ -63,7 +63,7 @@ function Services() {
           payload: { option: "order", value: newOrder },
         });
       })(),
-    []
+    [dispatch]
   );
 
   const handleDragOver = useCallback(
