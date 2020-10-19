@@ -87,6 +87,9 @@
     "webext-redux": "^2.1.7",
     "webextension-polyfill": "^0.6.0"
   },
+  "resolutions": {
+    "node-forge": "0.10.0"
+  },
   "jest": {
     "testMatch": [
       "**/__tests__/**/?(*.)+(spec|test).[jt]s?(x)",
