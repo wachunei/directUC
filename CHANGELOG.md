@@ -1,6 +1,36 @@
 ## Changelog
 
+### [v1.0.16](https://github.com/wachunei/directUC/compare/v1.0.15...v1.0.16)
+
+- Add resolution for node-forge@0.10.0 [`#114`](https://github.com/wachunei/directUC/pull/114)
+- Bump eslint-config-prettier from 6.12.0 to 6.13.0 [`#111`](https://github.com/wachunei/directUC/pull/111)
+- Bump lint-staged from 10.4.0 to 10.4.2 [`#112`](https://github.com/wachunei/directUC/pull/112)
+- Bump @babel/core from 7.12.1 to 7.12.3 [`#113`](https://github.com/wachunei/directUC/pull/113)
+- Bump polished from 4.0.2 to 4.0.3 [`#110`](https://github.com/wachunei/directUC/pull/110)
+- Bump @babel/core from 7.12.0 to 7.12.1 [`#106`](https://github.com/wachunei/directUC/pull/106)
+- Bump @babel/preset-react from 7.10.4 to 7.12.1 [`#107`](https://github.com/wachunei/directUC/pull/107)
+- Bump @babel/preset-env from 7.12.0 to 7.12.1 [`#108`](https://github.com/wachunei/directUC/pull/108)
+- Bump react-ga from 3.1.2 to 3.2.0 [`#109`](https://github.com/wachunei/directUC/pull/109)
+- Upgrade react-dom react-test-renderer [`#105`](https://github.com/wachunei/directUC/pull/105)
+- ⚙️ Use New JSX Transform [`#104`](https://github.com/wachunei/directUC/pull/104)
+- Bump @babel/core from 7.11.6 to 7.12.0 [`#103`](https://github.com/wachunei/directUC/pull/103)
+- Bump react from 16.13.1 to 16.14.0 [`#102`](https://github.com/wachunei/directUC/pull/102)
+- Bump @babel/preset-env from 7.11.5 to 7.12.0 [`#101`](https://github.com/wachunei/directUC/pull/101)
+- Bump jest from 26.5.2 to 26.5.3 [`#100`](https://github.com/wachunei/directUC/pull/100)
+- Bump eslint-plugin-react from 7.21.3 to 7.21.4 [`#99`](https://github.com/wachunei/directUC/pull/99)
+- Bump eslint from 7.10.0 to 7.11.0 [`#98`](https://github.com/wachunei/directUC/pull/98)
+- Bump polished from 4.0.1 to 4.0.2 [`#97`](https://github.com/wachunei/directUC/pull/97)
+- Bump jest from 26.5.0 to 26.5.2 [`#95`](https://github.com/wachunei/directUC/pull/95)
+- Bump babel-jest from 26.5.0 to 26.5.2 [`#96`](https://github.com/wachunei/directUC/pull/96)
+- Upgrade dependencies [`#94`](https://github.com/wachunei/directUC/pull/94)
+- Bump polished from 3.6.7 to 4.0.1 [`#93`](https://github.com/wachunei/directUC/pull/93)
+- Bump eslint-plugin-react from 7.21.2 to 7.21.3 [`#92`](https://github.com/wachunei/directUC/pull/92)
+- Refactor manifest generate.js script + tests [`#91`](https://github.com/wachunei/directUC/pull/91)
+- Add analytics extra app data [`#90`](https://github.com/wachunei/directUC/pull/90)
+
 ### [v1.0.15](https://github.com/wachunei/directUC/compare/v1.0.14...v1.0.15)
+
+> 2 October 2020
 
 - Add services to omnibox according to settings [`#89`](https://github.com/wachunei/directUC/pull/89)
 - Use babel package.json config [`#88`](https://github.com/wachunei/directUC/pull/88)
