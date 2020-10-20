@@ -97,7 +97,7 @@
       "**/__tests__/**/?(*.)+(spec|test).[jt]s?(x)",
       "**/?(*.)+(spec|test).[jt]s?(x)"
     ],
-    "setupFilesAfterEnv": ["<rootDir>/src/js/utils/setupTests.js"]
+    "setupFilesAfterEnv": ["jest-styled-components"]
   },
   "babel": {
     "presets": [
