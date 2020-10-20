@@ -1,18 +1,17 @@
 import Fieldset from "../Fieldset";
-import { renderTree } from "./utils";
-import "jest-styled-components";
+import { render, getElement } from "./utils";
 
 describe("Fieldset Component", () => {
   test("should match snapshot", () => {
-    const tree = renderTree(<Fieldset />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Fieldset />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with lightTheme", () => {
-    const tree = renderTree(<Fieldset />, "lightTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Fieldset />, "lightTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with darkTheme", () => {
-    const tree = renderTree(<Fieldset />, "darkTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Fieldset />, "darkTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
 });

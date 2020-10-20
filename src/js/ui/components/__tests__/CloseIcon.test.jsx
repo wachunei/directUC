@@ -1,23 +1,22 @@
 import CloseIcon from "../CloseIcon";
-import { renderTree } from "./utils";
-import "jest-styled-components";
+import { render, getElement } from "./utils";
 
 describe("CloseIcon Component", () => {
   test("should match snapshot", () => {
-    const tree = renderTree(<CloseIcon />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<CloseIcon />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with lightTheme", () => {
-    const tree = renderTree(<CloseIcon />, "lightTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<CloseIcon />, "lightTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with darkTheme", () => {
-    const tree = renderTree(<CloseIcon />, "darkTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<CloseIcon />, "darkTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
 
   test("should accept props", () => {
-    const tree = renderTree(<CloseIcon width="200px" height="200px" />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<CloseIcon width="200px" height="200px" />);
+    expect(getElement(container)).toMatchSnapshot();
   });
 });

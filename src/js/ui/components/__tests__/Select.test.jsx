@@ -1,31 +1,30 @@
 import Select from "../Select";
-import { renderTree } from "./utils";
-import "jest-styled-components";
+import { render, getElement } from "./utils";
 
 describe("Select Component", () => {
   test("should match snapshot", () => {
-    const tree = renderTree(<Select />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Select />);
+    expect(getElement(container)).toMatchSnapshot();
   });
 
   test("should match snapshot with lightTheme", () => {
-    const tree = renderTree(<Select />, "lightTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Select />, "lightTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
 
   test("should match snapshot with darkTheme", () => {
-    const tree = renderTree(<Select />, "darkTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Select />, "darkTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
 
   test("should accept options", () => {
-    const tree = renderTree(
+    const { container } = render(
       <Select>
         <option disabled hidden value="">
           option
         </option>
       </Select>
     );
-    expect(tree).toMatchSnapshot();
+    expect(getElement(container)).toMatchSnapshot();
   });
 });

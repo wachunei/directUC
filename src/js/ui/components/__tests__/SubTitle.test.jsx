@@ -1,18 +1,17 @@
 import SubTitle from "../SubTitle";
-import { renderTree } from "./utils";
-import "jest-styled-components";
+import { render, getElement } from "./utils";
 
 describe("SubTitle Component", () => {
   test("should match snapshot", () => {
-    const tree = renderTree(<SubTitle />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<SubTitle />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with lightTheme", () => {
-    const tree = renderTree(<SubTitle />, "lightTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<SubTitle />, "lightTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with darkTheme", () => {
-    const tree = renderTree(<SubTitle />, "darkTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<SubTitle />, "darkTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
 });

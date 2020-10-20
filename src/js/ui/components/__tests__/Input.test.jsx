@@ -1,23 +1,24 @@
 import Input from "../Input";
-import { renderTree } from "./utils";
-import "jest-styled-components";
+import { render, getElement } from "./utils";
 
 describe("Input Component", () => {
   test("should match snapshot", () => {
-    const tree = renderTree(<Input />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Input />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with lightTheme", () => {
-    const tree = renderTree(<Input />, "lightTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Input />, "lightTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with darkTheme", () => {
-    const tree = renderTree(<Input />, "darkTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Input />, "darkTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
 
   test("should accept props", () => {
-    const tree = renderTree(<Input type="text" value="Input value" />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(
+      <Input type="text" defaultValue="Input value" />
+    );
+    expect(getElement(container)).toMatchSnapshot();
   });
 });

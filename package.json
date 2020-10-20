@@ -44,6 +44,8 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.1",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/react-hooks": "^3.4.2",
     "auto-changelog": "^2.2.1",
     "babel-jest": "^26.5.2",
     "eslint": "^7.11.0",
@@ -94,7 +96,8 @@
     "testMatch": [
       "**/__tests__/**/?(*.)+(spec|test).[jt]s?(x)",
       "**/?(*.)+(spec|test).[jt]s?(x)"
-    ]
+    ],
+    "setupFilesAfterEnv": ["<rootDir>/src/js/utils/setupTests.js"]
   },
   "babel": {
     "presets": [

@@ -1,65 +1,64 @@
 import Box from "../Box";
-import { renderTree } from "./utils";
-import "jest-styled-components";
+import { render, getElement } from "./utils";
 
 describe("Brand Component", () => {
   test("should match snapshot", () => {
-    const tree = renderTree(<Box />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Box />);
+    expect(getElement(container)).toMatchSnapshot();
   });
 
   test("should match snapshot with light theme", () => {
-    const tree = renderTree(<Box />, "lightTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Box />, "lightTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
 
   test("should match snapshot with dark theme", () => {
-    const tree = renderTree(<Box />, "darkTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Box />, "darkTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
 
   test("should match with props horizontal", () => {
-    const tree = renderTree(<Box horizontal />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Box $horizontal />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match with props horizontal top", () => {
-    const tree = renderTree(<Box horizontal top />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Box $horizontal $top />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match with props horizontal middle", () => {
-    const tree = renderTree(<Box horizontal middle />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Box $horizontal $middle />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match with props horizontal bottom", () => {
-    const tree = renderTree(<Box horizontal bottom />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Box $horizontal $bottom />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match with props horizontal start", () => {
-    const tree = renderTree(<Box horizontal start />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Box $horizontal $start />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match with props horizontal between", () => {
-    const tree = renderTree(<Box horizontal between />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Box $horizontal $between />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match with props horizontal around", () => {
-    const tree = renderTree(<Box horizontal around />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Box $horizontal $around />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match with props horizontal end", () => {
-    const tree = renderTree(<Box horizontal end />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Box $horizontal $end />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match with props start", () => {
-    const tree = renderTree(<Box start />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Box $start />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match with props center", () => {
-    const tree = renderTree(<Box center />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Box $center />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match with props end", () => {
-    const tree = renderTree(<Box end />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Box $end />);
+    expect(getElement(container)).toMatchSnapshot();
   });
 });

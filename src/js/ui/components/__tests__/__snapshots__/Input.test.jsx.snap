@@ -20,7 +20,7 @@ exports[`Input Component should accept props 1`] = `
 }
 
 <input
-  className="c0"
+  class="c0"
   type="text"
   value="Input value"
 />
@@ -46,7 +46,7 @@ exports[`Input Component should match snapshot 1`] = `
 }
 
 <input
-  className="c0"
+  class="c0"
 />
 `;
 
@@ -70,7 +70,7 @@ exports[`Input Component should match snapshot with darkTheme 1`] = `
 }
 
 <input
-  className="c0"
+  class="c0"
 />
 `;
 
@@ -94,6 +94,6 @@ exports[`Input Component should match snapshot with lightTheme 1`] = `
 }
 
 <input
-  className="c0"
+  class="c0"
 />
 `;

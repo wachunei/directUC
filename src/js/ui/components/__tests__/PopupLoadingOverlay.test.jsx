@@ -1,18 +1,17 @@
 import PopupLoadingOverlay from "../PopupLoadingOverlay";
-import { renderTree } from "./utils";
-import "jest-styled-components";
+import { render, getElement } from "./utils";
 
 describe("PopupLoadingOverlay Component", () => {
   test("should match snapshot", () => {
-    const tree = renderTree(<PopupLoadingOverlay />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<PopupLoadingOverlay />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with lightTheme", () => {
-    const tree = renderTree(<PopupLoadingOverlay />, "lightTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<PopupLoadingOverlay />, "lightTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with darkTheme", () => {
-    const tree = renderTree(<PopupLoadingOverlay />, "darkTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<PopupLoadingOverlay />, "darkTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
 });

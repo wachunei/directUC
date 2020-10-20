@@ -1,30 +1,37 @@
 import FormControl from "../FormControl";
-import { renderTree } from "./utils";
-import "jest-styled-components";
+import { render, getElement } from "./utils";
 
 describe("FormControl Component", () => {
   test("should match snapshot", () => {
-    const tree = renderTree(<FormControl>control</FormControl>);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<FormControl>control</FormControl>);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with lightTheme", () => {
-    const tree = renderTree(<FormControl>control</FormControl>, "lightTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(
+      <FormControl>control</FormControl>,
+      "lightTheme"
+    );
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with darkTheme", () => {
-    const tree = renderTree(<FormControl>control</FormControl>, "darkTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(
+      <FormControl>control</FormControl>,
+      "darkTheme"
+    );
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should render label", () => {
-    const tree = renderTree(<FormControl label="A label">control</FormControl>);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(
+      <FormControl label="A label">control</FormControl>
+    );
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should render caption", () => {
-    const tree = renderTree(
+    const { container } = render(
       <FormControl label="A label" caption="A caption">
         control
       </FormControl>
     );
-    expect(tree).toMatchSnapshot();
+    expect(getElement(container)).toMatchSnapshot();
   });
 });
