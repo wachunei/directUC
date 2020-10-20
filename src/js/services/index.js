@@ -1,17 +1,17 @@
-import portaluc from "./portaluc";
-import mailuc from "./mailuc";
-import siding from "./siding";
+import biblioteca from "./biblioteca";
 import canvas from "./canvas";
 import googledrive from "./googledrive";
 import labmat from "./labmat";
-import biblioteca from "./biblioteca";
-import webcursos from "./webcursos";
+import mailuc from "./mailuc";
+import portaluc from "./portaluc";
+import siding from "./siding";
 import ssocas from "./ssocas";
+import webcursos from "./webcursos";
 
 export default {
+  canvas,
   mailuc,
   portaluc,
-  canvas,
   googledrive,
   siding,
   labmat,
