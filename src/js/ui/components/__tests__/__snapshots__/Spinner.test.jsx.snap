@@ -7,7 +7,7 @@ exports[`Spinner Component should match snapshot 1`] = `
 }
 
 <svg
-  className="c0"
+  class="c0"
   fill="none"
   height="45"
   stroke="#1F95EB"
@@ -17,7 +17,7 @@ exports[`Spinner Component should match snapshot 1`] = `
 >
   <path
     d="M43 22.5C43 33.8218 33.8218 43 22.5 43S2 33.8218 2 22.5 11.1782 2 22.5 2"
-    strokeWidth="4"
+    stroke-width="4"
   />
 </svg>
 `;
@@ -29,7 +29,7 @@ exports[`Spinner Component should match snapshot with darkTheme 1`] = `
 }
 
 <svg
-  className="c0"
+  class="c0"
   fill="none"
   height="45"
   stroke="#1F95EB"
@@ -39,7 +39,7 @@ exports[`Spinner Component should match snapshot with darkTheme 1`] = `
 >
   <path
     d="M43 22.5C43 33.8218 33.8218 43 22.5 43S2 33.8218 2 22.5 11.1782 2 22.5 2"
-    strokeWidth="4"
+    stroke-width="4"
   />
 </svg>
 `;
@@ -51,7 +51,7 @@ exports[`Spinner Component should match snapshot with lightTheme 1`] = `
 }
 
 <svg
-  className="c0"
+  class="c0"
   fill="none"
   height="45"
   stroke="#1F95EB"
@@ -61,7 +61,7 @@ exports[`Spinner Component should match snapshot with lightTheme 1`] = `
 >
   <path
     d="M43 22.5C43 33.8218 33.8218 43 22.5 43S2 33.8218 2 22.5 11.1782 2 22.5 2"
-    strokeWidth="4"
+    stroke-width="4"
   />
 </svg>
 `;

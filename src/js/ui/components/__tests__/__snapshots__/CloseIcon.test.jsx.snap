@@ -11,7 +11,7 @@ exports[`CloseIcon Component should accept props 1`] = `
   <path
     d="M17 2L9.5 9.5m0 0L2 17m7.5-7.5L2 2m7.5 7.5L17 17"
     stroke="#828282"
-    strokeWidth="3.089"
+    stroke-width="3.089"
   />
 </svg>
 `;
@@ -27,7 +27,7 @@ exports[`CloseIcon Component should match snapshot 1`] = `
   <path
     d="M17 2L9.5 9.5m0 0L2 17m7.5-7.5L2 2m7.5 7.5L17 17"
     stroke="#828282"
-    strokeWidth="3.089"
+    stroke-width="3.089"
   />
 </svg>
 `;
@@ -43,7 +43,7 @@ exports[`CloseIcon Component should match snapshot with darkTheme 1`] = `
   <path
     d="M17 2L9.5 9.5m0 0L2 17m7.5-7.5L2 2m7.5 7.5L17 17"
     stroke="#828282"
-    strokeWidth="3.089"
+    stroke-width="3.089"
   />
 </svg>
 `;
@@ -59,7 +59,7 @@ exports[`CloseIcon Component should match snapshot with lightTheme 1`] = `
   <path
     d="M17 2L9.5 9.5m0 0L2 17m7.5-7.5L2 2m7.5 7.5L17 17"
     stroke="#828282"
-    strokeWidth="3.089"
+    stroke-width="3.089"
   />
 </svg>
 `;

@@ -1,18 +1,17 @@
 import Spinner from "../Spinner";
-import { renderTree } from "./utils";
-import "jest-styled-components";
+import { render, getElement } from "./utils";
 
 describe("Spinner Component", () => {
   test("should match snapshot", () => {
-    const tree = renderTree(<Spinner />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Spinner />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with darkTheme", () => {
-    const tree = renderTree(<Spinner />, "lightTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Spinner />, "lightTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with lightTheme", () => {
-    const tree = renderTree(<Spinner />, "darkTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Spinner />, "darkTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
 });

@@ -24,7 +24,7 @@ const AboutSection = styled(Section)`
 `;
 const About = () => (
   <AboutSection ghost id="about">
-    <Box center>
+    <Box $center>
       <Credits>
         Hecho con{" "}
         <span role="img" aria-label="heart emoji">
@@ -58,7 +58,7 @@ const About = () => (
         </a>
       </small>
     </Box>
-    <BrandBox center>
+    <BrandBox $center>
       <Brand width="160px" />
       <small>
         v{version}

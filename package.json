@@ -1,7 +1,7 @@
 {
   "name": "direct-uc",
   "description": "Extensión web que permite a alumnos y funcionarios de la Pontificia Universidad Católica de Chile el ingreso directo a diferentes servicios ofrecidos por esta.",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "repository": "git@github.com:wachunei/directUC.git",
   "author": "Pedro Pablo Aste Kompen <wachunei@gmail.com>",
   "license": "MIT",
@@ -41,39 +41,41 @@
     "*.js": "eslint --cache --fix"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.0",
-    "@babel/preset-env": "^7.12.0",
-    "@babel/preset-react": "^7.10.4",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/react-hooks": "^3.4.2",
     "auto-changelog": "^2.2.1",
-    "babel-jest": "^26.5.2",
+    "babel-jest": "^26.6.0",
     "eslint": "^7.11.0",
     "eslint-config-airbnb": "^18.2.0",
-    "eslint-config-prettier": "^6.12.0",
+    "eslint-config-prettier": "^6.13.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.21.4",
-    "eslint-plugin-react-hooks": "^4.1.2",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^4.3.0",
-    "jest": "^26.5.3",
+    "jest": "^26.6.0",
     "jest-styled-components": "^7.0.3",
-    "lint-staged": ">=10.4.0",
+    "lint-staged": ">=10.4.2",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-web-extension": "^1.6.1",
     "prettier": "^2.1.2",
     "react-test-renderer": "^16.14.0",
     "rimraf": "^3.0.2",
-    "web-ext": "^5.2.0"
+    "web-ext": "^5.3.0"
   },
   "dependencies": {
     "chalk": "^4.1.0",
-    "fuse.js": "^6.4.1",
+    "fuse.js": "^6.4.2",
     "keymirror": "^0.1.1",
-    "polished": "^4.0.2",
+    "polished": "^4.0.3",
     "prop-types": "^15.7.2",
-    "react": "17.0.0-rc.3",
-    "react-dom": "17.0.0-rc.3",
-    "react-ga": "^3.1.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-ga": "^3.2.0",
     "react-is": "^16.13.1",
     "react-redux": "^7.2.1",
     "redux": "^4.0.5",
@@ -87,11 +89,15 @@
     "webext-redux": "^2.1.7",
     "webextension-polyfill": "^0.6.0"
   },
+  "resolutions": {
+    "node-forge": "0.10.0"
+  },
   "jest": {
     "testMatch": [
       "**/__tests__/**/?(*.)+(spec|test).[jt]s?(x)",
       "**/?(*.)+(spec|test).[jt]s?(x)"
-    ]
+    ],
+    "setupFilesAfterEnv": ["jest-styled-components"]
   },
   "babel": {
     "presets": [

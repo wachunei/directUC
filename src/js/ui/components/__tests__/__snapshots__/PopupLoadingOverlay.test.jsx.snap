@@ -28,7 +28,7 @@ exports[`PopupLoadingOverlay Component should match snapshot 1`] = `
 }
 
 <div
-  className="c0"
+  class="c0"
 />
 `;
 
@@ -60,7 +60,7 @@ exports[`PopupLoadingOverlay Component should match snapshot with darkTheme 1`] 
 }
 
 <div
-  className="c0"
+  class="c0"
 />
 `;
 
@@ -92,6 +92,6 @@ exports[`PopupLoadingOverlay Component should match snapshot with lightTheme 1`]
 }
 
 <div
-  className="c0"
+  class="c0"
 />
 `;

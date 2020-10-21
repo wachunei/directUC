@@ -12,7 +12,7 @@ exports[`Brand Component should match snapshot 1`] = `
 }
 
 <div
-  className="c0"
+  class="c0"
 />
 `;
 
@@ -28,7 +28,7 @@ exports[`Brand Component should match snapshot with dark theme 1`] = `
 }
 
 <div
-  className="c0"
+  class="c0"
 />
 `;
 
@@ -44,7 +44,7 @@ exports[`Brand Component should match snapshot with light theme 1`] = `
 }
 
 <div
-  className="c0"
+  class="c0"
 />
 `;
 
@@ -64,7 +64,7 @@ exports[`Brand Component should match with props center 1`] = `
 }
 
 <div
-  className="c0"
+  class="c0"
 />
 `;
 
@@ -84,8 +84,7 @@ exports[`Brand Component should match with props end 1`] = `
 }
 
 <div
-  className="c0"
-  end={true}
+  class="c0"
 />
 `;
 
@@ -101,7 +100,7 @@ exports[`Brand Component should match with props horizontal 1`] = `
 }
 
 <div
-  className="c0"
+  class="c0"
 />
 `;
 
@@ -121,7 +120,7 @@ exports[`Brand Component should match with props horizontal around 1`] = `
 }
 
 <div
-  className="c0"
+  class="c0"
 />
 `;
 
@@ -141,7 +140,7 @@ exports[`Brand Component should match with props horizontal between 1`] = `
 }
 
 <div
-  className="c0"
+  class="c0"
 />
 `;
 
@@ -161,7 +160,7 @@ exports[`Brand Component should match with props horizontal bottom 1`] = `
 }
 
 <div
-  className="c0"
+  class="c0"
 />
 `;
 
@@ -181,8 +180,7 @@ exports[`Brand Component should match with props horizontal end 1`] = `
 }
 
 <div
-  className="c0"
-  end={true}
+  class="c0"
 />
 `;
 
@@ -202,7 +200,7 @@ exports[`Brand Component should match with props horizontal middle 1`] = `
 }
 
 <div
-  className="c0"
+  class="c0"
 />
 `;
 
@@ -222,8 +220,7 @@ exports[`Brand Component should match with props horizontal start 1`] = `
 }
 
 <div
-  className="c0"
-  start={true}
+  class="c0"
 />
 `;
 
@@ -243,7 +240,7 @@ exports[`Brand Component should match with props horizontal top 1`] = `
 }
 
 <div
-  className="c0"
+  class="c0"
 />
 `;
 
@@ -263,7 +260,6 @@ exports[`Brand Component should match with props start 1`] = `
 }
 
 <div
-  className="c0"
-  start={true}
+  class="c0"
 />
 `;

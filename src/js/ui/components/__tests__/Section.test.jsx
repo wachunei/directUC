@@ -1,22 +1,21 @@
 import Section from "../Section";
-import { renderTree } from "./utils";
-import "jest-styled-components";
+import { render, getElement } from "./utils";
 
 describe("Section Component", () => {
   test("should match snapshot", () => {
-    const tree = renderTree(<Section />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Section />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with ghost", () => {
-    const tree = renderTree(<Section ghost />);
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Section ghost />);
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with lightTheme", () => {
-    const tree = renderTree(<Section />, "lightTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Section />, "lightTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
   test("should match snapshot with darkTheme", () => {
-    const tree = renderTree(<Section />, "darkTheme");
-    expect(tree).toMatchSnapshot();
+    const { container } = render(<Section />, "darkTheme");
+    expect(getElement(container)).toMatchSnapshot();
   });
 });
