@@ -77,7 +77,7 @@
     "react-dom": "^17.0.1",
     "react-ga": "^3.2.0",
     "react-is": "^17.0.1",
-    "react-redux": "^7.2.1",
+    "react-redux": "^7.2.2",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
