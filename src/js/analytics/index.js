@@ -7,13 +7,11 @@ if (!isFirefox) {
   analytics = ReactGA;
   analytics.initialize(trackingId, {
     titleCase: false,
-    gaOptions: {
-      appName: "directUC",
-      appVersion: version,
-    },
   });
 
   analytics.ga("set", "checkProtocolTask", null);
+  analytics.ga("set", "appVersion", version);
+  analytics.ga("set", "appName", "directUC");
 }
 
 export default {
