@@ -32,7 +32,7 @@
 <a href="https://bit.ly/directUC"><img src="./.github/readme/chrome-webstore.png" height="60" /></a>
 <a href="https://bit.ly/iredirectUCff"><img src="./.github/readme/firefox-addon.png" height="60" /></a>
 
-Disponible también en las tiendas de [Edge](https://bit.ly/directUCedge) y [Opera](https://bit.ly/directUCopera)
+Disponible también en las tiendas de [Edge](https://bit.ly/directUCedge) y [Opera](https://bit.ly/directUCopera).
 
 <a name="caracteristicas"></a>
 
@@ -40,20 +40,36 @@ Disponible también en las tiendas de [Edge](https://bit.ly/directUCedge) y [Ope
 
 <img src="./.github/readme/popup.png" height="230" align="right"/>
 
-Guarda tu usuario y contraseña una sola vez y accede a través de una ventana emergente al presionar el botón.
-Otras características:
+Guarda tu usuario y contraseña una sola vez y accede a través de una
+ventana emergente a diferentes servicios con solo presionar un
+botón de la lista.
 
-- Modo directo, ingresa directamente a un servicio seleccionado al presionar el botón.
-- Ingreso por Omnibox.
-- Soporte para:
-  - Portal UC
-  - Canvas
-  - LABMAT
-  - SIDING
-  - Biblioteca
+### Modo Directo
 
-> Esta es una extensión no oficial y no guarda relación alguna con la Pontificia Universidad Católica de Chile.
+Ingresa directamente a un servicio seleccionado.
+
+### Omnibox
+
+Escribe <kbd>uc</kbd> + <kbd>espacio</kbd> + <kbd>\<nombre de servicio\></nombre></kbd>
+para ingresar directamente desde la barra de direcciones.
+
+### Servicios disponibles
+
+- Canvas
+- Correo UC
+- Portal UC
+- Google Drive UC
+- Webcursos
+- Biblioteca
+- SIDING
+- LABMAT
 
 ## Development
 
 See [DEVELOPMENT.md](DEVELOPMENT.md)
+
+---
+
+Terms & Conditions / Privacy Policy: See [POLICIES.md](POLICIES.md)
+
+> Esta es una extensión no oficial y no guarda relación alguna con la Pontificia Universidad Católica de Chile.
