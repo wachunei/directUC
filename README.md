@@ -30,7 +30,7 @@
 ## Instalar
 
 <a href="https://bit.ly/directUC"><img src="./.github/readme/chrome-webstore.png" height="60" /></a>
-<a href="https://bit.ly/iredirectUCff"><img src="./.github/readme/firefox-addon.png" height="60" /></a>
+<a href="https://bit.ly/directUCff"><img src="./.github/readme/firefox-addon.png" height="60" /></a>
 
 Disponible también en las tiendas de [Edge](https://bit.ly/directUCedge) y [Opera](https://bit.ly/directUCopera).
 
