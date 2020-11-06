@@ -10,7 +10,7 @@
   <br>
   <a href="https://bit.ly/directUC"><img alt="Chrome Web Store" src="https://img.shields.io/chrome-web-store/v/leflipcmaokfjdgpemeimelohgfdbdca?color=1F95EB&style=flat-square&logo=google-chrome&logoColor=fff"></a>
   <a href="https://bit.ly/directUCff"><img alt="Mozilla Add-on" src="https://img.shields.io/amo/v/directuc?color=1F95EB&style=flat-square&logo=firefox-browser&logoColor=fff"></a>
-  <a href="https://bit.ly/directUCege"><img alt="Edge Add-on" src="https://img.shields.io/badge/dynamic/json?color=1F95EB&label=edge%20add-on&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fhnlkkfgdllbagiaommmbnagdbnciddfl&style=flat-square&logo=microsoft-edge&logoColor=fff"></a>
+  <a href="https://bit.ly/directUCedge"><img alt="Edge Add-on" src="https://img.shields.io/badge/dynamic/json?color=1F95EB&label=edge%20add-on&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fhnlkkfgdllbagiaommmbnagdbnciddfl&style=flat-square&logo=microsoft-edge&logoColor=fff"></a>
 </p>
 
 <p align="center">
