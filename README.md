@@ -3,14 +3,14 @@
 </h1>
 
 <p align="center">
-  <img alt="Release" src="https://img.shields.io/github/v/release/wachunei/directuc?color=%231F95EB&label=release&style=flat-square&"  />
-  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/wachunei/directuc/develop-checks?label=tests%20and%20build&style=flat-square&logo=github-actions&logoColor=fff">
+  <a href="https://github.com/wachunei/directUC/releases"><img alt="Release" src="https://img.shields.io/github/v/release/wachunei/directuc?color=%231F95EB&label=release&style=flat-square&logo=github" /></a>
+  <a href="https://github.com/wachunei/directUC/actions?query=workflow%3Adevelop-checks"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/wachunei/directuc/develop-checks?label=tests%20and%20build&style=flat-square&logo=github-actions&logoColor=fff"></a>
   <a href="https://t.me/directUC"><img alt="Telegram Channel" src="https://img.shields.io/static/v1?label=telegram&message=channel&color=1F95EB&style=flat-square&logo=telegram"></a>
   <a href="https://instagram.com/directUC_"><img alt="Instagram Account" src="https://img.shields.io/static/v1?label=instagram&message=profile&color=1F95EB&style=flat-square&logo=instagram"></a>
   <br>
   <a href="https://bit.ly/directUC"><img alt="Chrome Web Store" src="https://img.shields.io/chrome-web-store/v/leflipcmaokfjdgpemeimelohgfdbdca?color=1F95EB&style=flat-square&logo=google-chrome&logoColor=fff"></a>
   <a href="https://bit.ly/directUCff"><img alt="Mozilla Add-on" src="https://img.shields.io/amo/v/directuc?color=1F95EB&style=flat-square&logo=firefox-browser&logoColor=fff"></a>
-  <a href="https://bit.ly/directUCege"><img alt="Edge Add-on" src="https://img.shields.io/badge/dynamic/json?color=1F95EB&label=edge%20addon&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fhnlkkfgdllbagiaommmbnagdbnciddfl&style=flat-square&logo=microsoft-edge&logoColor=fff"></a>
+  <a href="https://bit.ly/directUCege"><img alt="Edge Add-on" src="https://img.shields.io/badge/dynamic/json?color=1F95EB&label=edge%20add-on&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fhnlkkfgdllbagiaommmbnagdbnciddfl&style=flat-square&logo=microsoft-edge&logoColor=fff"></a>
 </p>
 
 <p align="center">
