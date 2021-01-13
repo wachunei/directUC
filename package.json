@@ -65,7 +65,7 @@
     "prettier": "^2.2.1",
     "react-test-renderer": "^17.0.1",
     "rimraf": "^3.0.2",
-    "web-ext": "^5.4.1"
+    "web-ext": "^5.5.0"
   },
   "dependencies": {
     "chalk": "^4.1.0",
