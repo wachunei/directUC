@@ -41,7 +41,7 @@
     "*.js": "eslint --cache --fix"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.16",
+    "@babel/core": "^7.12.17",
     "@babel/preset-env": "^7.12.17",
     "@babel/preset-react": "^7.12.13",
     "@testing-library/react": "^11.2.5",
