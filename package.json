@@ -39,7 +39,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
-    "@babel/preset-env": "^7.13.8",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.13.8",
+    "@babel/preset-env": "^7.13.10",
     "@babel/preset-react": "^7.12.13",
     "@testing-library/react": "^11.2.5",
     "@testing-library/react-hooks": "^5.1.0",
@@ -108,6 +109,9 @@
           "runtime": "automatic"
         }
       ]
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-nullish-coalescing-operator"
     ]
   },
   "browserslist": [
