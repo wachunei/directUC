@@ -83,7 +83,7 @@
     "redux-persist": "^6.0.0",
     "redux-persist-webextension-storage": "^1.0.2",
     "redux-thunk": "^2.3.0",
-    "semver": "^7.3.4",
+    "semver": "^7.3.5",
     "styled-components": "^5.2.1",
     "use-analytics": "^0.0.5",
     "webext-redux": "^2.1.7",
