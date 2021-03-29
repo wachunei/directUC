@@ -40,7 +40,6 @@
   "devDependencies": {
     "@babel/core": "^7.13.13",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.13.8",
-    "@babel/plugin-proposal-optional-chaining": "^7.13.12",
     "@babel/preset-env": "^7.13.12",
     "@babel/preset-react": "^7.13.13",
     "@testing-library/react": "^11.2.5",
@@ -112,8 +111,7 @@
       ]
     ],
     "plugins": [
-      "@babel/plugin-proposal-nullish-coalescing-operator",
-      "@babel/plugin-proposal-optional-chaining"
+      "@babel/plugin-proposal-nullish-coalescing-operator"
     ]
   },
   "browserslist": [
