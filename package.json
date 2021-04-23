@@ -67,7 +67,7 @@
     "web-ext": "^6.0.0"
   },
   "dependencies": {
-    "chalk": "^4.1.0",
+    "chalk": "^4.1.1",
     "fuse.js": "^6.4.6",
     "keymirror": "^0.1.1",
     "polished": "^4.1.1",
