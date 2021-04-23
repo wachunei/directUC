@@ -86,7 +86,7 @@
     "styled-components": "^5.2.3",
     "use-analytics": "^0.0.5",
     "webext-redux": "^2.1.7",
-    "webextension-polyfill": "^0.7.0"
+    "webextension-polyfill": "^0.8.0"
   },
   "resolutions": {
     "node-forge": "0.10.0"
