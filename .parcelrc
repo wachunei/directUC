@@ -1,0 +1,8 @@
+{
+  "extends": "@parcel/config-webextension",
+  "transformers": {
+    "*.{jpg,png,svg,ttf}": [
+      "@parcel/transformer-raw"
+    ]
+  }
+}
