@@ -5,7 +5,7 @@ exports[`FormControl Component should match snapshot 1`] = `
   margin-bottom: 0.5rem;
 }
 
-.c0 .sc-bdvvaa {
+.c0 .sc-bdnxRM {
   margin-bottom: 0.2rem;
 }
 
@@ -23,7 +23,7 @@ exports[`FormControl Component should match snapshot with darkTheme 1`] = `
   margin-bottom: 0.5rem;
 }
 
-.c0 .sc-bdvvaa {
+.c0 .sc-bdnxRM {
   margin-bottom: 0.2rem;
 }
 
@@ -41,7 +41,7 @@ exports[`FormControl Component should match snapshot with lightTheme 1`] = `
   margin-bottom: 0.5rem;
 }
 
-.c0 .sc-bdvvaa {
+.c0 .sc-bdnxRM {
   margin-bottom: 0.2rem;
 }
 
