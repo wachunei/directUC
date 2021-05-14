@@ -67,9 +67,10 @@ const ServiceContainer = forwardRef(function ServiceContainerComponent(
     [dispatch, serviceKey]
   );
 
-  const handleDragHandlerEnter = useCallback(() => setDraggable(loggedIn), [
-    loggedIn,
-  ]);
+  const handleDragHandlerEnter = useCallback(
+    () => setDraggable(loggedIn),
+    [loggedIn]
+  );
   const handleDragHandlerLeave = useCallback(() => setDraggable(false), []);
   const handleDragStart = useCallback(() => {
     setDragging(true);

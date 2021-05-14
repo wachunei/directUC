@@ -23,9 +23,10 @@ function useForm(initialState, customChange) {
 
   const setValue = (name, value) => setValues({ [name]: value });
 
-  const resetValues = useCallback(() => setValues(initialState), [
-    initialState,
-  ]);
+  const resetValues = useCallback(
+    () => setValues(initialState),
+    [initialState]
+  );
 
   return { values, onChange, resetValues, setValue };
 }
