@@ -38,7 +38,7 @@
     "*.js": "eslint --cache --fix"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.2",
+    "@babel/core": "^7.14.3",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.13.8",
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-react": "^7.13.13",
