@@ -28,8 +28,8 @@
     "build:firefox": "yarn clean:build:firefox && yarn manifest:firefox && TARGET=firefox yarn build --dist-dir build/firefox",
     "pack:chrome": "yarn web-ext build -s build/chrome -a releases/chrome",
     "pack:firefox": "yarn web-ext build -s build/firefox -a releases/firefox",
-    "version": "auto-changelog -p --ignore-commit-pattern 'Bump.+from.+to|build(deps-dev)' -t ./.changelog/changelog-template.hbs && git add CHANGELOG.md",
-    "changelog:release": "auto-changelog --ignore-commit-pattern 'Bump.+from.+to|build(deps-dev)' --stdout -t ./.changelog/release-template.hbs",
+    "version": "auto-changelog -p --ignore-commit-pattern  'Bump.+from.+to|build\\((deps|deps-dev)\\)' -t ./.changelog/changelog-template.hbs && git add CHANGELOG.md",
+    "changelog:release": "auto-changelog --ignore-commit-pattern  'Bump.+from.+to|build\\((deps|deps-dev)\\)' --stdout -t ./.changelog/release-template.hbs",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable"
