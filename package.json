@@ -99,7 +99,8 @@
     ],
     "setupFilesAfterEnv": [
       "jest-styled-components"
-    ]
+    ],
+    "testEnvironment": "jsdom"
   },
   "babel": {
     "presets": [
