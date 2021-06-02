@@ -42,6 +42,7 @@ const Popup = () => {
   useEffect(() => {
     (async () => {
       if (isDirectMode) {
+        dispatch({ type: "pride" });
         await dispatch({ type: "directMode" });
         window.close();
       }
@@ -60,6 +61,7 @@ const Popup = () => {
   useEffect(() => {
     if (!isDirectMode && username) {
       page();
+      dispatch({ type: "pride" });
     }
   }, [username, isDirectMode, page]);
 
