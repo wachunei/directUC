@@ -9,7 +9,7 @@ import serviceActionsHandler from "./store/aliases";
 import configureStore from "./store";
 import Omnibox from "./omnibox";
 import analytics from "./analytics";
-
+import PrideIcon from "./pride-icon";
 import { parseDistinguishedName, version } from "./utils";
 
 /** Aliases for webext-redux */
@@ -22,6 +22,11 @@ import { parseDistinguishedName, version } from "./utils";
  * https://github.com/tshaddix/webext-redux#4-optional-implement-actions-whose-logic-only-happens-in-the-background-script-we-call-them-aliases
  */
 const aliases = {
+  pride: () => () => {
+    if (new Date().getMonth() === 5) {
+      PrideIcon.animate();
+    }
+  },
   /** USER */
   login: (action) => async (dispatch) => {
     const { payload: { username, password } = {} } = action;
@@ -98,7 +103,7 @@ const aliases = {
       category: "Omnibox",
       label: service,
     });
-
+    dispatch({ type: "pride" });
     await dispatch({
       type: `servicesActions.${service}.callActionAndRedirect`,
       payload: { disposition },
