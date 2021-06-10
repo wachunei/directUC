@@ -63,7 +63,7 @@ const Popup = () => {
       page();
       dispatch({ type: "pride" });
     }
-  }, [username, isDirectMode, page]);
+  }, [username, isDirectMode, page, dispatch]);
 
   const servicesToDisplay = useMemo(
     () =>
