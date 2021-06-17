@@ -53,6 +53,7 @@ const Popup = () => {
     (async () => {
       if (!username) {
         await Notifications.createLoggedOut();
+        await browser.runtime.openOptionsPage();
         window.close();
       }
     })();
