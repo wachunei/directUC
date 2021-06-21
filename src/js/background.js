@@ -31,40 +31,32 @@ const aliases = {
   login: (action) => async (dispatch) => {
     const { payload: { username, password } = {} } = action;
 
-    const loginResponse = await dispatch({
-      type: actions.services.webcursos.callAction,
-      payload: { action: "login", username, password },
-    });
+    try {
+      const name = await dispatch({
+        type: actions.services.ssocas.callAction,
+        payload: { action: "currentUserName", username, password },
+      });
 
-    if (!loginResponse.ok) {
+      const fullName = parseDistinguishedName(name);
+      await dispatch({
+        type: actions.user.setUser,
+        payload: {
+          username,
+          password,
+          fullName,
+        },
+      });
+
+      analytics.track("logged", {
+        category: "Users",
+        label: username,
+      });
+
+      Notifications.createLogInSuccess(fullName);
+    } catch (error) {
       Notifications.createLogInFailed();
-      throw new Error(`[Login Error] ${loginResponse.statusText}`);
+      throw new Error(`[Login Error] ${error?.message}`);
     }
-
-    const currentUser = await dispatch({
-      type: actions.services.webcursos.callAction,
-      payload: { action: "currentUser" },
-    });
-
-    const fullName = parseDistinguishedName(
-      currentUser.props.distinguishedName
-    );
-
-    await dispatch({
-      type: actions.user.setUser,
-      payload: {
-        username,
-        password,
-        fullName,
-      },
-    });
-
-    analytics.track("logged", {
-      category: "Users",
-      label: username,
-    });
-
-    Notifications.createLogInSuccess(fullName);
   },
   logout: () => async (dispatch, getState) => {
     const {
@@ -181,7 +173,11 @@ const aliases = {
           return acc.then(() =>
             dispatch({
               type: actions.services[dependencyService].callAction,
-              payload: { action: dependencyAction },
+              payload: {
+                action: dependencyAction,
+                username,
+                password,
+              },
             })
           );
         }, Promise.resolve());
