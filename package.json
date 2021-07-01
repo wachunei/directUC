@@ -45,7 +45,7 @@
     "@parcel/config-webextension": "^2.0.0-nightly.2267",
     "@parcel/transformer-image": "2.0.0-nightly.2338",
     "@testing-library/react": "^12.0.0",
-    "@testing-library/react-hooks": "^7.0.0",
+    "@testing-library/react-hooks": "^7.0.1",
     "auto-changelog": "^2.3.0",
     "babel-jest": "^27.0.6",
     "eslint": "^7.29.0",
