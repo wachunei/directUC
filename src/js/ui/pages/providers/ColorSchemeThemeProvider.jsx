@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import theme, { darkTheme, lightTheme } from "../../theme";
 
 const ColorSchemeThemeProvider = (props) => {
-  const { colorScheme } = useSelector((state) => state.options);
+  const { colorScheme, primaryColor } = useSelector((state) => state.options);
   const [selectedTheme, setSelectedTheme] = useState(theme);
   useEffect(() => {
     const darkMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -12,27 +12,29 @@ const ColorSchemeThemeProvider = (props) => {
       switch (colorScheme) {
         // always light
         case "light": {
-          setSelectedTheme(lightTheme);
+          setSelectedTheme(lightTheme(primaryColor));
           break;
         }
         // always dark
         case "dark": {
-          setSelectedTheme(darkTheme);
+          setSelectedTheme(darkTheme(primaryColor));
           break;
         }
         // automatic
         case "auto":
         default: {
-          setSelectedTheme(query.matches ? darkTheme : lightTheme);
+          setSelectedTheme(
+            query.matches ? darkTheme(primaryColor) : lightTheme(primaryColor)
+          );
           break;
         }
       }
     };
     listener(darkMediaQuery);
-    darkMediaQuery.addListener(listener);
+    darkMediaQuery.addEventListener("change", listener);
 
-    return () => darkMediaQuery.removeListener(listener);
-  }, [colorScheme]);
+    return () => darkMediaQuery.removeEventListener("change", listener);
+  }, [colorScheme, primaryColor]);
   return <ThemeProvider theme={selectedTheme} {...props} />;
 };
 export default ColorSchemeThemeProvider;
