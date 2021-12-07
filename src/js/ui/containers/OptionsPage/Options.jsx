@@ -1,9 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import services from "../../../services";
+import { COLORS_UI } from "../../theme";
 
 import FormControl from "../../components/FormControl";
 import Checkbox from "../../components/Checkbox";
 import Select from "../../components/Select";
+import ColorButton from "../../components/ColorButton";
 
 function Options() {
   const dispatch = useDispatch();
@@ -39,6 +41,21 @@ function Options() {
       },
     });
   };
+
+  const handleDefaultPrimaryColorChange = async (e) => {
+    const {
+      target: { name, checked },
+    } = e;
+
+    await dispatch({
+      type: "setOption",
+      payload: {
+        option: name,
+        value: checked ? "blue" : "green",
+      },
+    });
+  };
+
   return (
     <>
       <FormControl>
@@ -106,6 +123,31 @@ function Options() {
           <option value="light">Siempre Claro</option>
           <option value="dark">Siempre Oscuro</option>
         </Select>
+      </FormControl>
+      <FormControl label="Color Principal">
+        {COLORS_UI.map((color) => (
+          <ColorButton
+            key={color.key}
+            type="button"
+            name="primaryColor"
+            value={color.key}
+            label={color.label}
+            emoji={color.emoji}
+            onClick={handleOptionChange}
+            selected={options.primaryColor === color.key}
+            disabled={!loggedIn}
+          />
+        ))}
+      </FormControl>
+      <FormControl>
+        <Checkbox
+          onChange={handleDefaultPrimaryColorChange}
+          name="primaryColor"
+          checked={options.primaryColor === "blue"}
+          disabled={!loggedIn}
+        >
+          Usar color por defecto
+        </Checkbox>
       </FormControl>
     </>
   );

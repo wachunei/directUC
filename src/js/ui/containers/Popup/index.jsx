@@ -28,7 +28,7 @@ const CurrentUser = styled.span`
 const Popup = () => {
   const dispatch = useDispatch();
   const { page } = useAnalytics();
-  const { directMode, directModeService } = useSelector(
+  const { directMode, directModeService, primaryColor } = useSelector(
     (state) => state.options
   );
   const { username, fullName } = useSelector((state) => state.user);
@@ -136,7 +136,7 @@ const Popup = () => {
       <>
         <GlobalStyle />
         <PopupDirectModeStyle />
-        <Spinner width="20px" height="auto" />
+        <Spinner width="20px" height="auto" color={primaryColor} />
       </>
     );
   }
@@ -194,7 +194,7 @@ const Popup = () => {
       </PopupBar>
       {loading && (
         <PopupLoadingOverlay>
-          <Spinner />
+          <Spinner color={primaryColor} />
         </PopupLoadingOverlay>
       )}
     </>

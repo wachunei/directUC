@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component default should match snapshot 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 45px;
+  width: 45px;
+  background: #1F95EB;
+  font-size: 24px;
+  border-radius: 50%;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+  margin: 5px 10px 5px 0px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: transparent;
+  overflow: hidden;
+  line-height: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-color: #127ac5;
+}
+
+.c0 span {
+  display: none;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  -webkit-filter: grayscale(100%) opacity(80%);
+  filter: grayscale(100%) opacity(80%);
+}
+
+.c0:focus {
+  outline-width: 2px;
+  outline-color: #127ac5;
+}
+
+.c0:last-child {
+  margin-right: 0;
+}
+
+<button
+  class="c0"
+  name="primaryColor"
+  type="button"
+  value="blue"
+>
+  <span>
+    Azul
+  </span>
+  🔵
+</button>
+`;

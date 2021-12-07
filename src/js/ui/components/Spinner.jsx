@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { COLORS } from "../theme";
 
 function Spinner({ ...props }) {
   return (
@@ -6,7 +7,6 @@ function Spinner({ ...props }) {
       width="45"
       height="45"
       viewBox="0 0 45 45"
-      stroke="#1F95EB"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
@@ -30,6 +30,7 @@ const rotation = keyframes`
 
 const RotatingSpinner = styled(Spinner)`
   animation: ${rotation} 1s ease infinite;
+  stroke: ${(props) => COLORS[props.color]};
 `;
 
 export default RotatingSpinner;
