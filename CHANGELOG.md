@@ -1,6 +1,13 @@
 ## Changelog
 
+### [v1.3.0](https://github.com/wachunei/directUC/compare/v1.2.0...v1.3.0)
+
+- Add custom primary color feature [`#549`](https://github.com/wachunei/directUC/pull/549)
+- Upgrade dependencies [`#498`](https://github.com/wachunei/directUC/pull/498)
+
 ### [v1.2.0](https://github.com/wachunei/directUC/compare/v1.1.3...v1.2.0)
+
+> 20 June 2021
 
 - Use ssocas as service for logging in [`#404`](https://github.com/wachunei/directUC/pull/404)
 
