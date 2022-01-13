@@ -42,7 +42,7 @@
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
-    "@parcel/config-webextension": "2.0.0-rc.0",
+    "@parcel/config-webextension": "2.2.0",
     "@parcel/transformer-image": "2.0.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
