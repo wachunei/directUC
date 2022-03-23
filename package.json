@@ -44,7 +44,7 @@
     "@babel/preset-react": "^7.16.0",
     "@parcel/config-webextension": "2.0.0-rc.0",
     "@parcel/transformer-image": "2.0.1",
-    "@testing-library/react": "^12.1.2",
+    "@testing-library/react": "^12.1.4",
     "@testing-library/react-hooks": "^7.0.2",
     "auto-changelog": "^2.3.0",
     "babel-jest": "^27.3.1",
