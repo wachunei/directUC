@@ -86,7 +86,7 @@
     "semver": "^7.3.5",
     "styled-components": "^5.3.3",
     "use-analytics": "^0.0.5",
-    "webext-redux": "^2.1.7",
+    "webext-redux": "^2.1.9",
     "webextension-polyfill": "^0.8.0"
   },
   "resolutions": {
