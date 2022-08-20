@@ -61,7 +61,7 @@
     "jest-styled-components": "^7.0.8",
     "lint-staged": ">=12.1.2",
     "parcel": "^2.7.0",
-    "pinst": "^2.1.6",
+    "pinst": "^3.0.0",
     "prettier": "^2.6.0",
     "process": "^0.11.10",
     "react-test-renderer": "^17.0.2",
