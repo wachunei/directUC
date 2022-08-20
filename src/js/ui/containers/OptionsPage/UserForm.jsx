@@ -94,7 +94,7 @@ function UserForm() {
               />
             </FormControl>
             {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
-            <FormControl label={"Contraseña"}>
+            <FormControl label="Contraseña">
               <Input
                 type="password"
                 name="password"

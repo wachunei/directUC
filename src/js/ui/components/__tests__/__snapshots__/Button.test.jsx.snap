@@ -34,8 +34,7 @@ exports[`Button Component default should match snapshot 1`] = `
   filter: brightness(95%);
 }
 
-.c0:hover:not(:disabled),
-.c0:focus:not(:disabled) {
+.c0:hover:not(:disabled),.c0:focus:not(:disabled) {
   -webkit-filter: brightness(105%);
   filter: brightness(105%);
 }
@@ -81,8 +80,7 @@ exports[`Button Component default should match snapshot with darkTheme 1`] = `
   filter: brightness(95%);
 }
 
-.c0:hover:not(:disabled),
-.c0:focus:not(:disabled) {
+.c0:hover:not(:disabled),.c0:focus:not(:disabled) {
   -webkit-filter: brightness(105%);
   filter: brightness(105%);
 }
@@ -128,8 +126,7 @@ exports[`Button Component default should match snapshot with lightTheme 1`] = `
   filter: brightness(95%);
 }
 
-.c0:hover:not(:disabled),
-.c0:focus:not(:disabled) {
+.c0:hover:not(:disabled),.c0:focus:not(:disabled) {
   -webkit-filter: brightness(105%);
   filter: brightness(105%);
 }
@@ -177,8 +174,7 @@ exports[`Button Component should render block 1`] = `
   filter: brightness(95%);
 }
 
-.c0:hover:not(:disabled),
-.c0:focus:not(:disabled) {
+.c0:hover:not(:disabled),.c0:focus:not(:disabled) {
   -webkit-filter: brightness(105%);
   filter: brightness(105%);
 }
@@ -224,8 +220,7 @@ exports[`Button Component should render disabled 1`] = `
   filter: brightness(95%);
 }
 
-.c0:hover:not(:disabled),
-.c0:focus:not(:disabled) {
+.c0:hover:not(:disabled),.c0:focus:not(:disabled) {
   -webkit-filter: brightness(105%);
   filter: brightness(105%);
 }
@@ -272,8 +267,7 @@ exports[`Button Component should render primary 1`] = `
   filter: brightness(95%);
 }
 
-.c0:hover:not(:disabled),
-.c0:focus:not(:disabled) {
+.c0:hover:not(:disabled),.c0:focus:not(:disabled) {
   -webkit-filter: brightness(105%);
   filter: brightness(105%);
 }
@@ -321,8 +315,7 @@ exports[`Button Component should render primary block 1`] = `
   filter: brightness(95%);
 }
 
-.c0:hover:not(:disabled),
-.c0:focus:not(:disabled) {
+.c0:hover:not(:disabled),.c0:focus:not(:disabled) {
   -webkit-filter: brightness(105%);
   filter: brightness(105%);
 }
