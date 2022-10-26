@@ -33,14 +33,16 @@ export default {
 
       const websiteText = await (await fetch(loginEndpoint)).text();
       const doc = new DOMParser().parseFromString(websiteText, "text/html");
-      const tableRows = doc.querySelectorAll("#divAttributes table tr");
+      const tableRows = doc.querySelectorAll(
+        "#divPrincipalAttributes table tr"
+      );
 
       if (!tableRows || tableRows.length === 0) {
         throw new Error("Attribute rows not found");
       }
 
       const [row] = Array.from(tableRows).filter((tr) => {
-        const span = tr.querySelector(":scope > td span");
+        const span = tr.querySelector(":scope > td code kbd");
         return span?.innerText === "displayName";
       });
 
@@ -49,7 +51,7 @@ export default {
       }
 
       const displayNameSpan = row.querySelector(
-        ":scope td:is(:last-child) span"
+        ":scope td:is(:last-child) code kbd"
       );
 
       const name = displayNameSpan?.innerText.slice(1, -1);
