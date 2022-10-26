@@ -1,6 +1,13 @@
 ## Changelog
 
+### [v1.3.1](https://github.com/wachunei/directUC/compare/v1.3.0...v1.3.1)
+
+- Update for new SSO page structure [`#619`](https://github.com/wachunei/directUC/pull/619)
+- Upgrade dependencies (aug 22) [`#598`](https://github.com/wachunei/directUC/pull/598)
+
 ### [v1.3.0](https://github.com/wachunei/directUC/compare/v1.2.0...v1.3.0)
+
+> 6 December 2021
 
 - Add custom primary color feature [`#549`](https://github.com/wachunei/directUC/pull/549)
 - Upgrade dependencies [`#498`](https://github.com/wachunei/directUC/pull/498)
@@ -17,16 +24,27 @@
 
 - Open options page when not logged in [`#400`](https://github.com/wachunei/directUC/pull/400)
 
-### [v1.1.2](https://github.com/wachunei/directUC/compare/v1.0.18...v1.1.2)
+### [v1.1.2](https://github.com/wachunei/directUC/compare/v1.1.1...v1.1.2)
 
 > 2 June 2021
 
 - 🏳️‍🌈 Add pride icon [`#365`](https://github.com/wachunei/directUC/pull/365)
+
+### [v1.1.1](https://github.com/wachunei/directUC/compare/v1.1.0...v1.1.1)
+
+> 24 May 2021
+
 - Fix changelog ignore [`#350`](https://github.com/wachunei/directUC/pull/350)
 - Ignore dependabot merges on changelog [`#349`](https://github.com/wachunei/directUC/pull/349)
 - v1.1.0: Use parcel v2 [`#276`](https://github.com/wachunei/directUC/pull/276)
+
+### [v1.1.0](https://github.com/wachunei/directUC/compare/v1.0.18...v1.1.0)
+
+> 25 April 2021
+
 - Bump react, react-dom and react-test-renderer [`#248`](https://github.com/wachunei/directUC/pull/248)
 - Upgrade husky to v5 [`#226`](https://github.com/wachunei/directUC/pull/226)
+- Use parcel v2 [`5c68678`](https://github.com/wachunei/directUC/commit/5c68678e4bc0561cbe1576d4ade5777bc288ab5b)
 
 ### [v1.0.18](https://github.com/wachunei/directUC/compare/v1.0.17...v1.0.18)
 
