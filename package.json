@@ -43,7 +43,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@parcel/config-webextension": "^2.7.0",
-    "@parcel/transformer-image": "2.4.0",
+    "@parcel/transformer-image": "2.4.1",
     "@testing-library/react": "^12.1.4",
     "@testing-library/react-hooks": "^7.0.2",
     "auto-changelog": "^2.3.0",
