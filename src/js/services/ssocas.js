@@ -33,7 +33,9 @@ export default {
 
       const websiteText = await (await fetch(loginEndpoint)).text();
       const doc = new DOMParser().parseFromString(websiteText, "text/html");
-      const tableRows = doc.querySelectorAll("#divPrincipalAttributes table tr");
+      const tableRows = doc.querySelectorAll(
+        "#divPrincipalAttributes table tr"
+      );
 
       if (!tableRows || tableRows.length === 0) {
         throw new Error("Attribute rows not found");
