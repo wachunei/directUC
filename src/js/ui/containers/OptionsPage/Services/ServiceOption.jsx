@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import FormControl from "../../../components/FormControl";
 import Input from "../../../components/Input";
 import Checkbox from "../../../components/Checkbox";
+import Select from "../../../components/Select";
 
 function ServiceOption({
   option,
@@ -13,6 +14,25 @@ function ServiceOption({
 }) {
   if (option.depends && !option.depends(userOptions)) {
     return null;
+  }
+
+  if (option.type === "select") {
+    return (
+      <FormControl label={option.label}>
+        <Select
+          disabled={disabled}
+          onChange={onChange}
+          value={value}
+          name={name}
+        >
+          {option.values.map(([optionValue, optionLabel]) => (
+            <option key={optionValue} value={optionValue}>
+              {optionLabel}
+            </option>
+          ))}
+        </Select>
+      </FormControl>
+    );
   }
 
   if (option.type === "checkbox") {
@@ -50,6 +70,7 @@ ServiceOption.propTypes = {
     caption: PropTypes.string,
     default: PropTypes.any,
     depends: PropTypes.func,
+    values: PropTypes.array,
   }).isRequired,
   name: PropTypes.string.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
