@@ -84,6 +84,7 @@ jobs:
               id: get-release-changelog
               run: |
                 text="$(yarn run --silent changelog:release --starting-version ${{ steps.get-version.outputs.version }})"
+                text="${text//'%'/'%25'}"
                 echo "changelog=$text" >> $GITHUB_OUTPUT
             - name: Print Release Changelog
               run: echo "${{ steps.get-release-changelog.outputs.changelog }}"
