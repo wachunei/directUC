@@ -83,11 +83,7 @@ jobs:
             - name: Get Release Changelog
               id: get-release-changelog
               run: |
-                text="$(yarn run --silent changelog:release --starting-version ${{ steps.get-version.outputs.version }})"
-                text="${text//'%'/'%25'}"
-                text="${text//$'\n'/'%0A'}"
-                text="${text//$'\r'/'%0D'}"
-                echo "changelog=$text" >> $GITHUB_OUTPUT
+                echo "changelog=$(yarn run --silent changelog:release --starting-version ${{ steps.get-version.outputs.version }})" >> $GITHUB_OUTPUT
             - name: Print Release Changelog
               run: echo "${{ steps.get-release-changelog.outputs.changelog }}"
             - name: Create Draft Release
