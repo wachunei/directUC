@@ -1,6 +1,10 @@
 ## Changelog
 
-### 4.2.0
+### [v4.2.1](https://github.com/Baelfire18/directUC/compare/v4.2.0...v4.2.1)
+
+### v4.2.0
+
+> 14 November 2022
 
 - Update for new SSO page structure [`#619`](https://github.com/Baelfire18/directUC/pull/619)
 - Upgrade dependencies (aug 22) [`#598`](https://github.com/Baelfire18/directUC/pull/598)
