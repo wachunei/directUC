@@ -83,7 +83,7 @@ jobs:
             - name: Get Release Changelog
               id: get-release-changelog
               run: |
-                text="$(cat << yarn run --silent changelog:release --starting-version ${{ steps.get-version.outputs.version }})"
+                text="$(cat yarn run --silent changelog:release --starting-version ${{ steps.get-version.outputs.version }})"
                 echo "changelog=$text" >> $GITHUB_OUTPUT
             - name: Print Release Changelog
               run: echo "${{ steps.get-release-changelog.outputs.changelog }}"
