@@ -1,6 +1,12 @@
 ## Changelog
 
+### [v4.2.2](https://github.com/Baelfire18/directUC/compare/v4.2.1...v4.2.2)
+
+- update changelog action [`d051f8d`](https://github.com/Baelfire18/directUC/commit/d051f8da37fa625b4561fb7c0f5949634e51d114)
+
 ### [v4.2.1](https://github.com/Baelfire18/directUC/compare/v4.2.0...v4.2.1)
+
+> 14 November 2022
 
 ### v4.2.0
 
