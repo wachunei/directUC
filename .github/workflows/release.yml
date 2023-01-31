@@ -8,14 +8,14 @@ jobs:
         runs-on: ubuntu-latest
         name: lint
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2-beta
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
               with:
                 node-version: '14'
             - name: Get yarn cache directory path
               id: yarn-cache-dir-path
-              run: echo "::set-output name=dir::$(yarn cache dir)"
-            - uses: actions/cache@v2
+              run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+            - uses: actions/cache@v3
               id: yarn-cache
               with:
                 path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -31,14 +31,14 @@ jobs:
         runs-on: ubuntu-latest
         name: test
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2-beta
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
               with:
                 node-version: '14'
             - name: Get yarn cache directory path
               id: yarn-cache-dir-path
-              run: echo "::set-output name=dir::$(yarn cache dir)"
-            - uses: actions/cache@v2
+              run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+            - uses: actions/cache@v3
               id: yarn-cache
               with:
                 path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -54,16 +54,16 @@ jobs:
         needs: test
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
               with:
                 fetch-depth: 0
-            - uses: actions/setup-node@v2-beta
+            - uses: actions/setup-node@v3
               with:
                 node-version: '14'
             - name: Get yarn cache directory path
               id: yarn-cache-dir-path
-              run: echo "::set-output name=dir::$(yarn cache dir)"
-            - uses: actions/cache@v2
+              run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+            - uses: actions/cache@v3
               id: yarn-cache
               with:
                 path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -74,20 +74,17 @@ jobs:
               run: yarn --frozen-lockfile
             - name: Get the version
               id: get-version
-              run: echo ::set-output name=version::${GITHUB_REF/refs\/tags\//}
+              run: echo "version=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_OUTPUT
             - name: Get the version number
               id: get-version-number
               run: |
                 version=${{ steps.get-version.outputs.version}}
-                echo ::set-output name=number::${version:1}
+                echo "number=${version:1}" >> $GITHUB_OUTPUT
             - name: Get Release Changelog
               id: get-release-changelog
               run: |
-                text="$(yarn run --silent changelog:release --starting-version ${{ steps.get-version.outputs.version }})"
-                text="${text//'%'/'%25'}"
-                text="${text//$'\n'/'%0A'}"
-                text="${text//$'\r'/'%0D'}"
-                echo "::set-output name=changelog::$text"
+                text="$(cat yarn run --silent changelog:release --starting-version ${{ steps.get-version.outputs.version }})"
+                echo "changelog=$text" >> $GITHUB_OUTPUT
             - name: Print Release Changelog
               run: echo "${{ steps.get-release-changelog.outputs.changelog }}"
             - name: Create Draft Release
@@ -123,14 +120,14 @@ jobs:
               target: ['firefox', 'chrome']
         name: pack
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2-beta
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
               with:
                 node-version: '14'
             - name: Get yarn cache directory path
               id: yarn-cache-dir-path
-              run: echo "::set-output name=dir::$(yarn cache dir)"
-            - uses: actions/cache@v2
+              run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+            - uses: actions/cache@v3
               id: yarn-cache
               with:
                 path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -150,8 +147,8 @@ jobs:
             - name: Create Artifacts outputs
               id: artifacts
               run: |
-                echo "::set-output name=version::$(cat version.txt)"
-                echo "::set-output name=upload_url::$(cat upload_url.txt)"
+                echo "version=$(cat version.txt)" >> $GITHUB_OUTPUT
+                echo "upload_url=$(cat upload_url.txt)" >> $GITHUB_OUTPUT
             - name: Upload Release Asset (${{ matrix.target}})
               id: upload-release-asset
               uses: actions/upload-release-asset@v1
